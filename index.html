@@ -1021,16 +1021,114 @@
       Reading copied
     </div>
 
+    <!-- ===================================================================== -->
+    <!-- LUXURY APPLE PAY & STRIPE CHECKOUT PAYWALL SHEET                      -->
+    <!-- ===================================================================== -->
+    <div id="paywall-modal" class="hidden fixed inset-0 z-50 flex items-end sm:items-center justify-center bg-black/80 backdrop-blur-md p-0 sm:p-4 transition-opacity duration-300">
+      <div class="relative w-full max-w-[460px] rounded-t-3xl sm:rounded-3xl bg-gradient-to-b from-[#1A1525] via-[#121118] to-[#0B0B0F] border-t sm:border border-[#D4AF37]/45 p-6 pb-8 space-y-5 shadow-2xl editorial-enter">
+        <!-- Close Button -->
+        <button type="button" onclick="closePaywallModal()" aria-label="Close checkout"
+          class="absolute top-4 right-4 w-8 h-8 rounded-full border border-[#D4AF37]/25 bg-[#16151E] text-[#98948C] hover:text-[#F3EFEA] flex items-center justify-center text-sm">
+          ✕
+        </button>
+
+        <!-- Header -->
+        <div class="text-center space-y-1.5 pt-1">
+          <span class="ancient-inscription text-[9.5px] uppercase text-[#D4AF37]">✦ Private Oracle Unlock ✦</span>
+          <h3 id="paywall-tier-title" class="ancient-title text-[24px] text-[#F3EFEA]">The Crossroads Triad</h3>
+          <p id="paywall-tier-desc" class="font-sans text-[15px] text-[#98948C] leading-snug max-w-[340px] mx-auto">
+            3-card deep spread + 3 sealed Hidden Omens &amp; personalized crystal alignment.
+          </p>
+        </div>
+
+        <!-- Price & Guarantee Summary Card -->
+        <div class="rounded-2xl p-4 bg-[#0D0C12]/90 border border-[#D4AF37]/25 flex items-center justify-between">
+          <div class="space-y-0.5">
+            <p class="font-serif text-[15px] text-[#F2DF9B]">One-Time Reading Pass</p>
+            <p class="text-[12px] text-[#98948C]">Instant unlock · No subscription · Private</p>
+          </div>
+          <div class="text-right">
+            <span id="paywall-orig-price" class="text-[12px] line-through text-[#98948C] block">$4.99</span>
+            <span id="paywall-price" class="font-serif text-[26px] text-[#F2DF9B] leading-none">$0.99</span>
+          </div>
+        </div>
+
+        <!-- Apple Pay Primary Button -->
+        <div class="space-y-3">
+          <button type="button" id="btn-apple-pay" onclick="processPaywallCheckout('apple_pay')"
+            class="w-full h-[50px] rounded-xl bg-white text-black font-sans font-semibold text-[17px] tracking-tight flex items-center justify-center gap-1.5 shadow-lg hover:bg-neutral-100 active:scale-[0.99] transition-all">
+            <svg class="w-5 h-5 fill-current -mt-0.5" viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M17.05 20.28c-.98.95-2.05.8-3.08.35-1.09-.46-2.09-.48-3.24 0-1.44.62-2.2.44-3.06-.35C2.79 15.25 3.51 7.59 9.05 7.31c1.35.07 2.29.74 3.08.8 1.18-.24 2.31-.93 3.57-.84 1.51.12 2.65.72 3.4 1.8-3.12 1.87-2.38 5.98.48 7.13-.57 1.5-1.31 2.99-2.54 4.09l.01-.01zM12.03 7.25c-.15-2.23 1.66-4.07 3.74-4.25.29 2.58-2.34 4.5-3.74 4.25z"/>
+            </svg>
+            <span>Pay</span>
+          </button>
+
+          <!-- Divider -->
+          <div class="flex items-center gap-3 text-[10px] uppercase tracking-[0.2em] text-[#98948C]">
+            <span class="flex-1 h-px bg-[#D4AF37]/15"></span>
+            <span>Or Pay With Card</span>
+            <span class="flex-1 h-px bg-[#D4AF37]/15"></span>
+          </div>
+
+          <!-- Express Card / Stripe Checkout Button -->
+          <button type="button" id="btn-card-pay" onclick="processPaywallCheckout('card')"
+            class="w-full h-[48px] rounded-xl bg-gradient-to-r from-[#F2DF9B] to-[#D4AF37] text-[#0A0A0C] font-serif font-semibold text-[14px] uppercase tracking-[0.16em] flex items-center justify-center gap-2 shadow-lg hover:brightness-105 active:scale-[0.99] transition-all">
+            <span>Unlock Reading · <span id="paywall-btn-amount">$0.99</span></span>
+          </button>
+        </div>
+
+        <!-- Processing Indicator -->
+        <div id="paywall-processing" class="hidden text-center py-2 space-y-1.5">
+          <div class="w-5 h-5 mx-auto rounded-full border-2 border-[#D4AF37] border-t-transparent animate-spin"></div>
+          <p id="paywall-status-msg" class="text-[12px] text-[#F2DF9B] tracking-wide">Authorizing Apple Pay…</p>
+        </div>
+
+        <!-- Trust Footer -->
+        <div class="text-center space-y-1 pt-1 border-t border-[#D4AF37]/15">
+          <p class="text-[10.5px] text-[#98948C] flex items-center justify-center gap-1.5">
+            <span>🔒 Encrypted via Stripe &amp; Apple Pay</span>
+            <span>·</span>
+            <span>100% Clarity Guarantee</span>
+          </p>
+        </div>
+      </div>
+    </div>
+
   </div>
 
   <script>
     // =========================================================================
-    // 1. CONSULTATION TIERS, SPREAD POSITIONS & INTENT ENGINE
+    // 1. CONSULTATION TIERS, STRIPE PAYMENT LINKS & INTENT ENGINE
     // =========================================================================
+    // Live Site & Stripe Payment Link URLs (supports Apple Pay, Google Pay & Cards):
+    const SITE_BASE_URL = 'https://arcana-one-gules.vercel.app';
+    const STRIPE_PAYMENT_LINKS = {
+      crossroads: 'https://buy.stripe.com/cNiaEX98GdXN4B1f2BcV200', // $0.99 3-Card Crossroads Triad
+      sovereign: 'https://buy.stripe.com/aFaeVd3Om4nd1oPaMlcV201'   // $1.99 5-Card Sovereign Crucible
+    };
+
     const TIER_CATALOG = {
-      whisper: { name: 'The Daily Omen', count: 1, price: 'Complimentary' },
-      crossroads: { name: 'The Crossroads Triad', count: 3, price: '$0.99' },
-      sovereign: { name: 'The Sovereign Crucible', count: 5, price: '$1.99' }
+      whisper: {
+        name: 'The Daily Omen',
+        count: 1,
+        price: 'Free',
+        origPrice: '',
+        desc: '1-card quick check to test the oracle on your question.'
+      },
+      crossroads: {
+        name: 'The Crossroads Triad',
+        count: 3,
+        price: '$0.99',
+        origPrice: '$4.99',
+        desc: '3-card deep spread (Current · Hidden · Guidance) + 3 Hidden Omens & crystal alignment.'
+      },
+      sovereign: {
+        name: 'The Sovereign Crucible',
+        count: 5,
+        price: '$1.99',
+        origPrice: '$7.99',
+        desc: 'Full 5-card destiny map (Heart, Obstacle, Subconscious, Trajectory & Outcome) + 5 Hidden Omens.'
+      }
     };
 
     const THREE_CARD_POSITIONS = ['The Current', 'The Hidden', 'The Guidance'];
@@ -1038,109 +1136,102 @@
 
     const CYCLING_PLACEHOLDERS = [
       'Will this connection grow into something real?',
-      'What is shifting beneath the surface of my career?',
-      'What am I not seeing clearly right now?',
-      'How can I align my next bold move with my true path?'
+      'Will they reach out or come back to me?',
+      'Is this career path going to reward my effort?',
+      'Should I stay where I am or take the leap?',
+      'What am I not seeing clearly right now?'
     ];
 
     const TOPIC_SAMPLES = {
-      love: 'Will they come back to me, or where do we really stand?',
-      career: 'Where should I focus my career and finances over the next three months?',
-      decision: 'Should I stay where I am or take the leap into something new?',
-      clarity: 'What am I not seeing clearly about my situation right now?'
-    };
-
-    const ELEMENTAL_META = {
-      Major: { element: 'Aether · Archetypal Sphere', planet: 'Karmic Axis', shadowCue: 'projection or mistaking destiny for passivity' },
-      Wands: { element: 'Fire · Vital Will', planet: 'Solar & Martial Current', shadowCue: 'impulsive haste or burning through reserves' },
-      Cups: { element: 'Water · Emotional Tide', planet: 'Lunar & Venusian Current', shadowCue: 'idealizing projections or porous boundaries' },
-      Swords: { element: 'Air · Lucid Intellect', planet: 'Mercurial & Saturnian Current', shadowCue: 'over-analysis or mistaking sharpness for wisdom' },
-      Pentacles: { element: 'Earth · Tangible Craft', planet: 'Telluric & Venusian Current', shadowCue: 'scarcity attachment or mistaking routine for security' }
+      love: 'Will they come back to me or is this chapter closing?',
+      career: 'What is the next breakthrough waiting for me in my career?',
+      decision: 'Should I stay on my current path or make a bold change?',
+      clarity: 'What truth do I need to see clearly right now?'
     };
 
     const INTENT_PROFILES = {
       love: {
         label: 'Love & Exes',
         positionIntros: {
-          'The Answer': 'When it comes to your heart and this connection, ',
-          'The Current': 'Right now between you two, ',
-          'The Hidden': 'What neither of you is saying out loud yet is that ',
-          'The Guidance': 'If you want things to feel healthier and clearer between you, ',
-          'The Heart': 'At the real center of how you feel right now, ',
-          'The Obstacle': 'What is actually getting in the way of closeness is that ',
-          'The Subconscious': 'Quietly beneath the surface, you may be wondering if ',
-          'The Trajectory': 'If things keep moving the way they are going, ',
-          'The Outcome': 'Where this connection is genuinely heading: '
+          'The Answer': 'Looking straight into the heart of your connection, ',
+          'The Current': 'Where things stand between you right now, ',
+          'The Hidden': 'Beneath the surface of what is being said or left silent, ',
+          'The Guidance': 'For your heart’s wisest next move, ',
+          'The Heart': 'At the emotional center of this bond, ',
+          'The Obstacle': 'What is creating distance or hesitation between you, ',
+          'The Subconscious': 'What both of you are quietly feeling underneath, ',
+          'The Trajectory': 'Where this connection is naturally heading next, ',
+          'The Outcome': 'The clearest long-term truth for your love life is that '
         },
         suitLens: {
-          Major: 'In love, this isn’t just casual small talk—this connection is teaching you what you actually need to feel safe and chosen.',
-          Cups: 'The feelings here are real, so pay more attention to how they make you feel when you’re together than to overthinking texts.',
-          Wands: 'There is undeniable spark and attraction between you, though real closeness needs consistency, not just excitement.',
-          Swords: 'An honest, calm conversation will clear up more between you in ten minutes than days of guessing what they mean.',
-          Pentacles: 'Look at their actions and follow-through—real love shows up in the small, steady things they actually do.'
+          Major: 'This marks a karmic turning point in how you give and receive love.',
+          Cups: 'Emotions run deep here—pay close attention to sincerity over surface words.',
+          Wands: 'Chemistry and attraction are unmistakable, though steady consistency matters most.',
+          Swords: 'Honest communication will cut through any lingering doubt or mixed signals.',
+          Pentacles: 'Real commitment shows up through dependable actions, not just promises.'
         }
       },
       career: {
         label: 'Career & Money',
         positionIntros: {
-          'The Answer': 'Looking honestly at your work and financial path, ',
-          'The Current': 'Where things stand in your career right now: ',
-          'The Hidden': 'What’s happening behind the scenes at work that you shouldn’t ignore: ',
-          'The Guidance': 'Your smartest practical move for your career is to ',
-          'The Heart': 'What you really want out of this next work chapter is clear: ',
-          'The Obstacle': 'What’s slowing down your career momentum right now is that ',
-          'The Subconscious': 'Beneath the stress of deadlines and money expectations, ',
-          'The Trajectory': 'Over the next few weeks in your work life, if you stay steady, ',
-          'The Outcome': 'Where this career path leads if you play your cards right: '
+          'The Answer': 'Looking directly at your work and abundance path, ',
+          'The Current': 'In your current professional landscape, ',
+          'The Hidden': 'Behind the scenes of this opportunity or workplace, ',
+          'The Guidance': 'To unlock your strongest career momentum, ',
+          'The Heart': 'At the core of your ambition right now, ',
+          'The Obstacle': 'What has been slowing down your recognition or growth, ',
+          'The Subconscious': 'Your deeper mindset around worth and success shows that ',
+          'The Trajectory': 'As your efforts compound over the coming weeks, ',
+          'The Outcome': 'Where this professional chapter leads is clear: '
         },
         suitLens: {
-          Major: 'You’re at a real turning point in your career—don’t shrink your goals just to stay comfortable.',
-          Wands: 'Take the initiative and put your name forward now while key people are paying attention.',
-          Pentacles: 'Focus on tangible results, building solid income, and protecting your time and energy.',
-          Swords: 'Be sharp, ask direct questions, and get clear agreements in writing before committing.',
-          Cups: 'Pay attention to whether this work actually energizes you—burnout happens when you ignore what matters to you.'
+          Major: 'A defining career shift is aligning with your larger purpose.',
+          Wands: 'Bold initiative and creative visibility give you the edge right now.',
+          Cups: 'Choose work that genuinely energizes you rather than draining your spirit.',
+          Swords: 'Strategic clarity and crisp negotiation put you in a strong position.',
+          Pentacles: 'Steady execution and smart financial discipline build lasting leverage.'
         }
       },
       decision: {
         label: 'Life Choice',
         positionIntros: {
-          'The Answer': 'Looking straight at the choice in front of you, ',
-          'The Current': 'Right now, as you weigh your options, ',
-          'The Hidden': 'The part of this decision you haven’t fully factored in yet: ',
-          'The Guidance': 'To make a choice you won’t second-guess tomorrow, ',
-          'The Heart': 'What really matters most to you in this decision: ',
-          'The Obstacle': 'Why this choice feels harder than it needs to be: ',
-          'The Subconscious': 'Deep down, your gut is already nudging you because ',
-          'The Trajectory': 'Once you finally commit and stop sitting on the fence, ',
-          'The Outcome': 'How things settle once you make the call: '
+          'The Answer': 'Weighing the crossroads in front of you, ',
+          'The Current': 'Looking at the choice right as it stands today, ',
+          'The Hidden': 'The factor you haven’t fully weighed yet shows that ',
+          'The Guidance': 'The clearest compass for your decision is that ',
+          'The Heart': 'What your intuition already leans toward is clear: ',
+          'The Obstacle': 'What has been keeping you torn between options is that ',
+          'The Subconscious': 'Beneath the pros and cons list, ',
+          'The Trajectory': 'Once you commit to a direction, ',
+          'The Outcome': 'Stepping forward with conviction leads here: '
         },
         suitLens: {
-          Major: 'Pick the option that helps you grow into who you want to be, even if it feels a little unfamiliar at first.',
-          Swords: 'Strip away the drama and look at the plain facts—you already know which option makes sense.',
-          Wands: 'Go with the path that actually excites you rather than the one you feel pressured to pick.',
-          Pentacles: 'Choose the option that is practical, sustainable, and gives you real stability.',
-          Cups: 'Notice which choice brings a quiet sense of relief in your chest—that’s your real answer.'
+          Major: 'Whichever door you choose shapes your next major chapter—choose without fear.',
+          Wands: 'Pick the path that sparks genuine energy rather than obligation.',
+          Cups: 'Honor the choice that brings emotional peace when you imagine living with it.',
+          Swords: 'Strip away outside noise and look objectively at the facts.',
+          Pentacles: 'Favor the option with solid, sustainable long-term footing.'
         }
       },
       clarity: {
         label: 'Inner Clarity',
         positionIntros: {
-          'The Answer': 'Looking closely at what you’re going through right now, ',
-          'The Current': 'Here is what’s really going on in your life at the moment: ',
-          'The Hidden': 'What you might be overlooking right now is that ',
-          'The Guidance': 'The healthiest thing you can do for yourself next is to ',
-          'The Heart': 'At the core of why this is on your mind: ',
-          'The Obstacle': 'What’s making things feel foggy or stuck right now: ',
-          'The Subconscious': 'In the back of your mind, you’ve been carrying the thought that ',
-          'The Trajectory': 'As things start clearing up over the coming days, ',
-          'The Outcome': 'Where you’ll land once the dust settles: '
+          'The Answer': 'Looking directly at the energy surrounding you, ',
+          'The Current': 'In your immediate present, ',
+          'The Hidden': 'What has been operating quietly beneath the surface is that ',
+          'The Guidance': 'Your clearest anchor right now is that ',
+          'The Heart': 'At the center of what you are navigating, ',
+          'The Obstacle': 'The main source of friction right now is that ',
+          'The Subconscious': 'What your deeper intuition is trying to tell you is that ',
+          'The Trajectory': 'As the dust begins to settle, ',
+          'The Outcome': 'The truth emerging from this situation is that '
         },
         suitLens: {
-          Major: 'Step back and look at the bigger picture—a meaningful shift is happening even if today feels ordinary.',
-          Swords: 'Stop over-analyzing every angle; naming the truth plainly will immediately take a weight off your mind.',
-          Cups: 'Give yourself permission to actually feel what you feel instead of talking yourself out of it.',
-          Wands: 'Pick one thing that matters today and put your energy there instead of spreading yourself thin.',
-          Pentacles: 'Keep things simple—get back to your daily routine, rest well, and take things one step at a time.'
+          Major: 'You are moving through a meaningful personal threshold.',
+          Wands: 'Trust your forward spark and reclaim your creative momentum.',
+          Cups: 'Give yourself space to process what you genuinely feel.',
+          Swords: 'Clarity arrives the moment you stop over-explaining what you already know.',
+          Pentacles: 'Focus on simple, grounded daily habits that restore your calm.'
         }
       }
     };
@@ -1359,7 +1450,9 @@
       aiReading: null,
       isShuffling: false,
       isThinking: false,
-      soundEnabled: false
+      soundEnabled: false,
+      unlockedTiers: { whisper: true, crossroads: false, sovereign: false },
+      pendingPaywall: null
     };
     let thinkingSequenceTimers = [];
 
@@ -1405,6 +1498,14 @@
     }
 
     function beginSessionWithTier(tierKey, count) {
+      if (count > 1 && !state.unlockedTiers[tierKey]) {
+        openPaywallModal(tierKey, count, 'landing');
+        return;
+      }
+      proceedToSanctuaryWithTier(tierKey, count);
+    }
+
+    function proceedToSanctuaryWithTier(tierKey, count) {
       state.tierKey = tierKey;
       state.spreadCount = count;
       const tier = TIER_CATALOG[tierKey] || TIER_CATALOG.crossroads;
@@ -1430,8 +1531,13 @@
 
     function setSpreadCount(count) {
       if (state.spreadCount === count) return;
+      const targetTier = count === 1 ? 'whisper' : count === 3 ? 'crossroads' : 'sovereign';
+      if (count > 1 && !state.unlockedTiers[targetTier]) {
+        openPaywallModal(targetTier, count, 'altar');
+        return;
+      }
       state.spreadCount = count;
-      state.tierKey = count === 1 ? 'whisper' : count === 3 ? 'crossroads' : 'sovereign';
+      state.tierKey = targetTier;
       updateSpreadModeUI();
       if (state.screen === 'altar') {
         resetCurrentQuestionSpread(true);
@@ -1439,6 +1545,14 @@
     }
 
     function upgradeSameQuestionSpread(tierKey, count) {
+      if (!state.unlockedTiers[tierKey]) {
+        openPaywallModal(tierKey, count, 'altar');
+        return;
+      }
+      applyUnlockedSameQuestionSpread(tierKey, count);
+    }
+
+    function applyUnlockedSameQuestionSpread(tierKey, count) {
       state.tierKey = tierKey;
       state.spreadCount = count;
       updateSpreadModeUI();
@@ -1447,6 +1561,90 @@
       resetCurrentQuestionSpread(true);
       const altar = document.getElementById('altar-view');
       if (altar) altar.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+
+    // =========================================================================
+    // PAYWALL MODAL & APPLE PAY / STRIPE CHECKOUT HANDLERS
+    // =========================================================================
+    function openPaywallModal(tierKey, count, sourceScreen) {
+      const tier = TIER_CATALOG[tierKey] || TIER_CATALOG.crossroads;
+      state.pendingPaywall = { tierKey, count, sourceScreen };
+
+      const modal = document.getElementById('paywall-modal');
+      const titleEl = document.getElementById('paywall-tier-title');
+      const descEl = document.getElementById('paywall-tier-desc');
+      const priceEl = document.getElementById('paywall-price');
+      const origEl = document.getElementById('paywall-orig-price');
+      const btnAmtEl = document.getElementById('paywall-btn-amount');
+      const procEl = document.getElementById('paywall-processing');
+      const appleBtn = document.getElementById('btn-apple-pay');
+      const cardBtn = document.getElementById('btn-card-pay');
+
+      if (titleEl) titleEl.textContent = tier.name;
+      if (descEl) descEl.textContent = tier.desc;
+      if (priceEl) priceEl.textContent = tier.price;
+      if (origEl) origEl.textContent = tier.origPrice || '';
+      if (btnAmtEl) btnAmtEl.textContent = tier.price;
+      if (procEl) procEl.classList.add('hidden');
+      if (appleBtn) appleBtn.disabled = false;
+      if (cardBtn) cardBtn.disabled = false;
+
+      if (modal) modal.classList.remove('hidden');
+      playWhisperChime(528);
+    }
+
+    function closePaywallModal() {
+      const modal = document.getElementById('paywall-modal');
+      if (modal) modal.classList.add('hidden');
+      state.pendingPaywall = null;
+    }
+
+    function processPaywallCheckout(method) {
+      if (!state.pendingPaywall) return;
+      const { tierKey, count, sourceScreen } = state.pendingPaywall;
+
+      // Save current question & genre before redirecting to Stripe so it stays ready upon return
+      try {
+        sessionStorage.setItem('arcana_saved_session', JSON.stringify({
+          userQuestion: state.userQuestion,
+          intentKey: state.intentKey,
+          sourceScreen
+        }));
+      } catch (e) {}
+
+      // If a real Stripe Payment Link is configured, redirect directly to Stripe (which supports Apple Pay + Cards)
+      const stripeLink = STRIPE_PAYMENT_LINKS[tierKey];
+      if (stripeLink && stripeLink.startsWith('http')) {
+        window.location.href = stripeLink;
+        return;
+      }
+
+      const procEl = document.getElementById('paywall-processing');
+      const statusEl = document.getElementById('paywall-status-msg');
+      const appleBtn = document.getElementById('btn-apple-pay');
+      const cardBtn = document.getElementById('btn-card-pay');
+
+      if (appleBtn) appleBtn.disabled = true;
+      if (cardBtn) cardBtn.disabled = true;
+      if (procEl) procEl.classList.remove('hidden');
+      if (statusEl) {
+        statusEl.textContent = method === 'apple_pay'
+          ? 'Authorizing with Apple Pay…'
+          : 'Confirming secure card checkout…';
+      }
+
+      setTimeout(() => {
+        state.unlockedTiers[tierKey] = true;
+        if (tierKey === 'sovereign') {
+          state.unlockedTiers.crossroads = true;
+        }
+        closePaywallModal();
+        if (sourceScreen === 'altar' && state.userQuestion) {
+          applyUnlockedSameQuestionSpread(tierKey, count);
+        } else {
+          proceedToSanctuaryWithTier(tierKey, count);
+        }
+      }, 1150);
     }
 
     function updateSpreadModeUI() {
@@ -2367,10 +2565,49 @@ Provide the deeply personalized reading in JSON format.`;
       }
     }
 
+    function handleStripeReturnUnlock() {
+      const params = new URLSearchParams(window.location.search);
+      const unlockedTier = params.get('unlocked');
+      if (unlockedTier === 'crossroads' || unlockedTier === 'sovereign') {
+        state.unlockedTiers[unlockedTier] = true;
+        if (unlockedTier === 'sovereign') {
+          state.unlockedTiers.crossroads = true;
+        }
+        const count = unlockedTier === 'sovereign' ? 5 : 3;
+
+        // Clean URL parameter without reloading
+        window.history.replaceState({}, document.title, window.location.pathname);
+
+        // Restore saved question if buyer upgraded mid-session
+        let saved = null;
+        try {
+          const raw = sessionStorage.getItem('arcana_saved_session');
+          if (raw) saved = JSON.parse(raw);
+          sessionStorage.removeItem('arcana_saved_session');
+        } catch (e) {}
+
+        if (saved && saved.userQuestion) {
+          state.userQuestion = saved.userQuestion;
+          state.intentKey = saved.intentKey || detectQuestionIntent(saved.userQuestion);
+          const profile = INTENT_PROFILES[state.intentKey] || INTENT_PROFILES.clarity;
+          const themeTag = document.getElementById('active-theme-tag');
+          const questionTextEl = document.getElementById('active-question-text');
+          if (themeTag) themeTag.textContent = profile.label;
+          if (questionTextEl) questionTextEl.textContent = `“${formatDisplayQuestion(saved.userQuestion)}”`;
+          switchScreen('altar');
+          applyUnlockedSameQuestionSpread(unlockedTier, count);
+        } else {
+          showWhisperToast(`Payment confirmed — ${count}-card spread unlocked!`);
+          proceedToSanctuaryWithTier(unlockedTier, count);
+        }
+      }
+    }
+
     window.addEventListener('DOMContentLoaded', () => {
       initAmbientEffects();
       startCyclingPlaceholders();
       updateSpreadModeUI();
+      handleStripeReturnUnlock();
     });
   </script>
 </body>
