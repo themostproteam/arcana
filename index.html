@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />x
+  <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" />
   <title>ARCANA</title>
   <!-- Tailwind CSS -->
@@ -1105,7 +1105,6 @@
     // =========================================================================
     // 1. CONSULTATION TIERS, STRIPE PAYMENT LINKS & INTENT ENGINE
     // =========================================================================
-    // Live Site & Stripe Payment Link URLs (supports Apple Pay, Google Pay & Cards):
     const SITE_BASE_URL = 'https://arcana-one-gules.vercel.app';
     const GEMINI_API_KEY = ''; // Automatically injected in Canvas; optional Google AI Studio key for live Vercel
     const STRIPE_PAYMENT_LINKS = {
@@ -1170,7 +1169,7 @@
           'The Outcome': 'The clearest long-term truth for your love life is that '
         },
         suitLens: {
-          Major: 'This marks a karmic turning point in how you give and receive love.',
+          Major: 'This marks a major turning point in how you give and receive love.',
           Cups: 'Emotions run deep here—pay close attention to sincerity over surface words.',
           Wands: 'Chemistry and attraction are unmistakable, though steady consistency matters most.',
           Swords: 'Honest communication will cut through any lingering doubt or mixed signals.',
@@ -1180,22 +1179,22 @@
       career: {
         label: 'Career & Money',
         positionIntros: {
-          'The Answer': 'Looking directly at your work and abundance path, ',
-          'The Current': 'In your current professional landscape, ',
+          'The Answer': 'Looking directly at your work and money path, ',
+          'The Current': 'In your current work situation, ',
           'The Hidden': 'Behind the scenes of this opportunity or workplace, ',
           'The Guidance': 'To unlock your strongest career momentum, ',
           'The Heart': 'At the core of your ambition right now, ',
           'The Obstacle': 'What has been slowing down your recognition or growth, ',
           'The Subconscious': 'Your deeper mindset around worth and success shows that ',
           'The Trajectory': 'As your efforts compound over the coming weeks, ',
-          'The Outcome': 'Where this professional chapter leads is clear: '
+          'The Outcome': 'Where this career chapter leads is clear: '
         },
         suitLens: {
-          Major: 'A defining career shift is aligning with your larger purpose.',
-          Wands: 'Bold initiative and creative visibility give you the edge right now.',
+          Major: 'A defining career shift is lining up with what you actually want.',
+          Wands: 'Bold initiative and visibility give you the edge right now.',
           Cups: 'Choose work that genuinely energizes you rather than draining your spirit.',
-          Swords: 'Strategic clarity and crisp negotiation put you in a strong position.',
-          Pentacles: 'Steady execution and smart financial discipline build lasting leverage.'
+          Swords: 'Clear strategy and honest negotiation put you in a strong position.',
+          Pentacles: 'Steady execution and smart money habits build lasting security.'
         }
       },
       decision: {
@@ -1205,16 +1204,16 @@
           'The Current': 'Looking at the choice right as it stands today, ',
           'The Hidden': 'The factor you haven’t fully weighed yet shows that ',
           'The Guidance': 'The clearest compass for your decision is that ',
-          'The Heart': 'What your intuition already leans toward is clear: ',
+          'The Heart': 'What your gut already leans toward is clear: ',
           'The Obstacle': 'What has been keeping you torn between options is that ',
           'The Subconscious': 'Beneath the pros and cons list, ',
           'The Trajectory': 'Once you commit to a direction, ',
           'The Outcome': 'Stepping forward with conviction leads here: '
         },
         suitLens: {
-          Major: 'Whichever door you choose shapes your next major chapter—choose without fear.',
+          Major: 'Whichever door you choose shapes your next big chapter—choose without fear.',
           Wands: 'Pick the path that sparks genuine energy rather than obligation.',
-          Cups: 'Honor the choice that brings emotional peace when you imagine living with it.',
+          Cups: 'Honor the choice that brings emotional peace when you picture living with it.',
           Swords: 'Strip away outside noise and look objectively at the facts.',
           Pentacles: 'Favor the option with solid, sustainable long-term footing.'
         }
@@ -1222,19 +1221,19 @@
       clarity: {
         label: 'Inner Clarity',
         positionIntros: {
-          'The Answer': 'Looking directly at the energy surrounding you, ',
+          'The Answer': 'Looking directly at what is surrounding you, ',
           'The Current': 'In your immediate present, ',
           'The Hidden': 'What has been operating quietly beneath the surface is that ',
           'The Guidance': 'Your clearest anchor right now is that ',
           'The Heart': 'At the center of what you are navigating, ',
           'The Obstacle': 'The main source of friction right now is that ',
-          'The Subconscious': 'What your deeper intuition is trying to tell you is that ',
+          'The Subconscious': 'What your deeper gut instinct is trying to tell you is that ',
           'The Trajectory': 'As the dust begins to settle, ',
           'The Outcome': 'The truth emerging from this situation is that '
         },
         suitLens: {
-          Major: 'You are moving through a meaningful personal threshold.',
-          Wands: 'Trust your forward spark and reclaim your creative momentum.',
+          Major: 'You are moving through an important personal turning point.',
+          Wands: 'Trust your forward spark and reclaim your momentum.',
           Cups: 'Give yourself space to process what you genuinely feel.',
           Swords: 'Clarity arrives the moment you stop over-explaining what you already know.',
           Pentacles: 'Focus on simple, grounded daily habits that restore your calm.'
@@ -1609,7 +1608,6 @@
       if (!state.pendingPaywall) return;
       const { tierKey, count, sourceScreen } = state.pendingPaywall;
 
-      // Save current question & genre before redirecting to Stripe so it stays ready upon return
       try {
         sessionStorage.setItem('arcana_saved_session', JSON.stringify({
           userQuestion: state.userQuestion,
@@ -1618,7 +1616,6 @@
         }));
       } catch (e) {}
 
-      // If a real Stripe Payment Link is configured, redirect directly to Stripe (which supports Apple Pay + Cards)
       const stripeLink = STRIPE_PAYMENT_LINKS[tierKey];
       if (stripeLink && stripeLink.startsWith('http')) {
         window.location.href = stripeLink;
@@ -1886,7 +1883,7 @@
         const { card, isReversed } = drawn;
         return `
           <div class="flex flex-col items-center gap-1.5 perspective-stage">
-            <div id="slot-card-${idx}" class="${cardDims} card-3d-inner">
+            <div id="slot-card-${idx}" class="${cardDims} card-3d-inner is-flipped">
               <div class="card-3d-face luxury-card-back flex items-center justify-center">
                 ${CARD_BACK_ENGRAVING}
               </div>
@@ -1959,17 +1956,13 @@
       renderDeckRibbon();
       updateWhisperPrompt();
 
-      state.selected.forEach((_, idx) => {
-        const el = document.getElementById(`slot-card-${idx}`);
-        if (!el) return;
-        if (idx < slotIndex) {
-          el.classList.add('is-flipped');
-        } else {
-          requestAnimationFrame(() => {
-            setTimeout(() => el.classList.add('is-flipped'), 70);
-          });
-        }
-      });
+      const newlyDrawnEl = document.getElementById(`slot-card-${slotIndex}`);
+      if (newlyDrawnEl) {
+        newlyDrawnEl.classList.remove('is-flipped');
+        requestAnimationFrame(() => {
+          setTimeout(() => newlyDrawnEl.classList.add('is-flipped'), 50);
+        });
+      }
 
       if (state.selected.length >= state.spreadCount) {
         setTimeout(() => {
@@ -2108,12 +2101,17 @@ Generate the clear, relatable, easy-to-understand tarot reading in JSON format.`
       if (readingPanel) readingPanel.classList.add('hidden');
       if (thinkingStage) thinkingStage.classList.remove('hidden');
 
+      state.selected.forEach((_, idx) => {
+        const el = document.getElementById(`slot-card-${idx}`);
+        if (el) el.classList.add('is-flipped');
+      });
+
       const profile = INTENT_PROFILES[state.intentKey] || INTENT_PROFILES.clarity;
       const firstCardName = state.selected[0]?.card?.name || 'the first card';
       const steps = [
         `Looking closely at your ${profile.label.toLowerCase()} question…`,
         `Weighing ${firstCardName} against the rest of your spread…`,
-        `Tuning crystals & practical steps to your exact words…`
+        `Putting your answer into clear, plain language…`
       ];
 
       if (statusEl) statusEl.textContent = steps[0];
@@ -2134,6 +2132,11 @@ Generate the clear, relatable, easy-to-understand tarot reading in JSON format.`
         state.aiReading = aiData;
         state.isThinking = false;
         if (thinkingStage) thinkingStage.classList.add('hidden');
+        renderSpreadSlots();
+        state.selected.forEach((_, idx) => {
+          const el = document.getElementById(`slot-card-${idx}`);
+          if (el) el.classList.add('is-flipped');
+        });
         playWhisperChime(660);
         renderEditorialReading();
       });
@@ -2169,9 +2172,9 @@ Generate the clear, relatable, easy-to-understand tarot reading in JSON format.`
       const baseText = isReversed ? card.reversed : card.upright;
       const keywords = isReversed ? card.kwRev : card.kwUp;
 
-      const cardStory = `${card.name} (${orientationLabel}) belongs to the ${card.suit === 'Major' ? 'Major Arcana—signaling a pivotal life lesson that cannot be rushed' : `Suit of ${card.suit}`}. ${baseText}`;
+      const cardStory = `${card.name} (${orientationLabel}) is ${card.suit === 'Major' ? 'a Major Arcana card—meaning this is a big, defining moment you can’t just brush past' : `part of the ${card.suit} suit, which focuses on your day-to-day choices and feelings`}. ${baseText}`;
 
-      const posIntro = profile.positionIntros[position] || 'In this part of your spread, ';
+      const posIntro = profile.positionIntros[position] || 'In this part of your reading, ';
       const suitLens = profile.suitLens[card.suit] || '';
 
       let directBridge = '';
@@ -2179,44 +2182,44 @@ Generate the clear, relatable, easy-to-understand tarot reading in JSON format.`
       let timingCue = '';
       if (parsedQ.isReconciliation) {
         directBridge = isReversed
-          ? `regarding your question "${parsedQ.secondPerson}", ${card.name} in reverse reveals that ${parsedQ.subjectPronoun} is still caught in ${keywords[0].toLowerCase()} and ${keywords[1].toLowerCase()}—meaning any sudden push, over-explaining, or double-texting right now would only reinforce ${parsedQ.subjectPossessive} defensive walls.`
-          : `regarding your question "${parsedQ.secondPerson}", ${card.name} upright shows that the emotional thread between you has not faded; ${parsedQ.subjectPronoun} is actively processing ${keywords[0].toLowerCase()}, creating a real opening for renewed contact once the dust settles.`;
+          ? `when you ask "${parsedQ.secondPerson}", ${card.name} in reverse shows that ${parsedQ.subjectPronoun} is still dealing with ${keywords[0].toLowerCase()} and ${keywords[1].toLowerCase()}. If you push, over-explain, or double-text right now, it will likely make ${parsedQ.subjectPronoun} pull back even more.`
+          : `when you ask "${parsedQ.secondPerson}", ${card.name} upright shows that the bond between you isn’t gone. ${parsedQ.subjectPronoun} is actively thinking about ${keywords[0].toLowerCase()}, which leaves a real door open for reaching out once things calm down.`;
         deeperLayer = isReversed
-          ? `Notice how ${position.toLowerCase()} highlights what happens behind closed doors: until ${keywords[2].toLowerCase()} is resolved, silence is acting as a protective buffer rather than a final verdict.`
-          : `Because this card lands in ${position}, it asks you to hold your center and let ${parsedQ.subjectPronoun} step toward you with genuine clarity rather than nostalgia alone.`;
+          ? `Because this card landed in ${position.toLowerCase()}, it’s showing what’s happening behind closed doors: until ${keywords[2].toLowerCase()} is sorted out, their silence is about protecting themselves—not necessarily a final goodbye.`
+          : `Landing in ${position}, this card is encouraging you to stay steady and let ${parsedQ.subjectPronoun} come to you with real clarity rather than just missing the past.`;
         timingCue = isReversed
-          ? `Watch for subtle shifts over the next 2–3 weeks once emotional pressure eases—forcing a conversation earlier will feel uphill.`
-          : `Momentum is active; an unexpected check-in or window to speak openly is likely to surface within the next 1–2 weeks if you stay grounded.`;
+          ? `Give this about 2 to 3 weeks for the pressure to cool off—trying to force a talk sooner will feel exhausting.`
+          : `Things are moving here; an unexpected text or chance to talk honestly is likely within the next 1 to 2 weeks if you stay grounded.`;
       } else if (parsedQ.isFeelings) {
         directBridge = isReversed
-          ? `when you ask "${parsedQ.secondPerson}", ${card.name} (Reversed) indicates mixed internal signals—there is underlying care, yet ${keywords[0].toLowerCase()} is preventing ${parsedQ.subjectPronoun} from showing up consistently.`
-          : `when you ask "${parsedQ.secondPerson}", ${card.name} (Upright) affirms genuine presence around ${keywords[0].toLowerCase()} and ${keywords[1].toLowerCase()}—what you are sensing beneath the surface is real.`;
-        deeperLayer = `Sitting in ${position}, this card reminds you to watch consistent follow-through over fleeting words so you feel emotionally secure.`;
-        timingCue = `Pay close attention to how ${parsedQ.subjectPronoun} behaves over the next 7 days—actions will confirm everything words leave unsaid.`;
+          ? `when you ask "${parsedQ.secondPerson}", ${card.name} (Reversed) points to mixed feelings—they care, yet ${keywords[0].toLowerCase()} is holding ${parsedQ.subjectPronoun} back from showing up consistently.`
+          : `when you ask "${parsedQ.secondPerson}", ${card.name} (Upright) confirms genuine feelings around ${keywords[0].toLowerCase()} and ${keywords[1].toLowerCase()}—what you’re picking up on is real.`;
+        deeperLayer = `In the ${position} spot, this is your reminder to pay more attention to consistent actions than sweet words so you feel secure.`;
+        timingCue = `Watch how ${parsedQ.subjectPronoun} shows up over the next 7 days—their behavior will tell you everything.`;
       } else if (parsedQ.type === 'should') {
         directBridge = isReversed
-          ? `as you weigh "${parsedQ.secondPerson}", ${card.name} (Reversed) cautions against making a reactive decision while ${keywords[0].toLowerCase()} is clouding the picture.`
-          : `as you weigh "${parsedQ.secondPerson}", ${card.name} (Upright) strongly favors the path aligned with ${keywords[0].toLowerCase()} and long-term self-respect.`;
-        deeperLayer = `In ${position}, this is your confirmation to stop second-guessing what already feels true in your gut—clarity compounds the moment you commit.`;
-        timingCue = `Give yourself 48 hours of quiet clarity away from outside opinions before locking in your move.`;
+          ? `as you weigh "${parsedQ.secondPerson}", ${card.name} (Reversed) is a gentle warning not to rush into a decision while ${keywords[0].toLowerCase()} is clouding your head.`
+          : `as you weigh "${parsedQ.secondPerson}", ${card.name} (Upright) strongly backs the choice that supports ${keywords[0].toLowerCase()} and your own self-respect.`;
+        deeperLayer = `In ${position}, this is your green light to stop second-guessing what already feels right in your gut.`;
+        timingCue = `Take 48 quiet hours away from everyone else’s advice before making your final call.`;
       } else if (parsedQ.isTiming || parsedQ.type === 'when') {
         directBridge = isReversed
-          ? `around the timing of "${parsedQ.secondPerson}", ${card.name} (Reversed) points to a brief, necessary pause while ${keywords[0].toLowerCase()} finishes clearing behind the scenes.`
-          : `around the timing of "${parsedQ.secondPerson}", ${card.name} (Upright) signals active movement once you lean into ${keywords[0].toLowerCase()}.`;
-        deeperLayer = `In ${position}, momentum shifts as soon as one lingering assumption is released.`;
+          ? `around the timing of "${parsedQ.secondPerson}", ${card.name} (Reversed) points to a short pause while ${keywords[0].toLowerCase()} finishes sorting itself out behind the scenes.`
+          : `around the timing of "${parsedQ.secondPerson}", ${card.name} (Upright) shows things picking up speed once you lean into ${keywords[0].toLowerCase()}.`;
+        deeperLayer = `In ${position}, things start moving the moment you let go of one old assumption.`;
         timingCue = isReversed
-          ? `Expect movement after a short cooling-off window rather than overnight.`
-          : `Signs of tangible progress begin appearing within the next 1 to 3 weeks.`;
+          ? `Expect movement after a brief cooling-off period rather than overnight.`
+          : `You should start seeing clear signs of progress within the next 1 to 3 weeks.`;
       } else {
-        directBridge = `looking directly at "${parsedQ.secondPerson}", ${card.name} (${orientationLabel}) brings the themes of ${keywords[0].toLowerCase()} and ${keywords[1].toLowerCase()} straight to the forefront: ${baseText.charAt(0).toLowerCase() + baseText.slice(1)}`;
-        deeperLayer = `Appearing specifically in ${position}, it illuminates the hidden pattern shaping your next move so you can respond with intention rather than guesswork.`;
-        timingCue = `The energy around this card peaks over the next 10–14 days—stay observant of small synchronicities.`;
+        directBridge = `looking directly at "${parsedQ.secondPerson}", ${card.name} (${orientationLabel}) puts ${keywords[0].toLowerCase()} and ${keywords[1].toLowerCase()} right at the center of what’s going on: ${baseText.charAt(0).toLowerCase() + baseText.slice(1)}`;
+        deeperLayer = `Because it showed up in ${position}, it’s pointing straight to the pattern shaping your next step so you can handle it with a clear head.`;
+        timingCue = `This situation is most active over the next 10 to 14 days—pay attention to small clues that confirm what you already suspect.`;
       }
 
       const questionConnection = `${posIntro}${directBridge} ${deeperLayer} ${timingCue} ${suitLens}`;
       const nextStep = isReversed
-        ? `Over the next 72 hours, pause before reacting and protect your peace. Ask yourself honestly: what part of "${parsedQ.secondPerson}" am I trying to control instead of observing clearly?`
-        : `Over the next 72 hours, take one calm, concrete step toward clarity. Ask yourself: if I trusted my own instincts completely, what would I do next?`;
+        ? `Over the next 2–3 days, take a step back before reacting and protect your peace. Ask yourself honestly: what part of "${parsedQ.secondPerson}" am I trying to force instead of letting play out?`
+        : `Over the next 2–3 days, take one simple, clear step forward. Ask yourself: if I trusted my gut completely, what would I do next?`;
 
       const talismanTip = buildFallbackTalismanTip(card, state.intentKey);
 
@@ -2227,48 +2230,48 @@ Generate the clear, relatable, easy-to-understand tarot reading in JSON format.`
       const genre = intentKey || 'clarity';
       if (genre === 'career') {
         if (card.suit === 'Wands' || card.suit === 'Major') {
-          return 'Wear or carry golden Citrine (the Merchant’s Stone) in your pocket or keep it on your workspace—its warm solar frequency sharpens confidence, attracts recognition, and clears hesitation in career moves.';
+          return 'Keep a small piece of yellow Citrine in your pocket or on your desk this week—it’s a simple reminder to back yourself, speak up confidently, and stop second-guessing your work.';
         }
         if (card.suit === 'Pentacles') {
-          return 'Keep Green Aventurine or Pyrite near your wallet or laptop to ground scattered energy, strengthen financial focus, and invite steady, tangible opportunities.';
+          return 'Keep Green Aventurine or Pyrite near your wallet or laptop as a daily cue to stay focused on practical goals and smart money choices.';
         }
-        return 'Wear Lapis Lazuli or carry a small piece of Clear Quartz before important meetings or interviews to keep your communication crisp, calm, and persuasive.';
+        return 'Carry Clear Quartz or Lapis Lazuli before important conversations or interviews to help you stay calm, clear-headed, and direct.';
       }
       if (genre === 'love') {
         if (card.suit === 'Cups' || card.suit === 'Major') {
-          return 'Wear Rose Quartz close to your heart or keep it beside your bed—it softens emotional defensiveness, encourages honest affection, and helps you discern genuine warmth from mixed signals.';
+          return 'Keep Rose Quartz near your bedside or in your bag—it’s a gentle anchor to stay warm and open without chasing or overthinking mixed signals.';
         }
-        return 'Carry Rhodonite or Moonstone over the next few days to steady emotional ups and downs and foster calm, open-hearted conversations.';
+        return 'Carry Moonstone or Rhodonite over the next few days to stay emotionally grounded during honest conversations.';
       }
       if (genre === 'decision') {
-        return 'Hold or wear Amethyst or Fluorite when weighing your options—it quiets mental noise and overthinking so your inner compass feels unmistakable.';
+        return 'Keep Amethyst or Fluorite nearby when weighing your options—taking a deep breath with it helps quiet mental noise so your choice feels obvious.';
       }
-      return 'Carry Smoky Quartz or Black Tourmaline to ground anxious thoughts, paired with a touch of gold or yellow clothing to invite fresh clarity and optimism.';
+      return 'Carry Smoky Quartz or Black Tourmaline when your mind feels crowded, paired with a small touch of gold or yellow to lift your mood and clear brain fog.';
     }
 
     function buildOverallTalismanGuidance(intentKey, selected) {
       const genre = intentKey || 'clarity';
       const firstCard = selected[0]?.card?.name || 'your spread';
       if (genre === 'career') {
-        return `To anchor the momentum of ${firstCard}, wear or carry yellow Citrine alongside a touch of gold over the next 7 days—each morning before checking messages, hold it briefly and set one clear career priority for the day.`;
+        return `To carry the lesson of ${firstCard} into your week, keep yellow Citrine on your desk and write down your #1 priority each morning before checking messages.`;
       }
       if (genre === 'love') {
-        return `To harmonize the energy revealed by ${firstCard}, keep Rose Quartz or Moonstone near you this week and light a soft white or pink candle in the evening while releasing any urge to force an outcome.`;
+        return `To stay grounded around ${firstCard}, keep Rose Quartz or Moonstone nearby this week and give yourself a screen-free hour each evening to unwind without overanalyzing.`;
       }
       if (genre === 'decision') {
-        return `To steady your mind around ${firstCard}, carry Amethyst or Clear Quartz for the next 7 days and write down your two choices on paper before sleep so your intuition can settle overnight.`;
+        return `To keep your head clear around ${firstCard}, carry Amethyst for the next 7 days and write down both choices on paper before bed so your gut can settle overnight.`;
       }
-      return `To ground the insight of ${firstCard}, carry Smoky Quartz or Citrine through the week ahead and take five quiet minutes each morning away from screens to center your intentions.`;
+      return `To anchor the message of ${firstCard}, keep Smoky Quartz or Citrine nearby this week and take five quiet minutes each morning away from your phone to reset.`;
     }
 
     function buildWhisperedSecret(card, isReversed, parsedQ) {
       const kws = isReversed ? card.kwRev : card.kwUp;
       if (parsedQ.isReconciliation) {
         return isReversed
-          ? `“Silence isn’t rejection—it’s ${parsedQ.subjectPronoun} sorting through ${kws[0].toLowerCase()} before speaking again.”`
-          : `“The thread between you isn’t broken; ${card.name} whispers that ${kws[0].toLowerCase()} is quietly drawing your paths back into view.”`;
+          ? `“Their silence isn’t a final no—it’s ${parsedQ.subjectPronoun} working through ${kws[0].toLowerCase()} before reaching back out.”`
+          : `“This connection isn’t finished—${card.name} shows that ${kws[0].toLowerCase()} is quietly bringing your paths back together.”`;
       }
-      return `“Beneath the surface of your question, ${card.name} points straight to ${kws[0].toLowerCase()} as the quiet turning key.”`;
+      return `“At the heart of your question, ${card.name} points straight to ${kws[0].toLowerCase()} as the key that changes everything.”`;
     }
 
     function buildQuestionSynthesis(selected) {
@@ -2279,10 +2282,10 @@ Generate the clear, relatable, easy-to-understand tarot reading in JSON format.`
 
       if (parsedQ.isReconciliation) {
         return last.isReversed
-          ? `Across this spread, ${first.card.name} into ${last.card.name} (Reversed) suggests ${parsedQ.subjectPronoun} still needs space to work through internal doubts before a healthy return is possible—protect your dignity and let them come to you.`
-          : `Across this spread, ${first.card.name} leading to ${last.card.name} signals a genuine window for reconnection—when you stay grounded and unhurried, the door opens naturally.`;
+          ? `Putting it all together, ${first.card.name} into ${last.card.name} (Reversed) shows ${parsedQ.subjectPronoun} still needs a little space to sort out their own doubts before coming back properly—hold your standards and let them make the effort.`
+          : `Putting it all together, ${first.card.name} leading to ${last.card.name} points to a real window for reconnecting—stay calm, don’t chase, and let them meet you halfway.`;
       }
-      return `Taken together, ${first.card.name} and ${last.card.name} show that your clearest answer comes from honoring what you already sense beneath the noise—move steadily, keep your standards intact, and let actions confirm words.`;
+      return `Putting it all together, ${first.card.name} and ${last.card.name} show that you already know the truth deep down—take things one steady step at a time and judge by actions, not guesses.`;
     }
 
     function revealHiddenOmen(idx) {
@@ -2338,7 +2341,7 @@ Generate the clear, relatable, easy-to-understand tarot reading in JSON format.`
             <div class="flex flex-wrap gap-1.5">${keywords}</div>
 
             <div class="space-y-1.5">
-              <p class="ancient-inscription text-[9.5px] uppercase text-[#D4AF37]">✦ Understanding This Card</p>
+              <p class="ancient-inscription text-[9.5px] uppercase text-[#D4AF37]">✦ What This Card Means</p>
               <p class="ancient-dropcap font-sans text-[16.5px] leading-[1.72] text-[#F3EFEA]/90">
                 ${analysis.cardStory}
               </p>
@@ -2359,7 +2362,7 @@ Generate the clear, relatable, easy-to-understand tarot reading in JSON format.`
             </div>
 
             <div class="rounded-xl p-3.5 bg-gradient-to-r from-[#171322]/85 to-[#100E16]/85 border border-[#D4AF37]/25 space-y-1">
-              <p class="ancient-inscription text-[9.5px] uppercase text-[#F2DF9B]">◈ Crystal &amp; Energy Alignment</p>
+              <p class="ancient-inscription text-[9.5px] uppercase text-[#F2DF9B]">◈ Crystal &amp; Grounding Tip</p>
               <p class="font-sans text-[15.5px] leading-[1.68] text-[#F3EFEA]/90">
                 ${analysis.talismanTip}
               </p>
@@ -2640,10 +2643,8 @@ Generate the clear, relatable, easy-to-understand tarot reading in JSON format.`
         }
         const count = unlockedTier === 'sovereign' ? 5 : 3;
 
-        // Clean URL parameter without reloading
         window.history.replaceState({}, document.title, window.location.pathname);
 
-        // Restore saved question if buyer upgraded mid-session
         let saved = null;
         try {
           const raw = sessionStorage.getItem('arcana_saved_session');
