@@ -1650,6 +1650,25 @@
     function getCardArtSVG(motif) {
       const stroke = '#D4AF37';
       const paths = {
+        'sun-arc': `<path d="M22 66a28 28 0 0 1 56 0"/><circle cx="50" cy="40" r="10"/><path d="M50 22v5M32 32l4 4M68 32l-4 4"/>`,
+        'infinity': `<path d="M34 47c0-7 9-11 16 0 7 11 16 7 16 0s-9-11-16 0c-7 11-16 7-16 0z"/><circle cx="50" cy="47" r="26" stroke-dasharray="1.5 3" stroke-opacity="0.5"/>`,
+        'crescent': `<path d="M56 22a24 24 0 1 0 0 48 18 18 0 1 1 0-48z"/><circle cx="42" cy="46" r="3"/>`,
+        'crown-star': `<path d="M26 60l6-22 18 12 18-12 6 22z"/><circle cx="50" cy="24" r="4"/>`,
+        'pillars': `<rect x="30" y="24" width="10" height="46" rx="1"/><rect x="60" y="24" width="10" height="46" rx="1"/><line x1="24" y1="24" x2="76" y2="24"/><line x1="24" y1="70" x2="76" y2="70"/>`,
+        'keys': `<circle cx="40" cy="34" r="8"/><line x1="40" y1="42" x2="40" y2="70"/><line x1="40" y1="58" x2="48" y2="58"/><line x1="40" y1="66" x2="46" y2="66"/><circle cx="60" cy="34" r="8"/><line x1="60" y1="42" x2="60" y2="70"/>`,
+        'twin-stars': `<polygon points="36,26 39,36 49,36 41,42 44,52 36,46 28,52 31,42 23,36 33,36"/><polygon points="64,42 67,52 77,52 69,58 72,68 64,62 56,68 59,58 51,52 61,52"/>`,
+        'compass': `<circle cx="50" cy="47" r="24"/><polygon points="50,25 56,47 50,69 44,47"/><line x1="28" y1="47" x2="72" y2="47"/>`,
+        'lion-sun': `<circle cx="50" cy="49" r="16"/><circle cx="50" cy="49" r="23" stroke-dasharray="2 3"/><path d="M36 24c6-6 22-6 28 0"/>`,
+        'lantern': `<polygon points="42,28 58,28 63,64 37,64"/><line x1="50" y1="18" x2="50" y2="28"/><circle cx="50" cy="47" r="5"/>`,
+        'wheel': `<circle cx="50" cy="47" r="24"/><circle cx="50" cy="47" r="8"/><line x1="50" y1="23" x2="50" y2="71"/><line x1="26" y1="47" x2="74" y2="47"/><line x1="33" y1="30" x2="67" y2="64"/><line x1="67" y1="30" x2="33" y2="64"/>`,
+        'scales': `<line x1="50" y1="20" x2="50" y2="72"/><line x1="28" y1="32" x2="72" y2="32"/><path d="M22 48h12l-6-16zM66 48h12l-6-16z"/>`,
+        'halo': `<circle cx="50" cy="34" r="12"/><line x1="50" y1="46" x2="50" y2="74"/><line x1="36" y1="58" x2="64" y2="58"/>`,
+        'rose-eclipse': `<circle cx="50" cy="47" r="20"/><circle cx="56" cy="43" r="16" fill="#121216"/><path d="M44 68c4-5 8-5 12 0"/>`,
+        'chalice': `<path d="M34 26h32l-4 20a12 12 0 0 1-24 0z"/><line x1="50" y1="58" x2="50" y2="74"/><path d="M38 74h24"/>`,
+        'chains': `<ellipse cx="42" cy="42" rx="10" ry="15" transform="rotate(-30 42 42)"/><ellipse cx="58" cy="52" rx="10" ry="15" transform="rotate(-30 58 52)"/>`,
+        'lightning': `<polygon points="54,18 36,48 49,48 44,76 66,44 52,44"/>`,
+        'trumpet': `<polygon points="32,42 64,28 64,66 32,52"/><line x1="24" y1="47" x2="32" y2="47"/>`,
+        'wreath': `<ellipse cx="50" cy="47" rx="20" ry="25" stroke-dasharray="4 3"/><circle cx="50" cy="47" r="12"/>`,
         star: `<polygon points="50,14 56,36 78,36 60,49 67,71 50,58 33,71 40,49 22,36 44,36"/><circle cx="50" cy="46" r="26" stroke-dasharray="1.5 3" stroke-opacity="0.5"/>`,
         moon: `<path d="M58 23a22 22 0 1 0 0 44 17 17 0 1 1 0-44z"/><path d="M28 73q11-5 22 0t22 0"/>`,
         sun: `<circle cx="50" cy="47" r="14"/><path d="M50 20v7M50 67v7M23 47h7M70 47h7M31 28l5 5M64 61l5 5M69 28l-5 5M36 61l-5 5"/>`,
@@ -1778,11 +1797,16 @@
 
       const questionRelation = `You asked, “${cleanQuestion}?” Landing in ${pos.title} (${pos.subtitle.toLowerCase()}), ${card.name} points directly to ${coreMeaning} ${profile.verb}. Instead of guessing or carrying all the mental weight alone, this card is showing you the exact emotional pattern shaping your situation right now—so you can ${profile.guidanceVerb}.`;
 
+      const actionAdvice = card.isReversed
+        ? `Pause before reacting on impulse today—step back and notice where you are holding onto tension around ${card.suit.toLowerCase()} energy.`
+        : `Lean into ${card.name}’s clarity by taking one grounded, honest action today rather than waiting for someone else to move first.`;
+
       const hiddenOmen = profile.omenTemplates[posIndex % profile.omenTemplates.length];
 
       return {
         cardMeaning,
         questionRelation,
+        actionAdvice,
         hiddenOmen
       };
     }
@@ -1813,9 +1837,11 @@ Return ONLY valid JSON matching this exact structure:
     {
       "cardMeaning": "2-3 clear sentences explaining what this card means in everyday life.",
       "questionRelation": "4-5 warm, specific sentences directly answering the user's question through this card and its spread position.",
+      "actionAdvice": "1-2 practical sentences on what to do or watch for based on this card.",
       "hiddenOmen": "1-2 sentences revealing a sharp, practical behind-the-scenes insight or intuitive tip."
     }
   ],
+  "timingWindow": "1-2 sentences describing realistic timing and momentum over the coming days or weeks.",
   "bottomLine": "3-4 clear, reassuring sentences summarizing the overall answer and the single best next step to take."
 }`;
 
@@ -1924,6 +1950,7 @@ Return ONLY valid JSON matching this exact structure:
 
         const cardMeaning = aiCard?.cardMeaning || fallback.cardMeaning;
         const questionRelation = aiCard?.questionRelation || fallback.questionRelation;
+        const actionAdvice = aiCard?.actionAdvice || fallback.actionAdvice;
         const hiddenOmen = aiCard?.hiddenOmen || fallback.hiddenOmen;
         const isUnsealed = Boolean(state.unsealedOmens[idx]);
 
@@ -1936,8 +1963,9 @@ Return ONLY valid JSON matching this exact structure:
                   ${card.name}
                   <span class="text-[12px] italic font-normal text-[#D9A79C] ml-1">(${card.isReversed ? 'Reversed' : 'Upright'})</span>
                 </h3>
+                <p class="text-[11px] text-[#98948C] mt-0.5">${card.suit} · ${card.isMajor ? 'Major Archetype' : 'Daily Current'}</p>
               </div>
-              <span class="text-[10px] uppercase tracking-[0.18em] px-2.5 py-1 rounded-full bg-[#160E1E] border border-[#D4AF37]/25 text-[#F2DF9B]">
+              <span class="text-[10px] uppercase tracking-[0.18em] px-2.5 py-1 rounded-full bg-[#160E1E] border border-[#D4AF37]/25 text-[#F2DF9B] text-right">
                 ${pos.subtitle}
               </span>
             </div>
@@ -1953,6 +1981,13 @@ Return ONLY valid JSON matching this exact structure:
               <p class="text-[10px] uppercase tracking-[0.2em] text-[#F2DF9B]">How It Relates To Your Question</p>
               <p class="ancient-dropcap font-sans text-[17px] text-[#F3EFEA]/95 leading-[1.72]">
                 ${questionRelation}
+              </p>
+            </div>
+
+            <div class="rounded-xl p-3 bg-[#101016]/90 border border-[#D4AF37]/15 space-y-1">
+              <p class="text-[9.5px] uppercase tracking-[0.2em] text-[#D9A79C]">✦ Practical Guidance For This Card</p>
+              <p class="font-sans text-[15.5px] text-[#F3EFEA]/90 leading-relaxed">
+                ${actionAdvice}
               </p>
             </div>
 
@@ -1982,6 +2017,9 @@ Return ONLY valid JSON matching this exact structure:
 
       const leadCard = state.selected[0];
       const finalCard = state.selected[state.selected.length - 1];
+      const defaultTiming = `Expect a noticeable shift in clarity over the next 7 to 21 days as the energy of ${finalCard.name} settles in—especially once you stop forcing an immediate answer.`;
+      const timingText = (isLiveAI && state.aiReading.timingWindow) ? state.aiReading.timingWindow : defaultTiming;
+
       const defaultBottomLine = `Taken together, ${leadCard.name} and ${finalCard.name} show that the clearest answer to “${state.question}” comes when you ${profile.guidanceVerb}. Trust what you already sense beneath the noise, and take one calm, honest step forward today.`;
       const bottomLineText = (isLiveAI && state.aiReading.bottomLine) ? state.aiReading.bottomLine : defaultBottomLine;
 
@@ -2003,31 +2041,48 @@ Return ONLY valid JSON matching this exact structure:
           ${cardsHTML}
         </div>
 
-        <!-- The Bottom Line & Crystal Alignment -->
-        <div class="esoteric-dossier rounded-2xl p-5 space-y-3.5 border-[#D4AF37]/45">
-          <div class="flex items-center justify-between">
+        <!-- Timing, Energy Focus & Bottom Line Synthesis -->
+        <div class="esoteric-dossier rounded-2xl p-5 space-y-4 border-[#D4AF37]/45">
+          <div class="flex items-center justify-between border-b border-[#D4AF37]/15 pb-3">
             <span class="ancient-inscription text-[10px] uppercase text-[#F2DF9B]">✦ The Bottom Line</span>
             <span class="text-[10px] text-[#D4AF37]/85">${isLiveAI ? '✦ Personalized Live by Gemini AI' : '✦ ARCANA Oracle Synthesis'}</span>
           </div>
+
           <p class="font-sans text-[17px] text-[#F3EFEA] leading-[1.72]">
             ${bottomLineText}
           </p>
-          <div class="pt-2.5 border-t border-[#D4AF37]/15 flex items-center justify-between text-[13px]">
-            <span class="text-[#98948C]">Recommended Crystal:</span>
-            <span class="font-serif text-[#F2DF9B]">${profile.crystal}</span>
+
+          <div class="rounded-xl p-3.5 bg-[#101016]/85 border border-[#D4AF37]/20 space-y-1">
+            <p class="text-[9.5px] uppercase tracking-[0.2em] text-[#D4AF37]">⏳ Timing &amp; Momentum</p>
+            <p class="font-sans text-[15.5px] text-[#F3EFEA]/90 leading-relaxed">${timingText}</p>
+          </div>
+
+          <div class="pt-2 border-t border-[#D4AF37]/15 space-y-2 text-[13.5px]">
+            <div class="flex items-center justify-between gap-2">
+              <span class="text-[#98948C]">Energetic Focus:</span>
+              <span class="font-sans text-[#F3EFEA]/90 text-right">${profile.elementalNote}</span>
+            </div>
+            <div class="flex items-center justify-between gap-2">
+              <span class="text-[#98948C]">Recommended Crystal:</span>
+              <span class="font-serif text-[#F2DF9B] text-right">${profile.crystal}</span>
+            </div>
           </div>
         </div>
 
         ${upsellBanner}
 
-        <!-- Actions: Copy Reading or Ask Another Question -->
-        <div class="flex items-center justify-center gap-3 pt-1 pb-4">
+        <!-- Actions: Draw Again, Copy Reading, or Ask New Question -->
+        <div class="flex flex-wrap items-center justify-center gap-2.5 pt-1 pb-4">
           <button type="button" onclick="copyReadingToClipboard()"
-            class="rounded-full px-5 py-2.5 border border-[#D4AF37]/35 bg-[#14131B] text-[10.5px] uppercase tracking-[0.2em] text-[#F2DF9B] hover:border-[#D4AF37]/75 transition-colors">
+            class="rounded-full px-4 py-2.5 border border-[#D4AF37]/40 bg-[#14131B] text-[10px] uppercase tracking-[0.18em] text-[#F2DF9B] hover:border-[#D4AF37]/80 transition-colors">
             Copy Reading
           </button>
+          <button type="button" onclick="startFreshSpread()"
+            class="rounded-full px-4 py-2.5 border border-[#D4AF37]/25 bg-[#101015] text-[10px] uppercase tracking-[0.18em] text-[#F3EFEA]/85 hover:text-[#F2DF9B] transition-colors">
+            Draw Again
+          </button>
           <button type="button" onclick="returnToSanctuary()"
-            class="rounded-full px-5 py-2.5 border border-[#D4AF37]/25 bg-[#101015] text-[10.5px] uppercase tracking-[0.2em] text-[#98948C] hover:text-[#F3EFEA] transition-colors">
+            class="rounded-full px-4 py-2.5 border border-[#D4AF37]/25 bg-[#101015] text-[10px] uppercase tracking-[0.18em] text-[#98948C] hover:text-[#F3EFEA] transition-colors">
             New Question
           </button>
         </div>
@@ -2038,12 +2093,26 @@ Return ONLY valid JSON matching this exact structure:
 
     function copyReadingToClipboard() {
       const positions = SPREAD_POSITIONS[state.spreadCount] || SPREAD_POSITIONS[1];
+      const profile = INTENT_PROFILES[state.intentKey] || INTENT_PROFILES.clarity;
+      const isLiveAI = Boolean(state.aiReading && state.aiReading.isLiveAI);
+
+      const cardLines = state.selected.map((c, i) => {
+        const fallback = composeFallbackCardAnalysis(c, i, profile);
+        const aiCard = isLiveAI && state.aiReading.cards[i] ? state.aiReading.cards[i] : null;
+        return [
+          `${positions[i]?.title || 'Card'}: ${c.name} (${c.isReversed ? 'Reversed' : 'Upright'})`,
+          `• Meaning: ${aiCard?.cardMeaning || fallback.cardMeaning}`,
+          `• Relation: ${aiCard?.questionRelation || fallback.questionRelation}`
+        ].join('\n');
+      });
+
       const lines = [
         `ARCANA READING`,
         `Question: "${state.question}"`,
         ``,
-        ...state.selected.map((c, i) => `${positions[i]?.title || 'Card'}: ${c.name} (${c.isReversed ? 'Reversed' : 'Upright'})`),
+        ...cardLines,
         ``,
+        `Recommended Crystal: ${profile.crystal}`,
         `Read yours at ${SITE_BASE_URL}`
       ];
       const textArea = document.createElement('textarea');
@@ -2052,7 +2121,7 @@ Return ONLY valid JSON matching this exact structure:
       textArea.select();
       try {
         document.execCommand('copy');
-        showToast('Reading copied');
+        showToast('Full reading copied');
       } catch (_) {}
       document.body.removeChild(textArea);
     }
