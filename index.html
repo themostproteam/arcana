@@ -74,7 +74,6 @@
       overflow-x: hidden;
     }
 
-    /* Ancient Illuminated Drop-Cap & Inscription Accents */
     .ancient-dropcap::first-letter {
       float: left;
       font-family: 'Cinzel Decorative', 'Cinzel', serif;
@@ -97,7 +96,6 @@
       letter-spacing: 0.08em;
     }
 
-    /* Velvet-Matte Obsidian Surface with Warm Candlelight & Imperial Plum Nebula */
     .obsidian-surface {
       background-color: #060608;
       background-image:
@@ -106,7 +104,6 @@
         radial-gradient(circle at 82% 76%, rgba(212, 175, 55, 0.08) 0%, transparent 55%);
     }
 
-    /* Drifting Nocturnal Incense Mist & Vignette Shadows */
     @keyframes mistDrift {
       0%, 100% { transform: translate(-6%, 0%) scale(1.05); opacity: 0.22; }
       50% { transform: translate(6%, -3%) scale(1.14); opacity: 0.38; }
@@ -123,13 +120,11 @@
       box-shadow: inset 0 0 95px rgba(0, 0, 0, 0.92);
     }
 
-    /* Interactive Candlelight Touch Aura */
     #candlelight-aura {
       background: radial-gradient(circle 190px at var(--mx, 50%) var(--my, 35%), rgba(212, 175, 55, 0.11), rgba(118, 58, 140, 0.05) 45%, transparent 75%);
       transition: opacity 0.6s ease;
     }
 
-    /* Wax-Seal Veiled Omen Reveal */
     .veiled-omen-box {
       position: relative;
       background: linear-gradient(165deg, rgba(22, 14, 30, 0.85) 0%, rgba(10, 10, 14, 0.95) 100%);
@@ -148,7 +143,6 @@
       animation: sealPulse 3.4s ease-in-out infinite;
     }
 
-    /* Hide Scrollbars cleanly */
     .no-scrollbar::-webkit-scrollbar {
       display: none;
     }
@@ -157,7 +151,6 @@
       scrollbar-width: none;
     }
 
-    /* Breathing Astrolabe Rings in Sanctuary Background */
     @keyframes astrolabeBreathe {
       0%, 100% { transform: translate(-50%, -50%) scale(0.98) rotate(0deg); opacity: 0.28; }
       50% { transform: translate(-50%, -50%) scale(1.03) rotate(12deg); opacity: 0.45; }
@@ -173,7 +166,6 @@
       animation: astrolabeCounter 18s ease-in-out infinite;
     }
 
-    /* Floating Champagne Dust Motes */
     @keyframes dustFloat {
       0% { transform: translateY(0px) translateX(0px); opacity: 0; }
       25% { opacity: 0.55; }
@@ -188,7 +180,6 @@
       animation: dustFloat var(--dur, 11s) ease-in-out var(--delay, 0s) infinite;
     }
 
-    /* Editorial Open-Question Input & Cycling Placeholder */
     .sanctuary-input-wrap {
       position: relative;
       border-bottom: 1px solid rgba(212, 175, 55, 0.28);
@@ -226,7 +217,6 @@
       transform: translateY(4px);
     }
 
-    /* Whisper Pill Tags & Illuminating Submit Action */
     .topic-pill {
       border: 1px solid rgba(212, 175, 55, 0.22);
       background: rgba(18, 18, 22, 0.65);
@@ -266,7 +256,6 @@
       transform: scale(0.985);
     }
 
-    /* Staggered Editorial Entrance */
     @keyframes editorialFadeUp {
       0% { opacity: 0; transform: translateY(18px); }
       100% { opacity: 1; transform: translateY(0); }
@@ -276,7 +265,6 @@
     .stagger-3 { opacity: 0; animation: editorialFadeUp 0.9s var(--ease-luxury) 0.36s forwards; }
     .stagger-4 { opacity: 0; animation: editorialFadeUp 0.9s var(--ease-luxury) 0.50s forwards; }
 
-    /* Hero Floating Emblem & Conic Foil Shimmer */
     @keyframes heroCardFloat {
       0%, 100% { transform: translateY(0px) rotate(-2deg); }
       50% { transform: translateY(-9px) rotate(1.5deg); }
@@ -289,15 +277,9 @@
       0%, 100% { transform: translateY(4px) rotate(-7deg); }
       50% { transform: translateY(-5px) rotate(-10deg); }
     }
-    .hero-card-center {
-      animation: heroCardFloat 7s ease-in-out infinite;
-    }
-    .hero-card-left {
-      animation: heroCardFloatLeft 8s ease-in-out infinite;
-    }
-    .hero-card-right {
-      animation: heroCardFloatRight 7.5s ease-in-out infinite;
-    }
+    .hero-card-center { animation: heroCardFloat 7s ease-in-out infinite; }
+    .hero-card-left { animation: heroCardFloatLeft 8s ease-in-out infinite; }
+    .hero-card-right { animation: heroCardFloatRight 7.5s ease-in-out infinite; }
 
     .gold-gradient-text {
       background: linear-gradient(135deg, #F7E8B5 0%, #D4AF37 48%, #E6B89C 100%);
@@ -327,7 +309,6 @@
       border: 1px solid rgba(212, 175, 55, 0.20);
     }
 
-    /* Screen Cross-Fade & Lift Transitions */
     .stage-panel {
       transition: opacity 0.65s var(--ease-luxury), transform 0.75s var(--ease-luxury);
     }
@@ -336,13 +317,7 @@
       transform: translateY(14px);
       pointer-events: none;
     }
-    .stage-exit-up {
-      opacity: 0;
-      transform: translateY(-18px) scale(0.98);
-      pointer-events: none;
-    }
 
-    /* Luxury Matte-Black Cardstock Texture & Double Hairline Gold Engraving */
     .luxury-card-back {
       background: linear-gradient(165deg, #16161B 0%, #101014 55%, #0D0D10 100%);
       border: 1px solid rgba(198, 168, 124, 0.38);
@@ -351,7 +326,6 @@
         inset 0 1px 0 rgba(255, 255, 255, 0.05);
       position: relative;
     }
-
     .luxury-card-back::before {
       content: "";
       position: absolute;
@@ -370,7 +344,6 @@
         inset 0 1px 0 rgba(229, 211, 174, 0.09);
       position: relative;
     }
-
     .luxury-card-front::before {
       content: "";
       position: absolute;
@@ -380,7 +353,6 @@
       pointer-events: none;
     }
 
-    /* Continuous Slow Diagonal Silk Sheen on Revealed Cards */
     @keyframes silkSheenContinuous {
       0% { transform: translateX(-160%) skewX(-22deg); opacity: 0; }
       20% { opacity: 0.28; }
@@ -403,7 +375,6 @@
       animation: silkSheenContinuous 6.5s var(--ease-luxury) 0.4s infinite;
     }
 
-    /* 3D Weighted Card Flip */
     .perspective-stage {
       perspective: 1400px;
     }
@@ -435,7 +406,6 @@
       transform: rotateY(180deg);
     }
 
-    /* Ceremonial Ribbon Cascade Deal */
     @keyframes ribbonDealIn {
       0% { opacity: 0; transform: translateY(28px) scale(0.94); }
       100% { opacity: 1; transform: translateY(var(--arc-y, 0px)) rotate(var(--arc-rot, 0deg)) scale(1); }
@@ -444,7 +414,6 @@
       animation: ribbonDealIn 0.75s var(--ease-luxury) var(--deal-delay, 0s) backwards;
     }
 
-    /* Unhurried Card-Stack Weave Shuffle Animation */
     @keyframes weaveLeft {
       0% { transform: translateX(0) rotate(0deg); }
       40% { transform: translateX(-38px) rotate(-7deg); }
@@ -457,29 +426,17 @@
       75% { transform: translateX(-7px) rotate(-1.5deg); }
       100% { transform: translateX(0) rotate(0deg); }
     }
-    .animate-weave-left {
-      animation: weaveLeft 0.95s var(--ease-luxury) forwards;
-    }
-    .animate-weave-right {
-      animation: weaveRight 0.95s var(--ease-luxury) forwards;
-    }
+    .animate-weave-left { animation: weaveLeft 0.95s var(--ease-luxury) forwards; }
+    .animate-weave-right { animation: weaveRight 0.95s var(--ease-luxury) forwards; }
 
-    /* Editorial Fade-Up Entrance */
     @keyframes editorialReveal {
-      from {
-        opacity: 0;
-        transform: translateY(16px);
-      }
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
+      from { opacity: 0; transform: translateY(16px); }
+      to { opacity: 1; transform: translateY(0); }
     }
     .editorial-enter {
       animation: editorialReveal 0.85s var(--ease-luxury) forwards;
     }
 
-    /* Contemplation / Thinking Pulse Ring */
     @keyframes oracleContemplateSpin {
       0% { transform: rotate(0deg) scale(0.96); opacity: 0.45; }
       50% { transform: rotate(180deg) scale(1.04); opacity: 0.9; }
@@ -489,14 +446,11 @@
       0%, 80%, 100% { transform: scale(0.65); opacity: 0.3; }
       40% { transform: scale(1.2); opacity: 1; }
     }
-    .oracle-thinking-ring {
-      animation: oracleContemplateSpin 5.5s linear infinite;
-    }
+    .oracle-thinking-ring { animation: oracleContemplateSpin 5.5s linear infinite; }
     .thinking-dot-1 { animation: oracleDotPulse 1.5s ease-in-out 0s infinite; }
     .thinking-dot-2 { animation: oracleDotPulse 1.5s ease-in-out 0.25s infinite; }
     .thinking-dot-3 { animation: oracleDotPulse 1.5s ease-in-out 0.5s infinite; }
 
-    /* Ribbon Card Magnetic Hover / Active Lift */
     .ribbon-card {
       transition: transform 0.42s var(--ease-luxury), border-color 0.35s ease, box-shadow 0.42s var(--ease-luxury), opacity 0.45s ease;
       will-change: transform;
@@ -512,7 +466,6 @@
       transform: translateY(-24px) scale(1.05) !important;
     }
 
-    /* Whisper Toast */
     @keyframes whisperToast {
       0% { opacity: 0; transform: translate(-50%, 10px); }
       15% { opacity: 1; transform: translate(-50%, 0); }
@@ -556,7 +509,6 @@
       </button>
 
       <div class="flex items-center gap-3.5">
-        <!-- Whisper-Quiet Tier / Card Count Badge (Visible in Altar) -->
         <div id="header-spread-selector" class="hidden items-center gap-2 text-[10px] uppercase tracking-[0.2em]">
           <button type="button" id="btn-mode-1" onclick="setSpreadCount(1)"
             class="py-0.5 text-[#8E8B84] hover:text-[#F3EFEA] transition-colors">
@@ -574,7 +526,6 @@
           </button>
         </div>
 
-        <!-- Whisper-Quiet Audio Toggle (Muted by default) -->
         <button type="button" id="btn-sound" onclick="toggleSound()" aria-label="Toggle subtle sound"
           class="p-1.5 text-[#8E8B84] hover:text-[#E8D38E] transition-colors">
           <svg id="icon-sound-off" class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4">
@@ -616,10 +567,8 @@
 
         <!-- Illuminated Three-Card Celestial Graphic Display -->
         <div class="stagger-2 relative h-[215px] flex items-center justify-center my-1">
-          <!-- Radiant Halo Behind Cards -->
           <div aria-hidden="true" class="absolute w-[230px] h-[230px] rounded-full bg-gradient-to-tr from-[#582B73]/30 via-[#D4AF37]/20 to-[#1E3A5F]/25 blur-2xl"></div>
 
-          <!-- Left Tilted Card: The Moon -->
           <div class="hero-card-left absolute -translate-x-[74px] w-[104px] h-[164px] rounded-[12px] luxury-card-front p-2.5 flex flex-col justify-between text-center opacity-90">
             <div class="flex justify-between text-[8px] font-serif text-[#D4AF37]/80"><span>XVIII</span><span>☾</span></div>
             <svg viewBox="0 0 100 94" fill="none" stroke="#D4AF37" stroke-width="1.2" class="w-12 h-12 mx-auto">
@@ -628,7 +577,6 @@
             <p class="font-serif text-[10px] tracking-wider text-[#F3EFEA]">The Moon</p>
           </div>
 
-          <!-- Right Tilted Card: The Sun -->
           <div class="hero-card-right absolute translate-x-[74px] w-[104px] h-[164px] rounded-[12px] luxury-card-front p-2.5 flex flex-col justify-between text-center opacity-90">
             <div class="flex justify-between text-[8px] font-serif text-[#D4AF37]/80"><span>XIX</span><span>☀</span></div>
             <svg viewBox="0 0 100 94" fill="none" stroke="#D4AF37" stroke-width="1.2" class="w-12 h-12 mx-auto">
@@ -637,7 +585,6 @@
             <p class="font-serif text-[10px] tracking-wider text-[#F3EFEA]">The Sun</p>
           </div>
 
-          <!-- Center Hero Card: The Star -->
           <div class="hero-card-center relative z-10 w-[124px] h-[196px] rounded-[14px] luxury-card-front silk-sheen p-3 flex flex-col justify-between text-center border-[#D4AF37]/75">
             <div class="flex justify-between items-center text-[9px] font-serif text-[#F2DF9B]">
               <span>XVII</span>
@@ -677,7 +624,6 @@
 
         <!-- Subtle Urgency & Social Proof Strip -->
         <div class="stagger-3 space-y-2.5">
-          <!-- Dedicated Trustpilot & Daily Availability Card -->
           <div class="rounded-xl px-4 py-3 bg-gradient-to-r from-[#13111A] via-[#171422] to-[#13111A] border border-[#D4AF37]/30 flex items-center justify-between gap-3">
             <div class="space-y-1">
               <div class="flex items-center gap-1.5">
@@ -705,7 +651,6 @@
             </div>
           </div>
 
-          <!-- Editorial "As Seen On" Credibility Strip -->
           <div class="rounded-xl px-3 py-2.5 bg-[#0E0D13]/80 border border-[#D4AF37]/15 text-center space-y-1.5">
             <p class="ancient-inscription text-[8px] uppercase text-[#98948C]">As Featured &amp; Seen On</p>
             <div class="flex items-center justify-center flex-wrap gap-x-3.5 gap-y-1 text-[#F2DF9B]/75">
@@ -720,14 +665,13 @@
           </div>
         </div>
 
-        <!-- Curated Reading Tiers (Conversion Showcase) -->
+        <!-- Curated Reading Tiers -->
         <div class="stagger-4 space-y-3.5">
           <div class="flex items-center justify-between px-1">
             <span class="text-[10px] uppercase tracking-[0.24em] text-[#D4AF37]">Choose Your Reading</span>
             <span class="text-[10px] font-light text-[#98948C]">Instant Access · No Subscription</span>
           </div>
 
-          <!-- Tier 1: Complimentary Single Card -->
           <button type="button" onclick="beginSessionWithTier('whisper', 1)"
             class="tier-card w-full text-left rounded-2xl p-4 flex items-center justify-between gap-3 group cursor-pointer">
             <div class="space-y-1 pointer-events-none">
@@ -742,7 +686,6 @@
             <span class="font-serif italic text-[17px] text-[#D4AF37] shrink-0 group-hover:translate-x-1 transition-transform pointer-events-none">Try Free →</span>
           </button>
 
-          <!-- Tier 2: Featured 3-Card Deep Spread -->
           <button type="button" onclick="beginSessionWithTier('crossroads', 3)"
             class="tier-card tier-card-featured w-full text-left rounded-2xl p-4 flex items-center justify-between gap-3 group relative overflow-hidden cursor-pointer">
             <div class="space-y-1.5 pointer-events-none">
@@ -761,7 +704,6 @@
             </div>
           </button>
 
-          <!-- Tier 3: Sovereign 5-Card Grand Spread -->
           <button type="button" onclick="beginSessionWithTier('sovereign', 5)"
             class="tier-card w-full text-left rounded-2xl p-4 flex items-center justify-between gap-3 group cursor-pointer">
             <div class="space-y-1.5 pointer-events-none">
@@ -792,7 +734,6 @@
           </div>
 
           <div class="space-y-2.5">
-            <!-- Review 1 -->
             <div class="rounded-2xl p-3.5 bg-gradient-to-br from-[#15131D] to-[#0E0D13] border border-[#D4AF37]/25 space-y-2">
               <div class="flex items-center justify-between">
                 <div class="flex items-center gap-0.5">
@@ -816,7 +757,6 @@
               </div>
             </div>
 
-            <!-- Review 2 -->
             <div class="rounded-2xl p-3.5 bg-gradient-to-br from-[#15131D] to-[#0E0D13] border border-[#D4AF37]/25 space-y-2">
               <div class="flex items-center justify-between">
                 <div class="flex items-center gap-0.5">
@@ -869,11 +809,9 @@
           </h2>
         </div>
 
-        <!-- Editorial Hairline Underlined Input -->
         <form id="question-form" onsubmit="handleQuestionSubmit(event)" class="stagger-2 space-y-6">
           <div class="sanctuary-input-wrap pb-3 pt-1">
             <div class="relative min-h-[68px] flex items-center justify-center">
-              <!-- Cycling Placeholder Overlay -->
               <p id="cycling-placeholder"
                 aria-hidden="true"
                 class="cycling-placeholder pointer-events-none absolute inset-x-2 text-center font-serif italic text-[22px] text-[#8E8B84]/65 leading-snug">
@@ -892,7 +830,6 @@
             </div>
           </div>
 
-          <!-- Whisper-Quiet Topic Inspiration Pills -->
           <div class="stagger-3 space-y-2.5">
             <p class="text-center ancient-inscription text-[9px] uppercase text-[#98948C]">
               Select Your Genre
@@ -917,7 +854,6 @@
             </div>
           </div>
 
-          <!-- Illuminating Action Button -->
           <div class="stagger-4 pt-2 flex justify-center">
             <button id="btn-consult" type="submit"
               class="consult-btn rounded-full px-7 py-3 text-[11px] uppercase tracking-[0.24em] font-medium cursor-pointer">
@@ -932,7 +868,6 @@
       <!-- ===================================================================== -->
       <section id="altar-view" class="hidden stage-panel stage-hidden flex-1 flex flex-col justify-between">
 
-        <!-- User's Exact Typed Question Banner (Glides into focal position) -->
         <div id="active-question-banner" class="text-center pt-1 pb-3 space-y-1.5 transition-all duration-700">
           <div class="flex items-center justify-center gap-2">
             <span id="active-theme-tag" class="text-[9px] uppercase tracking-[0.24em] text-[#D4AF37]/80">
@@ -978,7 +913,7 @@
           </div>
         </div>
 
-        <!-- Editorial Reading Output (Unfurls calmly once contemplation completes) -->
+        <!-- Editorial Reading Output -->
         <div id="reading-editorial" class="hidden editorial-enter pt-3 pb-2 space-y-6">
           <!-- Populated dynamically -->
         </div>
@@ -989,7 +924,6 @@
             Draw three cards — The Current, The Hidden, The Guidance
           </p>
 
-          <!-- Weave Shuffle Visual Overlay -->
           <div id="weave-stage" class="hidden h-[132px] flex items-center justify-center relative">
             <div class="animate-weave-left absolute w-[64px] h-[106px] rounded-[10px] luxury-card-back flex items-center justify-center">
               <svg class="w-5 h-5 text-[#C6A87C]/60" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1">
@@ -1003,12 +937,10 @@
             </div>
           </div>
 
-          <!-- Horizontal Weighted 78-Card Ribbon -->
           <div id="deck-ribbon" class="relative flex items-end overflow-x-auto no-scrollbar pt-6 pb-2 px-4 min-h-[132px] select-none cursor-grab active:cursor-grabbing">
             <!-- 78 Cards injected via JS -->
           </div>
 
-          <!-- Whisper-Quiet Shuffle Action -->
           <div class="flex justify-center pt-0.5">
             <button type="button" id="btn-shuffle" onclick="triggerWeaveShuffle()"
               class="text-[10px] uppercase tracking-[0.24em] text-[#8E8B84] hover:text-[#E5D3AE] py-1.5 px-4 transition-colors">
@@ -1031,13 +963,11 @@
     <!-- ===================================================================== -->
     <div id="paywall-modal" class="hidden fixed inset-0 z-50 flex items-end sm:items-center justify-center bg-black/80 backdrop-blur-md p-0 sm:p-4 transition-opacity duration-300">
       <div class="relative w-full max-w-[460px] rounded-t-3xl sm:rounded-3xl bg-gradient-to-b from-[#1A1525] via-[#121118] to-[#0B0B0F] border-t sm:border border-[#D4AF37]/45 p-6 pb-8 space-y-5 shadow-2xl editorial-enter">
-        <!-- Close Button -->
         <button type="button" onclick="closePaywallModal()" aria-label="Close checkout"
           class="absolute top-4 right-4 w-8 h-8 rounded-full border border-[#D4AF37]/25 bg-[#16151E] text-[#98948C] hover:text-[#F3EFEA] flex items-center justify-center text-sm">
           ✕
         </button>
 
-        <!-- Header -->
         <div class="text-center space-y-1.5 pt-1">
           <span class="ancient-inscription text-[9.5px] uppercase text-[#D4AF37]">✦ Private Oracle Unlock ✦</span>
           <h3 id="paywall-tier-title" class="ancient-title text-[24px] text-[#F3EFEA]">The Crossroads Triad</h3>
@@ -1046,7 +976,6 @@
           </p>
         </div>
 
-        <!-- Price & Guarantee Summary Card -->
         <div class="rounded-2xl p-4 bg-[#0D0C12]/90 border border-[#D4AF37]/25 flex items-center justify-between">
           <div class="space-y-0.5">
             <p class="font-serif text-[15px] text-[#F2DF9B]">One-Time Reading Pass</p>
@@ -1058,7 +987,6 @@
           </div>
         </div>
 
-        <!-- Apple Pay Primary Button -->
         <div class="space-y-3">
           <button type="button" id="btn-apple-pay" onclick="processPaywallCheckout('apple_pay')"
             class="w-full h-[50px] rounded-xl bg-white text-black font-sans font-semibold text-[17px] tracking-tight flex items-center justify-center gap-1.5 shadow-lg hover:bg-neutral-100 active:scale-[0.99] transition-all">
@@ -1068,27 +996,23 @@
             <span>Pay</span>
           </button>
 
-          <!-- Divider -->
           <div class="flex items-center gap-3 text-[10px] uppercase tracking-[0.2em] text-[#98948C]">
             <span class="flex-1 h-px bg-[#D4AF37]/15"></span>
             <span>Or Pay With Card</span>
             <span class="flex-1 h-px bg-[#D4AF37]/15"></span>
           </div>
 
-          <!-- Express Card / Stripe Checkout Button -->
           <button type="button" id="btn-card-pay" onclick="processPaywallCheckout('card')"
             class="w-full h-[48px] rounded-xl bg-gradient-to-r from-[#F2DF9B] to-[#D4AF37] text-[#0A0A0C] font-serif font-semibold text-[14px] uppercase tracking-[0.16em] flex items-center justify-center gap-2 shadow-lg hover:brightness-105 active:scale-[0.99] transition-all">
             <span>Unlock Reading · <span id="paywall-btn-amount">$0.99</span></span>
           </button>
         </div>
 
-        <!-- Processing Indicator -->
         <div id="paywall-processing" class="hidden text-center py-2 space-y-1.5">
           <div class="w-5 h-5 mx-auto rounded-full border-2 border-[#D4AF37] border-t-transparent animate-spin"></div>
           <p id="paywall-status-msg" class="text-[12px] text-[#F2DF9B] tracking-wide">Authorizing Apple Pay…</p>
         </div>
 
-        <!-- Trust Footer -->
         <div class="text-center space-y-1 pt-1 border-t border-[#D4AF37]/15">
           <p class="text-[10.5px] text-[#98948C] flex items-center justify-center gap-1.5">
             <span>🔒 Encrypted via Stripe &amp; Apple Pay</span>
@@ -1106,550 +1030,522 @@
     // 1. CONSULTATION TIERS, STRIPE PAYMENT LINKS & INTENT ENGINE
     // =========================================================================
     const SITE_BASE_URL = 'https://arcana-one-gules.vercel.app';
-    const GEMINI_API_KEY = ''; // Automatically injected in Canvas; optional Google AI Studio key for live Vercel
+    // Your live Google AI Studio Gemini API key:
+    const GEMINI_API_KEY = 'AQ.Ab8RN6LT0fPTYbr_KnORfa99On-geBB9eHxihk1_pKOEvU9SXw';
     const STRIPE_PAYMENT_LINKS = {
       crossroads: 'https://buy.stripe.com/cNiaEX98GdXN4B1f2BcV200', // $0.99 3-Card Crossroads Triad
       sovereign: 'https://buy.stripe.com/aFaeVd3Om4nd1oPaMlcV201'   // $1.99 5-Card Sovereign Crucible
     };
 
-    const TIER_CATALOG = {
+    const TIERS = {
       whisper: {
+        id: 'whisper',
         name: 'The Daily Omen',
         count: 1,
-        price: 'Free',
-        origPrice: '',
+        priceLabel: 'Complimentary',
+        origPrice: '$1.99',
         desc: '1-card quick check to test the oracle on your question.'
       },
       crossroads: {
+        id: 'crossroads',
         name: 'The Crossroads Triad',
         count: 3,
-        price: '$0.99',
+        priceLabel: '$0.99',
         origPrice: '$4.99',
-        desc: '3-card deep spread (Current · Hidden · Guidance) + 3 Hidden Omens & crystal alignment.'
+        desc: '3-card deep spread + 3 sealed Hidden Omens & personalized crystal alignment.'
       },
       sovereign: {
+        id: 'sovereign',
         name: 'The Sovereign Crucible',
         count: 5,
-        price: '$1.99',
+        priceLabel: '$1.99',
         origPrice: '$7.99',
-        desc: 'Full 5-card destiny map (Heart, Obstacle, Subconscious, Trajectory & Outcome) + 5 Hidden Omens.'
+        desc: 'Full 5-card fate blueprint + 5 sealed Hidden Omens & crystal prescription.'
       }
     };
 
-    const THREE_CARD_POSITIONS = ['The Current', 'The Hidden', 'The Guidance'];
-    const FIVE_CARD_POSITIONS = ['The Heart', 'The Obstacle', 'The Subconscious', 'The Trajectory', 'The Outcome'];
-
-    const CYCLING_PLACEHOLDERS = [
+    const CYCLING_PROMPTS = [
       'Will this connection grow into something real?',
-      'Will they reach out or come back to me?',
-      'Is this career path going to reward my effort?',
-      'Should I stay where I am or take the leap?',
-      'What am I not seeing clearly right now?'
+      'What is silently blocking my next career leap?',
+      'Should I stay and rebuild, or walk away now?',
+      'What truth am I avoiding right now?',
+      'Where will my courage lead over the next 90 days?'
     ];
-
-    const TOPIC_SAMPLES = {
-      love: 'Will they come back to me or is this chapter closing?',
-      career: 'What is the next breakthrough waiting for me in my career?',
-      decision: 'Should I stay on my current path or make a bold change?',
-      clarity: 'What truth do I need to see clearly right now?'
-    };
 
     const INTENT_PROFILES = {
       love: {
         label: 'Love & Exes',
-        positionIntros: {
-          'The Answer': 'Looking straight into the heart of your connection, ',
-          'The Current': 'Where things stand between you right now, ',
-          'The Hidden': 'Beneath the surface of what is being said or left silent, ',
-          'The Guidance': 'For your heart’s wisest next move, ',
-          'The Heart': 'At the emotional center of this bond, ',
-          'The Obstacle': 'What is creating distance or hesitation between you, ',
-          'The Subconscious': 'What both of you are quietly feeling underneath, ',
-          'The Trajectory': 'Where this connection is naturally heading next, ',
-          'The Outcome': 'The clearest long-term truth for your love life is that '
-        },
-        suitLens: {
-          Major: 'This marks a major turning point in how you give and receive love.',
-          Cups: 'Emotions run deep here—pay close attention to sincerity over surface words.',
-          Wands: 'Chemistry and attraction are unmistakable, though steady consistency matters most.',
-          Swords: 'Honest communication will cut through any lingering doubt or mixed signals.',
-          Pentacles: 'Real commitment shows up through dependable actions, not just promises.'
-        }
+        crystal: 'Rose Quartz & Moonstone',
+        elementalNote: 'Heart-center vulnerability & emotional reciprocity',
+        verb: 'within your romantic connection',
+        guidanceVerb: 'open your heart without abandoning your self-worth',
+        omenTemplates: [
+          'Notice how they act when things are quiet, not just when they miss you—that is their true level of commitment.',
+          'Before your next conversation with them, decide what you actually need so you do not settle for breadcrumbs.',
+          'An unspoken feeling between you two is close to surfacing; let them meet you halfway.'
+        ]
       },
       career: {
         label: 'Career & Money',
-        positionIntros: {
-          'The Answer': 'Looking directly at your work and money path, ',
-          'The Current': 'In your current work situation, ',
-          'The Hidden': 'Behind the scenes of this opportunity or workplace, ',
-          'The Guidance': 'To unlock your strongest career momentum, ',
-          'The Heart': 'At the core of your ambition right now, ',
-          'The Obstacle': 'What has been slowing down your recognition or growth, ',
-          'The Subconscious': 'Your deeper mindset around worth and success shows that ',
-          'The Trajectory': 'As your efforts compound over the coming weeks, ',
-          'The Outcome': 'Where this career chapter leads is clear: '
-        },
-        suitLens: {
-          Major: 'A defining career shift is lining up with what you actually want.',
-          Wands: 'Bold initiative and visibility give you the edge right now.',
-          Cups: 'Choose work that genuinely energizes you rather than draining your spirit.',
-          Swords: 'Clear strategy and honest negotiation put you in a strong position.',
-          Pentacles: 'Steady execution and smart money habits build lasting security.'
-        }
+        crystal: 'Citrine & Tiger’s Eye',
+        elementalNote: 'Solar-plexus authority & strategic momentum',
+        verb: 'across your work and finances',
+        guidanceVerb: 'claim your value boldly without waiting for permission',
+        omenTemplates: [
+          'Someone in a position to open a door is quietly watching how you handle your current responsibilities.',
+          'Do not undersell your time or talent this month—the right opportunity respects clear boundaries.',
+          'A delay you are frustrated about right now is protecting you from a dead-end commitment.'
+        ]
       },
       decision: {
         label: 'Life Choice',
-        positionIntros: {
-          'The Answer': 'Weighing the crossroads in front of you, ',
-          'The Current': 'Looking at the choice right as it stands today, ',
-          'The Hidden': 'The factor you haven’t fully weighed yet shows that ',
-          'The Guidance': 'The clearest compass for your decision is that ',
-          'The Heart': 'What your gut already leans toward is clear: ',
-          'The Obstacle': 'What has been keeping you torn between options is that ',
-          'The Subconscious': 'Beneath the pros and cons list, ',
-          'The Trajectory': 'Once you commit to a direction, ',
-          'The Outcome': 'Stepping forward with conviction leads here: '
-        },
-        suitLens: {
-          Major: 'Whichever door you choose shapes your next big chapter—choose without fear.',
-          Wands: 'Pick the path that sparks genuine energy rather than obligation.',
-          Cups: 'Honor the choice that brings emotional peace when you picture living with it.',
-          Swords: 'Strip away outside noise and look objectively at the facts.',
-          Pentacles: 'Favor the option with solid, sustainable long-term footing.'
-        }
+        crystal: 'Labradorite & Amethyst',
+        elementalNote: 'Third-eye discernment & sovereign choice',
+        verb: 'at this crossroads',
+        guidanceVerb: 'choose the path that expands your peace rather than your fear',
+        omenTemplates: [
+          'If you remove everyone else’s opinion from the room, you already know which option feels like relief.',
+          'You do not need the entire five-year map today—only the courage to take the very next honest step.',
+          'Notice which option makes your body feel lighter versus tight in your chest; your intuition already voted.'
+        ]
       },
       clarity: {
         label: 'Inner Clarity',
-        positionIntros: {
-          'The Answer': 'Looking directly at what is surrounding you, ',
-          'The Current': 'In your immediate present, ',
-          'The Hidden': 'What has been operating quietly beneath the surface is that ',
-          'The Guidance': 'Your clearest anchor right now is that ',
-          'The Heart': 'At the center of what you are navigating, ',
-          'The Obstacle': 'The main source of friction right now is that ',
-          'The Subconscious': 'What your deeper gut instinct is trying to tell you is that ',
-          'The Trajectory': 'As the dust begins to settle, ',
-          'The Outcome': 'The truth emerging from this situation is that '
-        },
-        suitLens: {
-          Major: 'You are moving through an important personal turning point.',
-          Wands: 'Trust your forward spark and reclaim your momentum.',
-          Cups: 'Give yourself space to process what you genuinely feel.',
-          Swords: 'Clarity arrives the moment you stop over-explaining what you already know.',
-          Pentacles: 'Focus on simple, grounded daily habits that restore your calm.'
-        }
+        crystal: 'Clear Quartz & Selenite',
+        elementalNote: 'Crown stillness & subconscious truth',
+        verb: 'beneath the surface of your situation',
+        guidanceVerb: 'trust the quiet truth you already feel in your gut',
+        omenTemplates: [
+          'Stop trying to force an immediate answer—within 72 hours, a small detail will make everything obvious.',
+          'You are carrying responsibility for someone else’s emotions; set that weight down today.',
+          'What feels like uncertainty right now is actually your old chapter clearing space for a cleaner start.'
+        ]
       }
     };
 
-    function detectQuestionIntent(questionText) {
-      const q = (questionText || '').toLowerCase();
-      if (/\b(love|heart|relationship|partner|crush|ex|marriage|dating|soulmate|feelings|us|him|her|they)\b/.test(q)) {
-        return 'love';
-      }
-      if (/\b(career|job|work|business|money|finance|promotion|study|exam|project|company|startup|purpose)\b/.test(q)) {
-        return 'career';
-      }
-      if (/\b(should i|choose|choice|decision|decide|leave|stay|move|when|timing|path|option)\b/.test(q)) {
-        return 'decision';
-      }
-      return 'clarity';
-    }
-
-    // =========================================================================
-    // 2. COMPLETE 78-CARD DECK DATA & MINIMALIST SVG ENGRAVINGS
-    // =========================================================================
-    const MAJOR_ENGRAVINGS = [
-      '<circle cx="50" cy="46" r="24" stroke-dasharray="2 4"/><path d="M50 18v12M38 46h24M50 62v12"/><circle cx="50" cy="36" r="4"/>',
-      '<path d="M50 20c-8 0-12 5-12 9s4 9 12 9 12-5 12-9-4-9-12-9z"/><line x1="50" y1="45" x2="50" y2="76"/><circle cx="50" cy="45" r="2.5"/>',
-      '<path d="M36 22v52M64 22v52"/><path d="M54 34a14 14 0 1 0 0 26 11 11 0 1 1 0-26z"/>',
-      '<polygon points="50,20 74,66 26,66"/><circle cx="50" cy="49" r="9"/>',
-      '<rect x="30" y="26" width="40" height="40" rx="2"/><path d="M50 18v56M22 46h56"/>',
-      '<path d="M50 18v58M36 32h28M40 46h20"/>',
-      '<circle cx="42" cy="46" r="16"/><circle cx="58" cy="46" r="16"/>',
-      '<rect x="30" y="34" width="40" height="28"/><circle cx="38" cy="68" r="5"/><circle cx="62" cy="68" r="5"/><path d="M50 18v16"/>',
-      '<path d="M34 46c0-7 6-11 16 0s16 7 16 0-6-11-16 0-16 7-16 0z"/><circle cx="50" cy="46" r="25" stroke-dasharray="1 5"/>',
-      '<polygon points="50,20 66,46 50,72 34,46"/><circle cx="50" cy="46" r="4"/>',
-      '<circle cx="50" cy="46" r="25"/><circle cx="50" cy="46" r="12"/><path d="M50 21v50M25 46h50M32 28l36 36M68 28L32 64"/>',
-      '<path d="M50 20v54M28 34h44"/><polygon points="28,34 22,50 34,50"/><polygon points="72,34 66,50 78,50"/>',
-      '<path d="M32 24h36M50 24v34"/><polygon points="50,58 38,42 62,42"/>',
-      '<path d="M56 24a22 22 0 1 0 0 46 16 16 0 1 1 0-46z"/><circle cx="34" cy="47" r="2"/>',
-      '<polygon points="50,22 70,56 30,56"/><polygon points="50,72 70,38 30,38"/>',
-      '<polygon points="50,68 28,28 72,28"/><circle cx="50" cy="44" r="6"/>',
-      '<path d="M38 72V34l12-10 12 10v38"/><path d="M32 34l8 6M68 26l-10 8"/>',
-      '<polygon points="50,18 55,39 76,39 59,51 65,72 50,59 35,72 41,51 24,39 45,39"/>',
-      '<path d="M58 23a22 22 0 1 0 0 44 17 17 0 1 1 0-44z"/><path d="M28 73q11-5 22 0t22 0"/>',
-      '<circle cx="50" cy="46" r="14"/><path d="M50 18v8M50 66v8M22 46h8M70 46h8M30 26l6 6M64 60l6 6M70 26l-6 6M36 60l-6 6"/>',
-      '<polygon points="34,26 66,26 50,56"/><path d="M28 66q22-8 44 0"/>',
-      '<ellipse cx="50" cy="46" rx="22" ry="27"/><circle cx="50" cy="46" r="4"/>'
-    ];
-
-    const SUIT_ENGRAVINGS = {
-      Wands: '<line x1="50" y1="18" x2="50" y2="76"/><path d="M50 28l8-7M50 42l-8-7M50 56l8-7"/>',
-      Cups: '<path d="M32 28h36c0 17-8 25-18 25s-18-8-18-25z"/><line x1="50" y1="53" x2="50" y2="72"/><line x1="36" y1="72" x2="64" y2="72"/>',
-      Swords: '<line x1="50" y1="16" x2="50" y2="76"/><line x1="34" y1="58" x2="66" y2="58"/><polygon points="50,16 46,24 54,24"/>',
-      Pentacles: '<circle cx="50" cy="46" r="24"/><polygon points="50,24 56,41 73,41 59,51 64,67 50,57 36,67 41,51 27,41 44,41"/>'
+    const SPREAD_POSITIONS = {
+      1: [{ title: 'The Omen', subtitle: 'What you need to know right now' }],
+      3: [
+        { title: 'I · The Current', subtitle: 'Where things stand right now' },
+        { title: 'II · The Hidden', subtitle: 'What is happening beneath the surface' },
+        { title: 'III · The Guidance', subtitle: 'Your best next move' }
+      ],
+      5: [
+        { title: 'I · The Heart', subtitle: 'The true core of your question' },
+        { title: 'II · The Obstacle', subtitle: 'What is getting in the way' },
+        { title: 'III · The Subconscious', subtitle: 'What your gut already senses' },
+        { title: 'IV · The Trajectory', subtitle: 'Where things are heading next' },
+        { title: 'V · The Outcome', subtitle: 'The clearest resolution ahead' }
+      ]
     };
 
-    const CARD_BACK_ENGRAVING = `
-      <svg viewBox="0 0 80 120" fill="none" stroke="currentColor" stroke-width="0.7" class="w-9 h-14 text-[#D4AF37]/45">
-        <circle cx="40" cy="60" r="22" />
-        <circle cx="40" cy="60" r="14" stroke-dasharray="1.5 3" />
-        <polygon points="40,34 62,72 18,72" />
-        <polygon points="40,86 62,48 18,48" />
-        <circle cx="40" cy="60" r="2.5" fill="currentColor" />
-      </svg>
-    `;
-
+    // =========================================================================
+    // 2. COMPLETE 78-CARD TAROT ARCHETYPE LIBRARY
+    // =========================================================================
     const MAJOR_ARCANA = [
-      { num: '0', name: 'The Fool', kwUp: ['Beginnings', 'Leap of Faith', 'Openness'], kwRev: ['Hesitation', 'Recklessness', 'Holding Back'], upright: 'A fresh chapter is opening in front of you. Even if you cannot see every step yet, stepping forward with curiosity will teach you more than waiting on the sidelines.', reversed: 'You may be stalling out of fear of making the wrong move, or rushing ahead without thinking through the basics. Pause and check your footing first.' },
-      { num: 'I', name: 'The Magician', kwUp: ['Resourcefulness', 'Skill', 'Action'], kwRev: ['Scattered Focus', 'Self-Doubt', 'Mixed Signals'], upright: 'You already have the tools, voice, and timing you need to make something real happen. Stop waiting for permission and take the first deliberate step.', reversed: 'Your energy is split in too many directions right now, or someone around you isn’t being completely straightforward. Focus on one clear priority.' },
-      { num: 'II', name: 'The High Priestess', kwUp: ['Intuition', 'Patience', 'Inner Knowing'], kwRev: ['Overthinking', 'Ignoring Gut Instinct', 'Secrets'], upright: 'Quiet down the noise around you—your gut already knows what is true here. Give this situation a little breathing room before you react.', reversed: 'You’ve been talking yourself out of what you quietly know is true. Stop asking everyone else for opinions and listen to your own instinct.' },
-      { num: 'III', name: 'The Empress', kwUp: ['Abundance', 'Care', 'Growth'], kwRev: ['Depletion', 'People-Pleasing', 'Stagnation'], upright: 'Something you’ve been putting care and patience into is ready to grow. Let yourself receive support instead of always doing the heavy lifting.', reversed: 'You’ve been pouring energy into everyone else while leaving yourself running on empty. Pull back and take care of your own needs first.' },
-      { num: 'IV', name: 'The Emperor', kwUp: ['Structure', 'Boundaries', 'Stability'], kwRev: ['Rigidity', 'Control', 'Stubbornness'], upright: 'Clear boundaries and a practical plan will bring calm to this situation. Stand firm on what you value and keep things simple and structured.', reversed: 'Trying to force an outcome or refusing to compromise is creating unnecessary tension. Loosen your grip and focus only on what you can control.' },
-      { num: 'V', name: 'The Hierophant', kwUp: ['Tradition', 'Guidance', 'Shared Values'], kwRev: ['Breaking Rules', 'Independence', 'New Path'], upright: 'There is value in tried-and-tested advice or leaning on someone whose wisdom you genuinely trust. Align your actions with your core values.', reversed: 'The conventional path or what others expect of you no longer fits. Give yourself permission to do things on your own terms.' },
-      { num: 'VI', name: 'The Lovers', kwUp: ['Alignment', 'Mutual Choice', 'Connection'], kwRev: ['Misalignment', 'Indecision', 'Mixed Priorities'], upright: 'This comes down to an honest choice of the heart. When both people show up with sincerity, the connection feels natural rather than forced.', reversed: 'Something feels out of sync between what you say you want and what you’re actually choosing. Be honest with yourself before committing.' },
-      { num: 'VII', name: 'The Chariot', kwUp: ['Momentum', 'Determination', 'Direction'], kwRev: ['Burnout', 'Lack of Direction', 'Forcing It'], upright: 'Once you commit to one clear direction, momentum builds quickly. Stay focused, keep your cool, and don’t let minor distractions pull you off course.', reversed: 'You’re pushing hard without a clear destination, which is leaving you drained. Slow down and make sure you’re heading somewhere you actually want to go.' },
-      { num: 'VIII', name: 'Strength', kwUp: ['Quiet Courage', 'Patience', 'Composure'], kwRev: ['Self-Doubt', 'Impatience', 'Emotional Fatigue'], upright: 'Real strength here doesn’t look like forcing your way through—it looks like staying calm, steady, and compassionate even when things feel uncertain.', reversed: 'You’re being harder on yourself than anyone else is. Give yourself grace today instead of expecting yourself to have everything figured out.' },
-      { num: 'IX', name: 'The Hermit', kwUp: ['Reflection', 'Solitude', 'Clarity'], kwRev: ['Isolation', 'Avoiding Truth', 'Over-Withdrawal'], upright: 'Stepping back from the crowd for a few days will give you the exact perspective you’ve been missing. The answer becomes obvious in quiet space.', reversed: 'Taking space is healthy, but shutting people out completely is keeping you stuck in your own head. Let one trusted person in.' },
-      { num: 'X', name: 'Wheel of Fortune', kwUp: ['Turning Point', 'Timing', 'Momentum Shift'], kwRev: ['Temporary Delay', 'Resisting Change', 'Repeated Pattern'], upright: 'The tide is turning in your favor. Stay adaptable—an unexpected shift or conversation is about to move things forward.', reversed: 'Things may feel temporarily stalled, or you’re noticing an old pattern repeating itself. Use this pause to respond differently this time.' },
-      { num: 'XI', name: 'Justice', kwUp: ['Fairness', 'Truth', 'Accountability'], kwRev: ['Unfairness', 'Avoidance', 'Imbalance'], upright: 'Look at the plain facts without sugarcoating them. Honest communication and fair balance will set this right.', reversed: 'Something here feels one-sided or unresolved. Be honest about where the give-and-take has fallen out of balance.' },
-      { num: 'XII', name: 'The Hanged Man', kwUp: ['Pause', 'New Perspective', 'Surrender'], kwRev: ['Stalling', 'Frustration', 'Pointless Delay'], upright: 'Waiting isn’t wasted time right now—looking at this from a completely different angle will reveal an option you hadn’t noticed.', reversed: 'You’ve been sitting in limbo long enough. Stop waiting for someone else to make the first move and decide what works for you.' },
-      { num: 'XIII', name: 'Death', kwUp: ['Closure', 'Transformation', 'Clean Slate'], kwRev: ['Clinging', 'Fear of Change', 'Unfinished Business'], upright: 'Something that has run its natural course is ending so a healthier chapter can begin. Letting go cleanly frees up your energy immediately.', reversed: 'Holding onto something out of habit or fear of the unknown is keeping you from moving forward. Release what is already over.' },
-      { num: 'XIV', name: 'Temperance', kwUp: ['Balance', 'Patience', 'Steady Progress'], kwRev: ['Imbalance', 'Rushing', 'All-or-Nothing'], upright: 'You don’t need an extreme reaction right now. Steady, patient pacing and meeting in the middle will bring the calmest, best outcome.', reversed: 'Swinging between all-or-nothing extremes is creating unnecessary stress. Step back and restore a calmer rhythm to your days.' },
-      { num: 'XV', name: 'The Devil', kwUp: ['Attachment', 'Temptation', 'Shadow Pattern'], kwRev: ['Breaking Free', 'Awareness', 'Reclaiming Power'], upright: 'Notice where habit, fear, or instant gratification is keeping you tied to something that doesn’t actually feel good long-term.', reversed: 'You’re finally seeing an unhealthy dynamic clearly—and that awareness is all you need to step out of it cleanly.' },
-      { num: 'XVI', name: 'The Tower', kwUp: ['Sudden Truth', 'Breakthrough', 'Clearing Air'], kwRev: ['Bracing Against Change', 'Delayed Truth', 'Aftershock'], upright: 'A sudden realization or honest conversation shakes up what wasn’t built on solid ground—clearing the way for something far more real.', reversed: 'You can feel that something needs to change, even if you’ve been trying to keep the peace. Facing the truth gently now avoids a bigger upheaval later.' },
-      { num: 'XVII', name: 'The Star', kwUp: ['Hope', 'Renewal', 'Quiet Confidence'], kwRev: ['Discouragement', 'Low Faith', 'Emotional Fatigue'], upright: 'After a heavy stretch, things are finally beginning to soften and heal. Trust that you are moving in the right direction, even if progress feels gentle.', reversed: 'You’re feeling worn down and questioning whether things will work out. Be gentle with yourself—clarity and optimism are closer than they feel today.' },
-      { num: 'XVIII', name: 'The Moon', kwUp: ['Uncertainty', 'Subconscious', 'Sensitivity'], kwRev: ['Clarity Emerging', 'Facing Fears', 'Truth Surfaced'], upright: 'Not everything is visible yet, so avoid jumping to worst-case conclusions in the dark. Pay attention to subtle cues and give facts time to surface.', reversed: 'The fog is starting to lift. Something that felt confusing or anxious is beginning to make sense in the light of day.' },
-      { num: 'XIX', name: 'The Sun', kwUp: ['Warmth', 'Clarity', 'Joy'], kwRev: ['Clouded Joy', 'Overthinking Good News', 'Delayed Warmth'], upright: 'This is one of the brightest cards you can draw—expect honesty, warmth, and clear forward momentum. Let yourself enjoy what is going right.', reversed: 'Good things are still here, even if stress or self-doubt is dimming your view of them. Don’t talk yourself out of something genuinely positive.' },
-      { num: 'XX', name: 'Judgement', kwUp: ['Awakening', 'Clarity Call', 'Fresh Chapter'], kwRev: ['Self-Criticism', 'Second-Guessing', 'Looking Back'], upright: 'You can’t unsee what you now know. Trust the realization you’ve reached and step forward without apologizing for growing.', reversed: 'Stop replaying past mistakes or second-guessing your choices. Forgive yourself for what you didn’t know back then and look ahead.' },
-      { num: 'XXI', name: 'The World', kwUp: ['Completion', 'Fulfillment', 'Integration'], kwRev: ['Loose Ends', 'Almost There', 'Closure Needed'], upright: 'A meaningful cycle is coming full circle. Take pride in how far you’ve come—you are ready for the next level.', reversed: 'You’re right near the finish line, but one small loose end still needs honest closure before you can fully move on.' }
+      { id: 'maj-0', numeral: '0', name: 'The Fool', upright: 'fresh beginnings, taking a leap of faith, open-hearted curiosity', reversed: 'rushing in blindly, avoiding responsibility, second-guessing yourself', motif: 'sun-arc' },
+      { id: 'maj-1', numeral: 'I', name: 'The Magician', upright: 'having everything you need, taking initiative, turning intention into reality', reversed: 'mixed signals, holding back your talent, scattered energy', motif: 'infinity' },
+      { id: 'maj-2', numeral: 'II', name: 'The High Priestess', upright: 'strong gut intuition, unspoken truths, waiting for things to reveal themselves', reversed: 'ignoring your intuition, secrets coming out, overthinking', motif: 'crescent' },
+      { id: 'maj-3', numeral: 'III', name: 'The Empress', upright: 'warmth, emotional abundance, nurturing growth and attraction', reversed: 'over-giving until drained, feeling neglected, creative block', motif: 'crown-star' },
+      { id: 'maj-4', numeral: 'IV', name: 'The Emperor', upright: 'stability, clear boundaries, stepping into authority and structure', reversed: 'stubbornness, control issues, rigidity blocking connection', motif: 'pillars' },
+      { id: 'maj-5', numeral: 'V', name: 'The Hierophant', upright: 'commitment, shared values, trusted guidance and traditional paths', reversed: 'breaking free from expectations, doing things your own way', motif: 'keys' },
+      { id: 'maj-6', numeral: 'VI', name: 'The Lovers', upright: 'mutual attraction, an important choice from the heart, deep alignment', reversed: 'emotional misalignment, avoiding a hard choice, mixed priorities', motif: 'twin-stars' },
+      { id: 'maj-7', numeral: 'VII', name: 'The Chariot', upright: 'fast forward momentum, determination, overcoming obstacles through focus', reversed: 'feeling pulled in two directions, forcing an outcome too soon', motif: 'compass' },
+      { id: 'maj-8', numeral: 'VIII', name: 'Strength', upright: 'calm confidence, patience, winning through warmth rather than force', reversed: 'self-doubt, quiet burnout, reacting out of frustration', motif: 'lion-sun' },
+      { id: 'maj-9', numeral: 'IX', name: 'The Hermit', upright: 'taking space to think, inner clarity, stepping back from noise', reversed: 'isolating yourself too long, avoiding an honest conversation', motif: 'lantern' },
+      { id: 'maj-10', numeral: 'X', name: 'Wheel of Fortune', upright: 'a sudden turning point, luck shifting in your favor, timely change', reversed: 'temporary delays, repeating an old pattern, resisting change', motif: 'wheel' },
+      { id: 'maj-11', numeral: 'XI', name: 'Justice', upright: 'fairness, honest truth, getting what you genuinely deserve', reversed: 'unfairness, avoiding accountability, things feeling out of balance', motif: 'scales' },
+      { id: 'maj-12', numeral: 'XII', name: 'The Hanged Man', upright: 'a necessary pause, seeing things from a new angle, letting go of control', reversed: 'stalling out, refusing to let go of something already paused', motif: 'halo' },
+      { id: 'maj-13', numeral: 'XIII', name: 'Death', upright: 'a clean ending that makes room for something better, deep transformation', reversed: 'clinging to a chapter that is already over, fear of change', motif: 'rose-eclipse' },
+      { id: 'maj-14', numeral: 'XIV', name: 'Temperance', upright: 'patience, healthy balance, steady healing and middle ground', reversed: 'impatience, all-or-nothing thinking, emotional friction', motif: 'chalice' },
+      { id: 'maj-15', numeral: 'XV', name: 'The Devil', upright: 'strong attachment, temptation, feeling tied to a habit or dynamic', reversed: 'breaking free, waking up to an unhealthy pattern, reclaiming power', motif: 'chains' },
+      { id: 'maj-16', numeral: 'XVI', name: 'The Tower', upright: 'a sudden wake-up call, shaking loose what was unstable, raw honesty', reversed: 'bracing against inevitable change, lingering tension', motif: 'lightning' },
+      { id: 'maj-17', numeral: 'XVII', name: 'The Star', upright: 'renewed hope, emotional healing, calm reassurance that things are improving', reversed: 'feeling discouraged, losing faith too early, needing rest', motif: 'star' },
+      { id: 'maj-18', numeral: 'XVIII', name: 'The Moon', upright: 'uncertainty, reading between the lines, trusting your instincts in the fog', reversed: 'confusion clearing up, hidden motives finally coming to light', motif: 'moon' },
+      { id: 'maj-19', numeral: 'XIX', name: 'The Sun', upright: 'warm clarity, happiness, visible success and open affection', reversed: 'temporary cloudiness, holding back your joy, minor delay', motif: 'sun' },
+      { id: 'maj-20', numeral: 'XX', name: 'Judgement', upright: 'a defining realization, closure, answering your true calling', reversed: 'self-criticism, hesitating to make the call you know is right', motif: 'trumpet' },
+      { id: 'maj-21', numeral: 'XXI', name: 'The World', upright: 'completion, fulfillment, arriving at the finish line of a major cycle', reversed: 'one loose end left to tie up before moving forward', motif: 'wreath' }
     ];
 
-    const MINOR_RANKS = [
-      { key: 'Ace', label: 'Ace' },
-      { key: 'Two', label: 'Two' },
-      { key: 'Three', label: 'Three' },
-      { key: 'Four', label: 'Four' },
-      { key: 'Five', label: 'Five' },
-      { key: 'Six', label: 'Six' },
-      { key: 'Seven', label: 'Seven' },
-      { key: 'Eight', label: 'Eight' },
-      { key: 'Nine', label: 'Nine' },
-      { key: 'Ten', label: 'Ten' },
-      { key: 'Page', label: 'Page' },
-      { key: 'Knight', label: 'Knight' },
-      { key: 'Queen', label: 'Queen' },
-      { key: 'King', label: 'King' }
+    const SUITS = [
+      { key: 'Wands', element: 'Fire', theme: 'passion, drive, and bold action', motif: 'wand' },
+      { key: 'Cups', element: 'Water', theme: 'emotions, relationships, and intuition', motif: 'cup' },
+      { key: 'Swords', element: 'Air', theme: 'thoughts, communication, and truth', motif: 'sword' },
+      { key: 'Pentacles', element: 'Earth', theme: 'work, money, and real-world stability', motif: 'pentacle' }
     ];
 
-    const MINOR_MEANINGS = {
-      Wands: {
-        Ace: { up: ['Spark', 'Initiative', 'Fresh Energy'], rev: ['Hesitation', 'Low Energy', 'False Start'], uText: 'A genuine spark of inspiration or attraction is right in front of you. Act on it while the energy is fresh.', rText: 'The timing feels slightly off or your energy is low right now—rest before starting something new.' },
-        Two: { up: ['Planning', 'Future Vision', 'Bold Choice'], rev: ['Playing Safe', 'Fear of Unknown', 'Indecision'], uText: 'You’re standing at a vantage point looking at your next big move. Dare to plan beyond your comfort zone.', rText: 'Staying where it’s familiar feels safe, even though you know you’ve outgrown it.' },
-        Three: { up: ['Expansion', 'Progress', 'Patience'], rev: ['Delays', 'Frustration', 'Narrow Focus'], uText: 'Your earlier efforts are starting to gain traction. Keep your eyes on the horizon—things are moving.', rText: 'Progress is taking a little longer than expected, but don’t abandon a solid plan over a minor delay.' },
-        Four: { up: ['Celebration', 'Stability', 'Warmth'], rev: ['Minor Tension', 'Unsettled Ground', 'Private Joy'], uText: 'A welcoming milestone, supportive community, or warm moment of stability is here to be enjoyed.', rText: 'Harmony is close, though a small domestic or personal tension needs clearing up first.' },
-        Five: { up: ['Friction', 'Competition', 'Noise'], rev: ['Avoiding Conflict', 'Letting Go', 'Resolution'], uText: 'Too many opinions or minor ego clashes are creating static. Keep your focus on what actually matters.', rText: 'Stepping out of an unnecessary argument immediately saves your energy.' },
-        Six: { up: ['Recognition', 'Confidence', 'Win'], rev: ['Self-Doubt', 'Seeking Approval', 'Delayed Credit'], uText: 'Your effort is being noticed and appreciated. Own your progress without shrinking back.', rText: 'Don’t measure your worth by outside applause right now—trust your own quiet progress.' },
-        Seven: { up: ['Standing Ground', 'Conviction', 'Courage'], rev: ['Feeling Overwhelmed', 'Giving In', 'Burnout'], uText: 'Hold your boundaries calmly. You have every right to stand by what you believe in.', rText: 'Pick your battles—you don’t have to defend every single point to prove yourself.' },
-        Eight: { up: ['Fast Movement', 'Messages', 'Momentum'], rev: ['Mixed Signals', 'Slowdown', 'Haste'], uText: 'Expect quick news, clear replies, or things suddenly picking up speed after a quiet stretch.', rText: 'Slow down and double-check details before replying—rushing could cause avoidable misunderstandings.' },
-        Nine: { up: ['Resilience', 'Boundaries', 'Last Stretch'], rev: ['Exhaustion', 'Guardedness', 'Over-Defensiveness'], uText: 'You’ve weathered a lot already and you’re closer to the finish than you think. Protect your energy.', rText: 'Keeping your guard up all the time is exhausting—notice who has actually earned your trust.' },
-        Ten: { up: ['Heavy Load', 'Responsibility', 'Overcommitment'], rev: ['Delegating', 'Setting Down', 'Relief'], uText: 'You’re carrying too much on your own shoulders right now. Something has to be shared or simplified.', rText: 'It’s okay to put down responsibilities that were never really yours to carry.' },
-        Page: { up: ['Curiosity', 'Good News', 'Playfulness'], rev: ['Restlessness', 'Unfinished Ideas', 'Shyness'], uText: 'An exciting message or fresh wave of curiosity is nudging you to explore without overthinking.', rText: 'Lots of ideas, not enough follow-through—pick one small thing and actually finish it.' },
-        Knight: { up: ['Bold Action', 'Passion', 'Adventure'], rev: ['Impulsiveness', 'Hot-and-Cold', 'Impatience'], uText: 'Bold, passionate momentum is moving toward you—or ready to come from you. Go after what excites you.', rText: 'Watch out for hot-and-cold energy or rushing in before checking if there’s real follow-through.' },
-        Queen: { up: ['Magnetism', 'Warmth', 'Confidence'], rev: ['Insecurity', 'Jealousy', 'Dimming Light'], uText: 'Lead with warmth, authenticity, and self-assurance—people naturally respond when you’re comfortable in your skin.', rText: 'Stop comparing your path to anyone else’s; your confidence returns the moment you focus on your own lane.' },
-        King: { up: ['Leadership', 'Vision', 'Decisiveness'], rev: ['Impatience', 'Stubbornness', 'Overbearing'], uText: 'Step up and take clear ownership of the situation. Calm, decisive leadership sets the tone.', rText: 'Make sure determination doesn’t tip into impatience—listen as much as you direct.' }
-      },
-      Cups: {
-        Ace: { up: ['New Feeling', 'Open Heart', 'Emotional Fresh Start'], rev: ['Guarded Heart', 'Drained Emotions', 'Holding Back'], uText: 'A genuine wave of warmth, affection, or emotional renewal is opening up for you.', rText: 'Give yourself time to recharge emotionally before pouring into someone else.' },
-        Two: { up: ['Mutual Connection', 'Partnership', 'Harmony'], rev: ['Misunderstanding', 'Imbalance', 'Distance'], uText: 'There is real mutual respect and warmth here—an honest one-on-one connection where both people meet halfway.', rText: 'Small miscommunications are creating distance; an open, gentle check-in brings you back on the same page.' },
-        Three: { up: ['Friendship', 'Joy', 'Support'], rev: ['Social Burnout', 'Third-Party Noise', 'Feeling Left Out'], uText: 'Lean on the people who genuinely celebrate you—good company lifts your perspective right now.', rText: 'Step back from group drama or outside opinions and reconnect with what you actually feel.' },
-        Four: { up: ['Apathy', 'Missed Offer', 'Contemplation'], rev: ['Fresh Interest', 'Waking Up', 'Re-engaging'], uText: 'You may be so focused on what isn’t working that you’re overlooking something good right beside you.', rText: 'You’re ready to shake off a rut and look at your options with fresh eyes again.' },
-        Five: { up: ['Disappointment', 'Regret', 'Silver Lining'], rev: ['Acceptance', 'Moving On', 'Healing'], uText: 'It’s okay to feel disappointed about what didn’t go as hoped, just don’t miss what is still standing right behind you.', rText: 'The heaviest part of this disappointment is behind you—you’re finally ready to turn toward what’s next.' },
-        Six: { up: ['Nostalgia', 'Warmth', 'Familiarity'], rev: ['Living in Past', 'Outgrowing Old Ties', 'Moving Forward'], uText: 'A warm memory, familiar face, or simple kindness reminds you of what genuinely matters.', rText: 'Don’t let nostalgia keep you stuck in an old chapter that no longer fits who you are today.' },
-        Seven: { up: ['Many Options', 'Daydreaming', 'Clarity Needed'], rev: ['Grounded Choice', 'Focus', 'Reality Check'], uText: 'Too many possibilities or fantasies are clouding the picture. Ground yourself and pick what is real.', rText: 'The illusions are clearing—you can finally see which option actually has substance.' },
-        Eight: { up: ['Walking Away', 'Seeking Meaning', 'Courage'], rev: ['Fear of Leaving', 'Lingering', 'Unfinished Closure'], uText: 'You know deep down when something no longer fulfills you. Walking away calmly makes room for what will.', rText: 'You’re standing on the edge of a change—trust yourself when you’re ready to take that step.' },
-        Nine: { up: ['Contentment', 'Wish Fulfilled', 'Gratitude'], rev: ['Surface Satisfaction', 'Wanting Deeper Meaning', 'Overindulgence'], uText: 'Something you’ve hoped for is coming together—allow yourself to genuinely enjoy the moment.', rText: 'Check whether what you’re chasing will truly satisfy you beneath the surface.' },
-        Ten: { up: ['Emotional Fulfillment', 'Peace', 'Belonging'], rev: ['Disconnected Home', 'Unrealistic Expectations', 'Rebuilding'], uText: 'Deep peace, emotional safety, and genuine harmony are within reach.', rText: 'Real harmony comes from honest everyday conversations, not expecting things to look picture-perfect.' },
-        Page: { up: ['Tender Message', 'Vulnerability', 'Openness'], rev: ['Emotional Sensitivity', 'Mixed Feelings', 'Shyness'], uText: 'An honest, heartfelt message or gentle new feeling is surfacing—stay open and curious.', rText: 'Be gentle with your feelings today; don’t take vague signals too personally.' },
-        Knight: { up: ['Romance', 'Sincere Gesture', 'Heart-Led'], rev: ['Unrealistic Expectations', 'Moodiness', 'Avoidance'], uText: 'Someone is leading with genuine feeling and sincerity—or you are ready to express what is in your heart.', rText: 'Look past charming words and watch for steady, grounded follow-through.' },
-        Queen: { up: ['Empathy', 'Calm Intuition', 'Emotional Wisdom'], rev: ['Absorbing Others’ Moods', 'Overgiving', 'Need for Boundaries'], uText: 'Trust your emotional intelligence—you can read the room accurately without losing your own center.', rText: 'Protect your peace; you can care about someone without carrying their emotions for them.' },
-        King: { up: ['Emotional Balance', 'Steady Care', 'Maturity'], rev: ['Bottling Feelings', 'Emotional Distance', 'Coldness'], uText: 'Calm, steady emotional maturity grounds this situation and builds real trust.', rText: 'Holding everything inside creates distance—share what you’re feeling plainly.' }
-      },
-      Swords: {
-        Ace: { up: ['Breakthrough', 'Clear Truth', 'Decisiveness'], rev: ['Confusion', 'Miscommunication', 'Clouded Judgment'], uText: 'A moment of sharp clarity cuts right through the confusion—you finally see the situation for what it is.', rText: 'Wait until the fog clears before making a final call; key information is still settling.' },
-        Two: { up: ['Stalemate', 'Avoidance', 'Tough Choice'], rev: ['Decision Made', 'Information Overload', 'Release'], uText: 'Avoiding the choice won’t make it disappear—take off the blindfold and look honestly at both options.', rText: 'You can’t sit on the fence forever; choosing one direction brings immediate relief.' },
-        Three: { up: ['Heartache', 'Honest Pain', 'Release'], rev: ['Healing', 'Forgiveness', 'Moving Past Hurt'], uText: 'A sharp truth hurts in the moment, yet facing it openly is the first step toward genuine healing.', rText: 'The sharpest pain is softening—you’re starting to process what happened and let it go.' },
-        Four: { up: ['Rest', 'Pause', 'Mental Recovery'], rev: ['Restlessness', 'Burnout', 'Re-entering'], uText: 'Step back from overthinking and give your mind real rest—answers land when you stop chasing them.', rText: 'You’ve rested enough to see clearly; ease back into action at your own pace.' },
-        Five: { up: ['Hollow Win', 'Tension', 'Ego Clash'], rev: ['Making Peace', 'Walking Away', 'De-escalating'], uText: 'Winning an argument at the cost of your peace isn’t a win. Step back from unnecessary friction.', rText: 'Letting go of the need to have the last word brings immediate calm.' },
-        Six: { up: ['Moving Forward', 'Calmer Waters', 'Transition'], rev: ['Unfinished Baggage', 'Slow Transition', 'Resistance'], uText: 'You are leaving a stressful stretch behind and moving toward calmer, steadier ground.', rText: 'You’re ready to move on, even if part of you is still looking over your shoulder.' },
-        Seven: { up: ['Strategy', 'Discretion', 'Hidden Angle'], rev: ['Coming Clean', 'Seeing Through It', 'Honesty'], uText: 'Move smartly and keep your plans close to your chest until you’re sure who is genuinely in your corner.', rText: 'Something hidden is coming into the open—honesty clears the air.' },
-        Eight: { up: ['Feeling Trapped', 'Overthinking', 'Self-Doubt'], rev: ['Self-Liberation', 'New Perspective', 'Clarity'], uText: 'You have far more options than your anxious thoughts are letting you see right now.', rText: 'You’re realizing the limits you felt were mostly mental—and you’re ready to step out of them.' },
-        Nine: { up: ['Worry', 'Overthinking at Night', 'Anxiety'], rev: ['Relief', 'Perspective', 'Reaching Out'], uText: 'Your mind is magnifying worst-case scenarios—most of what you’re worrying about isn’t actually happening.', rText: 'Talking honestly about what’s been weighing on you immediately shrinks its power.' },
-        Ten: { up: ['Rock Bottom', 'Final Ending', 'Dawn Ahead'], rev: ['Recovery', 'Survival', 'Slow Rebuild'], uText: 'The hardest part is over—there is nowhere to go from here except up into a cleaner start.', rText: 'You’ve survived the worst of it and you’re quietly piecing your strength back together.' },
-        Page: { up: ['Curiosity', 'Alertness', 'Direct Question'], rev: ['Gossip', 'Over-analyzing', 'Hasty Words'], uText: 'Stay observant and ask direct, honest questions instead of guessing.', rText: 'Filter out rumors and over-analysis; stick strictly to what you know firsthand.' },
-        Knight: { up: ['Direct Action', 'Honest Speech', 'Focus'], rev: ['Bluntness', 'Rushing In', 'Scattered Thoughts'], uText: 'Speak plainly and act decisively—clear, direct communication moves things forward fast.', rText: 'Pause before firing off a sharp reply; clarity works better without harsh edges.' },
-        Queen: { up: ['Discernment', 'Clear Boundaries', 'Honesty'], rev: ['Coldness', 'Over-Criticism', 'Guardedness'], uText: 'Trust your sharp perception and keep clean boundaries—you can be kind without being naive.', rText: 'Make sure protecting yourself doesn’t turn into shutting out people who mean well.' },
-        King: { up: ['Clear Judgment', 'Integrity', 'Objectivity'], rev: ['Rigidity', 'Over-Detachment', 'Harshness'], uText: 'Step back and weigh the facts calmly with a cool head and fair judgment.', rText: 'Balance logic with empathy so you don’t miss the human side of the situation.' }
-      },
-      Pentacles: {
-        Ace: { up: ['Tangible Opportunity', 'Stability', 'New Seed'], rev: ['Missed Timing', 'Scarcity Mindset', 'Slow Start'], uText: 'A solid, practical opportunity—in work, finances, or steady commitment—is ready to take root.', rText: 'Make sure the foundation is solid before investing more time or money right now.' },
-        Two: { up: ['Juggling Priorities', 'Adaptability', 'Flow'], rev: ['Overstretched', 'Dropped Balls', 'Imbalance'], uText: 'You’re balancing multiple demands well—stay flexible and keep your schedule simple.', rText: 'You’ve got too many plates spinning at once; drop what isn’t essential this week.' },
-        Three: { up: ['Teamwork', 'Craft', 'Building Together'], rev: ['Misaligned Effort', 'Working Alone', 'Lack of Sync'], uText: 'Collaboration and consistent effort are paying off—lean on people whose skills complement yours.', rText: 'Make sure everyone involved actually shares the same expectations before moving ahead.' },
-        Four: { up: ['Security', 'Holding Tight', 'Caution'], rev: ['Loosening Grip', 'Generosity', 'Releasing Fear'], uText: 'Protecting your stability makes sense, just make sure caution doesn’t keep you from living.', rText: 'Letting go of tight control opens up healthier flow in your time, money, and relationships.' },
-        Five: { up: ['Feeling Left Out', 'Tight Patch', 'Support Nearby'], rev: ['Recovery', 'Turning Corner', 'Accepting Help'], uText: 'A temporary rough patch can feel lonely, yet practical support is closer than you realize if you ask.', rText: 'Things are gradually stabilizing—you’re climbing out of a lean or stressful stretch.' },
-        Six: { up: ['Fair Exchange', 'Generosity', 'Support'], rev: ['One-Sided Giving', 'Strings Attached', 'Imbalance'], uText: 'Healthy give-and-take brings balance—both offering and receiving help graciously.', rText: 'Pay attention to whether the effort here is genuinely mutual or mostly one-sided.' },
-        Seven: { up: ['Patience', 'Long-Term Growth', 'Review'], rev: ['Impatience', 'Wasted Effort', 'Re-evaluating'], uText: 'What you’re building needs steady patience to mature—don’t pull up the roots just to check if it’s growing.', rText: 'Step back and check whether your current effort is actually leading where you want to go.' },
-        Eight: { up: ['Dedication', 'Skill Building', 'Focus'], rev: ['Perfectionism', 'Burnout', 'Going Through Motions'], uText: 'Consistent daily effort and attention to detail are setting you up for real results.', rText: 'Done is better than perfect right now—don’t burn yourself out over tiny details.' },
-        Nine: { up: ['Self-Sufficiency', 'Abundance', 'Peace'], rev: ['Overworking', 'Guarded Independence', 'Self-Worth Check'], uText: 'You’ve earned a moment to enjoy the stability and independence you’ve built for yourself.', rText: 'Remember that being self-reliant doesn’t mean you have to do everything completely alone.' },
-        Ten: { up: ['Lasting Stability', 'Legacy', 'Long-Term Security'], rev: ['Short-Term Thinking', 'Family Pressure', 'Shifting Foundations'], uText: 'Focus on what creates lasting peace, real trust, and long-term stability.', rText: 'Build a life that genuinely fits you rather than living up to inherited expectations.' },
-        Page: { up: ['Practical Start', 'Learning', 'Grounded Plan'], rev: ['Procrastination', 'Distraction', 'Lack of Follow-Through'], uText: 'A practical new skill, plan, or opportunity is worth your steady attention.', rText: 'Turn good intentions into one concrete action on your calendar today.' },
-        Knight: { up: ['Reliability', 'Steady Progress', 'Follow-Through'], rev: ['Stuck in Routine', 'Stubbornness', 'Slow Pace'], uText: 'Slow, steady, dependable progress wins here—actions speak louder than grand promises.', rText: 'Shake up a stale routine so steadiness doesn’t turn into standing completely still.' },
-        Queen: { up: ['Grounded Care', 'Practical Wisdom', 'Comfort'], rev: ['Neglecting Self', 'Over-Worrying', 'Smothering'], uText: 'Ground yourself in simple daily comforts and practical care—stability starts from within.', rText: 'Take care of your own rest and wellbeing before trying to fix everyone else’s problems.' },
-        King: { up: ['Abundance', 'Steadiness', 'Mastery'], rev: ['Stubbornness', 'Workaholism', 'Control'], uText: 'Calm, grounded reliability and smart practical decisions create lasting security.', rText: 'Make sure chasing security or work doesn’t crowd out the people and moments that matter.' }
-      }
-    };
+    const RANKS = [
+      { num: 'Ace', label: 'Ace', upright: 'a fresh spark and new opportunity', reversed: 'a delayed start or hesitant energy' },
+      { num: 'II', label: 'Two', upright: 'a balancing act or two-way choice', reversed: 'indecision or feeling pulled apart' },
+      { num: 'III', label: 'Three', upright: 'early growth, teamwork, and expansion', reversed: 'miscommunication or stalled progress' },
+      { num: 'IV', label: 'Four', upright: 'stability, rest, and solid ground', reversed: 'feeling stuck or overly guarded' },
+      { num: 'V', label: 'Five', upright: 'friction, tension, or a test of resilience', reversed: 'moving past conflict and finding relief' },
+      { num: 'VI', label: 'Six', upright: 'harmony, reciprocity, and forward support', reversed: 'lingering on the past or uneven effort' },
+      { num: 'VII', label: 'Seven', upright: 'standing your ground and assessing options', reversed: 'second-guessing or spreading yourself thin' },
+      { num: 'VIII', label: 'Eight', upright: 'focused momentum and dedicated effort', reversed: 'feeling trapped by routine or overthinking' },
+      { num: 'IX', label: 'Nine', upright: 'almost at the finish line, personal resilience', reversed: 'exhaustion or letting your guard stay too high' },
+      { num: 'X', label: 'Ten', upright: 'full culmination and lasting results', reversed: 'carrying too much weight alone' },
+      { num: 'Page', label: 'Page', upright: 'curious news, a fresh message, or beginner energy', reversed: 'mixed messages or hesitation to speak up' },
+      { num: 'Knight', label: 'Knight', upright: 'swift movement and pursuing what you want', reversed: 'hot-and-cold energy or rushing without a plan' },
+      { num: 'Queen', label: 'Queen', upright: 'emotional maturity, self-assurance, and steady mastery', reversed: 'holding back your warmth or feeling stretched thin' },
+      { num: 'King', label: 'King', upright: 'confident leadership, clarity, and grounded control', reversed: 'stubbornness or withholding open communication' }
+    ];
 
-    const FULL_DECK = [];
-    MAJOR_ARCANA.forEach((m, idx) => {
-      FULL_DECK.push({
-        id: `major-${idx}`,
-        num: m.num,
-        name: m.name,
-        suit: 'Major',
-        svg: MAJOR_ENGRAVINGS[idx],
-        kwUp: m.kwUp,
-        kwRev: m.kwRev,
-        upright: m.upright,
-        reversed: m.reversed
-      });
-    });
-
-    ['Wands', 'Cups', 'Swords', 'Pentacles'].forEach((suit) => {
-      MINOR_RANKS.forEach((rank) => {
-        const entry = MINOR_MEANINGS[suit][rank.key];
-        FULL_DECK.push({
-          id: `${suit.toLowerCase()}-${rank.key.toLowerCase()}`,
-          num: rank.label,
-          name: `${rank.label} of ${suit}`,
-          suit,
-          svg: SUIT_ENGRAVINGS[suit],
-          kwUp: entry.up,
-          kwRev: entry.rev,
-          upright: entry.uText,
-          reversed: entry.rText
+    function buildFullDeck() {
+      const full = MAJOR_ARCANA.map(c => ({
+        ...c,
+        isMajor: true,
+        suit: 'Major Arcana'
+      }));
+      SUITS.forEach(suit => {
+        RANKS.forEach(rank => {
+          full.push({
+            id: `${suit.key.toLowerCase()}-${rank.label.toLowerCase()}`,
+            numeral: rank.num,
+            name: `${rank.label} of ${suit.key}`,
+            isMajor: false,
+            suit: suit.key,
+            motif: suit.motif,
+            upright: `${rank.upright} around ${suit.theme}`,
+            reversed: `${rank.reversed} around ${suit.theme}`
+          });
         });
       });
-    });
+      return full;
+    }
+
+    const FULL_DECK = buildFullDeck();
 
     // =========================================================================
-    // 3. APPLICATION STATE & SCREEN NAVIGATION
+    // 3. APPLICATION STATE & STORAGE HELPERS
     // =========================================================================
-    let state = {
-      screen: 'landing', // 'landing' | 'sanctuary' | 'altar'
+    const state = {
       tierKey: 'crossroads',
       spreadCount: 3,
-      userQuestion: '',
-      intentKey: null,
-      deck: [...FULL_DECK],
-      selected: [],
-      aiReading: null,
-      isShuffling: false,
-      isThinking: false,
-      soundEnabled: false,
       unlockedTiers: { whisper: true, crossroads: false, sovereign: false },
-      pendingPaywall: null
+      pendingPaywallTier: null,
+      question: '',
+      intentKey: 'clarity',
+      deck: [],
+      selected: [],
+      isThinking: false,
+      aiReading: null,
+      unsealedOmens: {},
+      soundEnabled: false
     };
-    let thinkingSequenceTimers = [];
 
-    function clearThinkingSequence() {
-      thinkingSequenceTimers.forEach(t => clearTimeout(t));
-      thinkingSequenceTimers = [];
-      state.isThinking = false;
-      const thinkingStage = document.getElementById('thinking-stage');
-      if (thinkingStage) thinkingStage.classList.add('hidden');
+    try {
+      const savedUnlocks = localStorage.getItem('arcana_unlocked_tiers');
+      if (savedUnlocks) {
+        state.unlockedTiers = { ...state.unlockedTiers, ...JSON.parse(savedUnlocks) };
+      }
+    } catch (_) {}
+
+    function saveUnlocks() {
+      try {
+        localStorage.setItem('arcana_unlocked_tiers', JSON.stringify(state.unlockedTiers));
+      } catch (_) {}
     }
 
-    function switchScreen(target) {
-      state.screen = target;
-      const landing = document.getElementById('landing-view');
-      const sanctuary = document.getElementById('sanctuary-view');
-      const altar = document.getElementById('altar-view');
-      const headerSpread = document.getElementById('header-spread-selector');
+    // =========================================================================
+    // 4. AMBIENT EFFECTS, CANDLELIGHT AURA & WEB AUDIO WHISPER CHIMES
+    // =========================================================================
+    let audioCtx = null;
 
-      [landing, sanctuary, altar].forEach(el => {
-        if (!el) return;
-        el.classList.add('hidden', 'stage-hidden');
-        el.classList.remove('stage-exit-up');
-      });
+    function toggleSound() {
+      state.soundEnabled = !state.soundEnabled;
+      document.getElementById('icon-sound-off').classList.toggle('hidden', state.soundEnabled);
+      document.getElementById('icon-sound-on').classList.toggle('hidden', !state.soundEnabled);
+      if (state.soundEnabled) playWhisperChime(528);
+    }
 
-      const activeEl = target === 'landing' ? landing : target === 'sanctuary' ? sanctuary : altar;
-      if (activeEl) {
-        activeEl.classList.remove('hidden');
-        requestAnimationFrame(() => {
-          activeEl.classList.remove('stage-hidden');
-        });
+    function playWhisperChime(freq = 432) {
+      if (!state.soundEnabled) return;
+      try {
+        const AudioContextClass = window.AudioContext || window.webkitAudioContext;
+        if (!AudioContextClass) return;
+        if (!audioCtx) audioCtx = new AudioContextClass();
+        if (audioCtx.state === 'suspended') audioCtx.resume();
+
+        const osc = audioCtx.createOscillator();
+        const gain = audioCtx.createGain();
+        osc.type = 'sine';
+        osc.frequency.setValueAtTime(freq, audioCtx.currentTime);
+        gain.gain.setValueAtTime(0.0001, audioCtx.currentTime);
+        gain.gain.exponentialRampToValueAtTime(0.045, audioCtx.currentTime + 0.04);
+        gain.gain.exponentialRampToValueAtTime(0.0001, audioCtx.currentTime + 0.65);
+        osc.connect(gain);
+        gain.connect(audioCtx.destination);
+        osc.start();
+        osc.stop(audioCtx.currentTime + 0.7);
+      } catch (_) {}
+    }
+
+    function initAmbientEffects() {
+      const shell = document.getElementById('app-shell');
+      const aura = document.getElementById('candlelight-aura');
+      if (shell && aura) {
+        const updateAura = (clientX, clientY) => {
+          const rect = shell.getBoundingClientRect();
+          const x = ((clientX - rect.left) / rect.width) * 100;
+          const y = ((clientY - rect.top) / rect.height) * 100;
+          aura.style.setProperty('--mx', `${x.toFixed(1)}%`);
+          aura.style.setProperty('--my', `${y.toFixed(1)}%`);
+        };
+        shell.addEventListener('pointermove', e => updateAura(e.clientX, e.clientY), { passive: true });
       }
 
-      if (headerSpread) {
-        if (target === 'altar') {
-          headerSpread.classList.remove('hidden');
-          headerSpread.classList.add('flex');
-        } else {
-          headerSpread.classList.add('hidden');
-          headerSpread.classList.remove('flex');
+      const dustContainer = document.getElementById('dust-container');
+      if (dustContainer && dustContainer.children.length === 0) {
+        for (let i = 0; i < 16; i++) {
+          const mote = document.createElement('span');
+          mote.className = 'dust-mote';
+          const size = (1.5 + (i % 3) * 0.9).toFixed(1);
+          mote.style.width = `${size}px`;
+          mote.style.height = `${size}px`;
+          mote.style.left = `${(i * 19 + 7) % 94}%`;
+          mote.style.top = `${28 + ((i * 23) % 66)}%`;
+          mote.style.setProperty('--dur', `${9 + (i % 6) * 2}s`);
+          mote.style.setProperty('--delay', `${(i * 0.7) % 6}s`);
+          dustContainer.appendChild(mote);
         }
       }
-      updateSpreadModeUI();
     }
 
-    function beginSessionWithTier(tierKey, count) {
-      if (count > 1 && !state.unlockedTiers[tierKey]) {
-        openPaywallModal(tierKey, count, 'landing');
-        return;
+    let placeholderInterval = null;
+    let placeholderIdx = 0;
+
+    function startCyclingPlaceholders() {
+      const el = document.getElementById('cycling-placeholder');
+      const input = document.getElementById('user-question-input');
+      if (!el || !input) return;
+
+      if (placeholderInterval) clearInterval(placeholderInterval);
+      placeholderInterval = setInterval(() => {
+        if (input.value.trim().length > 0) return;
+        el.classList.add('is-fading');
+        setTimeout(() => {
+          placeholderIdx = (placeholderIdx + 1) % CYCLING_PROMPTS.length;
+          el.textContent = CYCLING_PROMPTS[placeholderIdx];
+          el.classList.remove('is-fading');
+        }, 450);
+      }, 3800);
+    }
+
+    function showToast(msg) {
+      const toast = document.getElementById('whisper-toast');
+      if (!toast) return;
+      toast.textContent = msg;
+      toast.classList.remove('hidden', 'toast-whisper');
+      void toast.offsetWidth;
+      toast.classList.add('toast-whisper');
+      setTimeout(() => toast.classList.add('hidden'), 2250);
+    }
+
+    // =========================================================================
+    // 5. NAVIGATION, SANCTUARY & PAYWALL FLOW
+    // =========================================================================
+    function switchStage(targetId) {
+      const stages = ['landing-view', 'sanctuary-view', 'altar-view'];
+      const headerSelector = document.getElementById('header-spread-selector');
+
+      stages.forEach(id => {
+        const el = document.getElementById(id);
+        if (!el) return;
+        if (id === targetId) {
+          el.classList.remove('hidden');
+          requestAnimationFrame(() => el.classList.remove('stage-hidden'));
+        } else {
+          el.classList.add('hidden', 'stage-hidden');
+        }
+      });
+
+      if (headerSelector) {
+        if (targetId === 'altar-view') {
+          headerSelector.classList.remove('hidden');
+          headerSelector.classList.add('flex');
+        } else {
+          headerSelector.classList.add('hidden');
+          headerSelector.classList.remove('flex');
+        }
       }
-      proceedToSanctuaryWithTier(tierKey, count);
-    }
-
-    function proceedToSanctuaryWithTier(tierKey, count) {
-      state.tierKey = tierKey;
-      state.spreadCount = count;
-      const tier = TIER_CATALOG[tierKey] || TIER_CATALOG.crossroads;
-      const label = document.getElementById('sanctuary-tier-label');
-      if (label) label.textContent = `${tier.name} · ${count} ${count === 1 ? 'Card' : 'Cards'}`;
-      playWhisperChime(440);
-      switchScreen('sanctuary');
-      setTimeout(() => {
-        const input = document.getElementById('user-question-input');
-        if (input) input.focus();
-      }, 350);
     }
 
     function returnToLanding() {
-      clearThinkingSequence();
-      switchScreen('landing');
+      switchStage('landing-view');
     }
 
     function returnToSanctuary() {
-      clearThinkingSequence();
-      switchScreen('sanctuary');
+      switchStage('sanctuary-view');
+      const input = document.getElementById('user-question-input');
+      if (input) input.focus();
     }
 
-    function setSpreadCount(count) {
-      if (state.spreadCount === count) return;
-      const targetTier = count === 1 ? 'whisper' : count === 3 ? 'crossroads' : 'sovereign';
-      if (count > 1 && !state.unlockedTiers[targetTier]) {
-        openPaywallModal(targetTier, count, 'altar');
-        return;
-      }
-      state.spreadCount = count;
-      state.tierKey = targetTier;
-      updateSpreadModeUI();
-      if (state.screen === 'altar') {
-        resetCurrentQuestionSpread(true);
-      }
-    }
-
-    function upgradeSameQuestionSpread(tierKey, count) {
-      if (!state.unlockedTiers[tierKey]) {
-        openPaywallModal(tierKey, count, 'altar');
-        return;
-      }
-      applyUnlockedSameQuestionSpread(tierKey, count);
-    }
-
-    function applyUnlockedSameQuestionSpread(tierKey, count) {
+    function beginSessionWithTier(tierKey, count) {
       state.tierKey = tierKey;
       state.spreadCount = count;
       updateSpreadModeUI();
-      playWhisperChime(587);
-      showWhisperToast(`Unlocked ${count}-card deep spread for your question`);
-      resetCurrentQuestionSpread(true);
-      const altar = document.getElementById('altar-view');
-      if (altar) altar.scrollIntoView({ behavior: 'smooth', block: 'start' });
-    }
+      playWhisperChime(440);
 
-    // =========================================================================
-    // PAYWALL MODAL & APPLE PAY / STRIPE CHECKOUT HANDLERS
-    // =========================================================================
-    function openPaywallModal(tierKey, count, sourceScreen) {
-      const tier = TIER_CATALOG[tierKey] || TIER_CATALOG.crossroads;
-      state.pendingPaywall = { tierKey, count, sourceScreen };
-
-      const modal = document.getElementById('paywall-modal');
-      const titleEl = document.getElementById('paywall-tier-title');
-      const descEl = document.getElementById('paywall-tier-desc');
-      const priceEl = document.getElementById('paywall-price');
-      const origEl = document.getElementById('paywall-orig-price');
-      const btnAmtEl = document.getElementById('paywall-btn-amount');
-      const procEl = document.getElementById('paywall-processing');
-      const appleBtn = document.getElementById('btn-apple-pay');
-      const cardBtn = document.getElementById('btn-card-pay');
-
-      if (titleEl) titleEl.textContent = tier.name;
-      if (descEl) descEl.textContent = tier.desc;
-      if (priceEl) priceEl.textContent = tier.price;
-      if (origEl) origEl.textContent = tier.origPrice || '';
-      if (btnAmtEl) btnAmtEl.textContent = tier.price;
-      if (procEl) procEl.classList.add('hidden');
-      if (appleBtn) appleBtn.disabled = false;
-      if (cardBtn) cardBtn.disabled = false;
-
-      if (modal) modal.classList.remove('hidden');
-      playWhisperChime(528);
-    }
-
-    function closePaywallModal() {
-      const modal = document.getElementById('paywall-modal');
-      if (modal) modal.classList.add('hidden');
-      state.pendingPaywall = null;
-    }
-
-    function processPaywallCheckout(method) {
-      if (!state.pendingPaywall) return;
-      const { tierKey, count, sourceScreen } = state.pendingPaywall;
-
-      try {
-        sessionStorage.setItem('arcana_saved_session', JSON.stringify({
-          userQuestion: state.userQuestion,
-          intentKey: state.intentKey,
-          sourceScreen
-        }));
-      } catch (e) {}
-
-      const stripeLink = STRIPE_PAYMENT_LINKS[tierKey];
-      if (stripeLink && stripeLink.startsWith('http')) {
-        window.location.href = stripeLink;
+      if (count > 1 && !state.unlockedTiers[tierKey]) {
+        openPaywallModal(tierKey);
         return;
       }
 
-      const procEl = document.getElementById('paywall-processing');
-      const statusEl = document.getElementById('paywall-status-msg');
-      const appleBtn = document.getElementById('btn-apple-pay');
-      const cardBtn = document.getElementById('btn-card-pay');
-
-      if (appleBtn) appleBtn.disabled = true;
-      if (cardBtn) cardBtn.disabled = true;
-      if (procEl) procEl.classList.remove('hidden');
-      if (statusEl) {
-        statusEl.textContent = method === 'apple_pay'
-          ? 'Authorizing with Apple Pay…'
-          : 'Confirming secure card checkout…';
-      }
-
-      setTimeout(() => {
-        state.unlockedTiers[tierKey] = true;
-        if (tierKey === 'sovereign') {
-          state.unlockedTiers.crossroads = true;
-        }
-        closePaywallModal();
-        if (sourceScreen === 'altar' && state.userQuestion) {
-          applyUnlockedSameQuestionSpread(tierKey, count);
-        } else {
-          proceedToSanctuaryWithTier(tierKey, count);
-        }
-      }, 1150);
+      enterSanctuaryForTier(tierKey);
     }
 
+    function enterSanctuaryForTier(tierKey) {
+      const tier = TIERS[tierKey] || TIERS.whisper;
+      state.tierKey = tier.id;
+      state.spreadCount = tier.count;
+      updateSpreadModeUI();
+
+      const label = document.getElementById('sanctuary-tier-label');
+      if (label) {
+        label.textContent = `${tier.name} · ${tier.count} ${tier.count === 1 ? 'Card' : 'Cards'}`;
+      }
+
+      switchStage('sanctuary-view');
+      setTimeout(() => {
+        const input = document.getElementById('user-question-input');
+        if (input) input.focus();
+      }, 150);
+    }
+
+    function openPaywallModal(tierKey) {
+      const tier = TIERS[tierKey] || TIERS.crossroads;
+      state.pendingPaywallTier = tier.id;
+
+      document.getElementById('paywall-tier-title').textContent = tier.name;
+      document.getElementById('paywall-tier-desc').textContent = tier.desc;
+      document.getElementById('paywall-orig-price').textContent = tier.origPrice;
+      document.getElementById('paywall-price').textContent = tier.priceLabel;
+      document.getElementById('paywall-btn-amount').textContent = tier.priceLabel;
+      document.getElementById('paywall-processing').classList.add('hidden');
+
+      document.getElementById('paywall-modal').classList.remove('hidden');
+    }
+
+    function closePaywallModal() {
+      document.getElementById('paywall-modal').classList.add('hidden');
+      state.pendingPaywallTier = null;
+    }
+
+    function processPaywallCheckout(method) {
+      const tierKey = state.pendingPaywallTier || 'crossroads';
+      const stripeUrl = STRIPE_PAYMENT_LINKS[tierKey];
+      const proc = document.getElementById('paywall-processing');
+      const statusMsg = document.getElementById('paywall-status-msg');
+
+      proc.classList.remove('hidden');
+      statusMsg.textContent = method === 'apple_pay'
+        ? 'Connecting to Apple Pay & Stripe…'
+        : 'Opening encrypted Stripe checkout…';
+
+      try {
+        localStorage.setItem('arcana_pending_question', state.question || '');
+        localStorage.setItem('arcana_pending_intent', state.intentKey || 'clarity');
+      } catch (_) {}
+
+      if (stripeUrl) {
+        setTimeout(() => {
+          window.location.href = stripeUrl;
+        }, 450);
+      }
+    }
+
+    function handleStripeReturnUnlock() {
+      const params = new URLSearchParams(window.location.search);
+      const unlocked = params.get('unlocked');
+      if (!unlocked || !TIERS[unlocked]) return;
+
+      state.unlockedTiers[unlocked] = true;
+      if (unlocked === 'sovereign') {
+        state.unlockedTiers.crossroads = true;
+      }
+      saveUnlocks();
+
+      try {
+        const cleanUrl = window.location.origin + window.location.pathname;
+        window.history.replaceState({}, document.title, cleanUrl);
+      } catch (_) {}
+
+      let restoredQuestion = '';
+      try {
+        restoredQuestion = localStorage.getItem('arcana_pending_question') || '';
+        const savedIntent = localStorage.getItem('arcana_pending_intent');
+        if (savedIntent && INTENT_PROFILES[savedIntent]) state.intentKey = savedIntent;
+      } catch (_) {}
+
+      showToast(`${TIERS[unlocked].name} Unlocked`);
+      enterSanctuaryForTier(unlocked);
+      if (restoredQuestion) {
+        const input = document.getElementById('user-question-input');
+        if (input) {
+          input.value = restoredQuestion;
+          handleInputChange(input);
+        }
+      }
+    }
+
+    // =========================================================================
+    // 6. QUESTION INPUT & GENRE SELECTION
+    // =========================================================================
+    function handleInputChange(textarea) {
+      const placeholder = document.getElementById('cycling-placeholder');
+      const consultBtn = document.getElementById('btn-consult');
+      const hasText = textarea.value.trim().length > 0;
+
+      if (placeholder) placeholder.classList.toggle('hidden', hasText);
+      if (consultBtn) consultBtn.classList.toggle('is-ready', hasText);
+
+      textarea.style.height = 'auto';
+      textarea.style.height = `${Math.min(textarea.scrollHeight, 130)}px`;
+    }
+
+    function handleInputKeydown(event) {
+      if (event.key === 'Enter' && !event.shiftKey) {
+        event.preventDefault();
+        handleQuestionSubmit(event);
+      }
+    }
+
+    function selectGenre(genreKey) {
+      state.intentKey = genreKey;
+      ['love', 'career', 'decision', 'clarity'].forEach(key => {
+        const pill = document.getElementById(`genre-pill-${key}`);
+        if (pill) pill.classList.toggle('is-selected', key === genreKey);
+      });
+      playWhisperChime(587.33);
+    }
+
+    function detectIntentFromText(text) {
+      const q = text.toLowerCase();
+      if (/(love|ex|crush|relationship|partner|husband|wife|boyfriend|girlfriend|feelings|miss|text|reach out|date|marry)/.test(q)) return 'love';
+      if (/(job|career|money|business|boss|promotion|work|startup|client|income|offer|interview|quit)/.test(q)) return 'career';
+      if (/(should i|stay|leave|choose|choice|decide|decision|move|path|option)/.test(q)) return 'decision';
+      return state.intentKey || 'clarity';
+    }
+
+    function handleQuestionSubmit(event) {
+      if (event) event.preventDefault();
+      const input = document.getElementById('user-question-input');
+      const raw = input ? input.value.trim() : '';
+      state.question = raw || CYCLING_PROMPTS[placeholderIdx];
+      state.intentKey = detectIntentFromText(state.question);
+
+      const profile = INTENT_PROFILES[state.intentKey] || INTENT_PROFILES.clarity;
+      document.getElementById('active-theme-tag').textContent = profile.label;
+      document.getElementById('active-question-text').textContent = `“${state.question}”`;
+
+      switchStage('altar-view');
+      startFreshSpread();
+    }
+
+    // =========================================================================
+    // 7. SPREAD SLOTS, SHUFFLE & 78-CARD RIBBON DRAWING
+    // =========================================================================
     function updateSpreadModeUI() {
       [1, 3, 5].forEach(num => {
         const btn = document.getElementById(`btn-mode-${num}`);
@@ -1664,244 +1560,157 @@
       });
     }
 
-    // =========================================================================
-    // 4. SANCTUARY INPUT & GENRE SELECTION
-    // =========================================================================
-    let placeholderIndex = 0;
-    let placeholderTimer = null;
+    function setSpreadCount(count) {
+      const tierMap = { 1: 'whisper', 3: 'crossroads', 5: 'sovereign' };
+      const targetTier = tierMap[count] || 'whisper';
 
-    function startCyclingPlaceholders() {
-      if (placeholderTimer) clearInterval(placeholderTimer);
-      placeholderTimer = setInterval(() => {
-        const el = document.getElementById('cycling-placeholder');
-        const input = document.getElementById('user-question-input');
-        if (!el || (input && input.value.trim().length > 0)) return;
-        el.classList.add('is-fading');
-        setTimeout(() => {
-          placeholderIndex = (placeholderIndex + 1) % CYCLING_PLACEHOLDERS.length;
-          el.textContent = CYCLING_PLACEHOLDERS[placeholderIndex];
-          el.classList.remove('is-fading');
-        }, 420);
-      }, 4200);
-    }
-
-    function updateConsultButtonState() {
-      const input = document.getElementById('user-question-input');
-      const btn = document.getElementById('btn-consult');
-      const placeholder = document.getElementById('cycling-placeholder');
-      const val = input ? input.value.trim() : '';
-
-      if (placeholder) {
-        placeholder.style.opacity = val.length > 0 ? '0' : '';
-      }
-      if (btn) {
-        const ready = val.length >= 2;
-        btn.classList.toggle('is-ready', ready);
-      }
-    }
-
-    function handleInputChange(textarea) {
-      textarea.style.height = 'auto';
-      textarea.style.height = Math.min(textarea.scrollHeight, 110) + 'px';
-      if (textarea.value.trim().length >= 4) {
-        const detected = detectQuestionIntent(textarea.value);
-        if (!state.intentKey) {
-          highlightGenrePill(detected);
-        }
-      }
-      updateConsultButtonState();
-    }
-
-    function handleInputKeydown(event) {
-      if (event.key === 'Enter' && !event.shiftKey) {
-        event.preventDefault();
-        handleQuestionSubmit(event);
-      }
-    }
-
-    function highlightGenrePill(genreKey) {
-      state.intentKey = genreKey;
-      ['love', 'career', 'decision', 'clarity'].forEach(key => {
-        const pill = document.getElementById(`genre-pill-${key}`);
-        if (pill) pill.classList.toggle('is-selected', key === genreKey);
-      });
-    }
-
-    function selectGenre(genreKey) {
-      highlightGenrePill(genreKey);
-      const input = document.getElementById('user-question-input');
-      if (input && !input.value.trim()) {
-        input.value = TOPIC_SAMPLES[genreKey] || '';
-        handleInputChange(input);
-      }
-      playWhisperChime(528);
-      updateConsultButtonState();
-    }
-
-    function handleQuestionSubmit(event) {
-      if (event) event.preventDefault();
-      const input = document.getElementById('user-question-input');
-      const rawQuestion = input ? input.value.trim() : '';
-      if (rawQuestion.length < 2) {
-        showWhisperToast('Type your question or tap a genre first');
-        if (input) input.focus();
+      if (count > 1 && !state.unlockedTiers[targetTier]) {
+        openPaywallModal(targetTier);
         return;
       }
 
-      if (!state.intentKey) {
-        state.intentKey = detectQuestionIntent(rawQuestion);
-        highlightGenrePill(state.intentKey);
-      }
-      state.userQuestion = rawQuestion;
-      if (input) input.blur();
-
-      const profile = INTENT_PROFILES[state.intentKey] || INTENT_PROFILES.clarity;
-      const themeTag = document.getElementById('active-theme-tag');
-      const questionTextEl = document.getElementById('active-question-text');
-      if (themeTag) themeTag.textContent = profile.label;
-      if (questionTextEl) questionTextEl.textContent = `“${formatDisplayQuestion(rawQuestion)}”`;
-
-      playWhisperChime(587);
-      switchScreen('altar');
-      resetCurrentQuestionSpread(true);
+      state.spreadCount = count;
+      state.tierKey = targetTier;
+      updateSpreadModeUI();
+      startFreshSpread();
     }
 
-    function formatDisplayQuestion(q) {
-      const trimmed = (q || '').trim();
-      if (!trimmed) return 'What seeks clarity right now?';
-      const capitalized = trimmed.charAt(0).toUpperCase() + trimmed.slice(1);
-      return /[?.!]$/.test(capitalized) ? capitalized : `${capitalized}?`;
-    }
-
-    // =========================================================================
-    // 5. DECK SHUFFLE, SPREAD SLOTS & INTERACTIVE 78-CARD RIBBON
-    // =========================================================================
-    function shuffleDeckArray(source) {
-      const copy = [...source];
-      for (let i = copy.length - 1; i > 0; i--) {
+    function shuffleArray(list) {
+      const arr = [...list];
+      for (let i = arr.length - 1; i > 0; i--) {
         const j = Math.floor(Math.random() * (i + 1));
-        [copy[i], copy[j]] = [copy[j], copy[i]];
+        [arr[i], arr[j]] = [arr[j], arr[i]];
       }
-      return copy;
+      return arr;
     }
 
-    function getPositionsForSpread(count) {
-      if (count === 1) return ['The Answer'];
-      if (count === 5) return FIVE_CARD_POSITIONS;
-      return THREE_CARD_POSITIONS;
-    }
-
-    function resetCurrentQuestionSpread(animateShuffle = true) {
-      clearThinkingSequence();
-      state.deck = shuffleDeckArray(FULL_DECK);
+    function startFreshSpread() {
       state.selected = [];
+      state.isThinking = false;
       state.aiReading = null;
+      state.unsealedOmens = {};
+      state.deck = shuffleArray(FULL_DECK).map(card => ({
+        ...card,
+        isReversed: Math.random() < 0.28
+      }));
 
-      const readingPanel = document.getElementById('reading-editorial');
-      const deckDock = document.getElementById('deck-dock');
-      if (readingPanel) {
-        readingPanel.classList.add('hidden');
-        readingPanel.innerHTML = '';
-      }
-      if (deckDock) deckDock.classList.remove('hidden');
+      document.getElementById('thinking-stage').classList.add('hidden');
+      document.getElementById('reading-editorial').classList.add('hidden');
+      document.getElementById('deck-dock').classList.remove('hidden');
 
       updateWhisperPrompt();
       renderSpreadSlots();
-      if (animateShuffle) {
-        triggerWeaveShuffle(false);
-      } else {
-        renderDeckRibbon();
-      }
+      renderDeckRibbon();
     }
 
-    function triggerWeaveShuffle(reshuffleDeck = true) {
-      if (state.isShuffling) return;
-      state.isShuffling = true;
-      if (reshuffleDeck) {
-        state.deck = shuffleDeckArray(FULL_DECK);
+    function triggerWeaveShuffle() {
+      if (state.selected.length > 0) {
+        startFreshSpread();
       }
-      playWhisperChime(396);
-
-      const weaveStage = document.getElementById('weave-stage');
       const ribbon = document.getElementById('deck-ribbon');
-      if (weaveStage) weaveStage.classList.remove('hidden');
-      if (ribbon) ribbon.classList.add('hidden');
+      const weave = document.getElementById('weave-stage');
+      if (!ribbon || !weave) return;
+
+      playWhisperChime(396);
+      ribbon.classList.add('hidden');
+      weave.classList.remove('hidden');
+
+      state.deck = shuffleArray(FULL_DECK).map(card => ({
+        ...card,
+        isReversed: Math.random() < 0.28
+      }));
 
       setTimeout(() => {
-        if (weaveStage) weaveStage.classList.add('hidden');
-        if (ribbon) ribbon.classList.remove('hidden');
+        weave.classList.add('hidden');
+        ribbon.classList.remove('hidden');
         renderDeckRibbon();
-        state.isShuffling = false;
       }, 950);
     }
 
     function updateWhisperPrompt() {
       const promptEl = document.getElementById('whisper-prompt');
       if (!promptEl) return;
-      const positions = getPositionsForSpread(state.spreadCount);
       const remaining = state.spreadCount - state.selected.length;
       if (remaining <= 0) {
-        promptEl.textContent = 'All cards drawn — listening to the spread…';
+        promptEl.textContent = 'Your cards have been drawn.';
         return;
       }
-      const nextPos = positions[state.selected.length] || 'Next Card';
-      promptEl.textContent = state.spreadCount === 1
-        ? 'Swipe the deck and tap one card for your answer'
-        : `Draw card ${state.selected.length + 1} of ${state.spreadCount} — ${nextPos}`;
+      if (state.spreadCount === 1) {
+        promptEl.textContent = 'Touch any card from the ribbon below to reveal your answer';
+      } else if (state.spreadCount === 3) {
+        const labels = ['The Current', 'The Hidden', 'The Guidance'];
+        promptEl.textContent = `Draw ${remaining} more — Next: ${labels[state.selected.length]}`;
+      } else {
+        const labels = ['The Heart', 'The Obstacle', 'The Subconscious', 'The Trajectory', 'The Outcome'];
+        promptEl.textContent = `Draw ${remaining} more — Next: ${labels[state.selected.length]}`;
+      }
+    }
+
+    function getCardArtSVG(motif) {
+      const stroke = '#D4AF37';
+      const paths = {
+        star: `<polygon points="50,14 56,36 78,36 60,49 67,71 50,58 33,71 40,49 22,36 44,36"/><circle cx="50" cy="46" r="26" stroke-dasharray="1.5 3" stroke-opacity="0.5"/>`,
+        moon: `<path d="M58 23a22 22 0 1 0 0 44 17 17 0 1 1 0-44z"/><path d="M28 73q11-5 22 0t22 0"/>`,
+        sun: `<circle cx="50" cy="47" r="14"/><path d="M50 20v7M50 67v7M23 47h7M70 47h7M31 28l5 5M64 61l5 5M69 28l-5 5M36 61l-5 5"/>`,
+        wand: `<line x1="50" y1="16" x2="50" y2="78"/><path d="M42 26c4-6 12-6 16 0M44 46l6-6 6 6"/>`,
+        cup: `<path d="M32 24h36l-4 22a14 14 0 0 1-28 0l-4-22z"/><line x1="50" y1="60" x2="50" y2="76"/><line x1="36" y1="76" x2="64" y2="76"/>`,
+        sword: `<line x1="50" y1="14" x2="50" y2="78"/><line x1="34" y1="62" x2="66" y2="62"/><polygon points="50,14 45,24 55,24"/>`,
+        pentacle: `<circle cx="50" cy="47" r="24"/><polygon points="50,24 64,66 28,40 72,40 36,66"/>`,
+        default: `<circle cx="50" cy="47" r="22"/><polygon points="50,21 72,61 28,61"/><circle cx="50" cy="47" r="5"/>`
+      };
+      const inner = paths[motif] || paths.default;
+      return `<svg viewBox="0 0 100 94" fill="none" stroke="${stroke}" stroke-width="1.3" class="w-11 h-11 mx-auto">${inner}</svg>`;
     }
 
     function renderSpreadSlots() {
       const container = document.getElementById('spread-slots');
       if (!container) return;
-      const positions = getPositionsForSpread(state.spreadCount);
-      const isFive = state.spreadCount === 5;
-      const isThree = state.spreadCount === 3;
 
-      const cardDims = isFive
-        ? 'w-[62px] h-[102px]'
-        : isThree
-          ? 'w-[94px] h-[152px]'
-          : 'w-[132px] h-[212px]';
+      const positions = SPREAD_POSITIONS[state.spreadCount] || SPREAD_POSITIONS[1];
+      const isCompact = state.spreadCount === 5;
+      const isTriad = state.spreadCount === 3;
 
-      container.className = isFive
-        ? 'w-full flex flex-wrap items-center justify-center gap-2.5 px-1'
-        : 'w-full flex items-center justify-center gap-3.5';
+      const cardW = isCompact ? 'w-[60px] h-[98px]' : isTriad ? 'w-[96px] h-[154px]' : 'w-[138px] h-[222px]';
+      const gapClass = isCompact ? 'gap-1.5' : isTriad ? 'gap-2.5' : 'gap-4';
 
+      container.className = `w-full flex items-start justify-center ${gapClass}`;
       container.innerHTML = positions.map((pos, idx) => {
-        const drawn = state.selected[idx];
-        if (!drawn) {
+        const card = state.selected[idx];
+        if (!card) {
           return `
-            <div class="flex flex-col items-center gap-1.5">
-              <div class="${cardDims} rounded-[12px] border border-dashed border-[#D4AF37]/25 bg-[#121216]/45 flex items-center justify-center">
-                <span class="font-serif text-[11px] text-[#D4AF37]/35">${idx + 1}</span>
+            <div class="flex flex-col items-center space-y-1.5">
+              <div class="${cardW} rounded-[12px] border border-dashed border-[#D4AF37]/30 bg-[#101015]/50 flex items-center justify-center">
+                <span class="font-serif text-[11px] text-[#D4AF37]/45">${idx + 1}</span>
               </div>
-              <span class="ancient-inscription text-[8px] uppercase text-[#8E8B84] text-center max-w-[84px] truncate">${pos}</span>
+              <span class="text-[8.5px] uppercase tracking-[0.16em] text-[#8E8B84] text-center max-w-[88px] leading-tight">
+                ${pos.title}
+              </span>
             </div>
           `;
         }
 
-        const { card, isReversed } = drawn;
         return `
-          <div class="flex flex-col items-center gap-1.5 perspective-stage">
-            <div id="slot-card-${idx}" class="${cardDims} card-3d-inner is-flipped">
-              <div class="card-3d-face luxury-card-back flex items-center justify-center">
-                ${CARD_BACK_ENGRAVING}
-              </div>
-              <div class="card-3d-face card-3d-front luxury-card-front silk-sheen p-2 flex flex-col justify-between text-center">
-                <div class="flex justify-between items-center text-[7px] font-serif text-[#D4AF37]/85">
-                  <span>${card.num}</span>
-                  <span>${isReversed ? 'REV' : 'UP'}</span>
+          <div class="flex flex-col items-center space-y-1.5">
+            <div class="perspective-stage ${cardW}">
+              <div id="slot-card-${idx}" class="card-3d-inner is-flipped">
+                <div class="card-3d-face luxury-card-back flex items-center justify-center">
+                  <span class="text-[#D4AF37]/50 text-xs">✦</span>
                 </div>
-                <svg viewBox="0 0 100 94" fill="none" stroke="#F2DF9B" stroke-width="1.25"
-                  class="${isFive ? 'w-8 h-8' : isThree ? 'w-11 h-11' : 'w-16 h-16'} mx-auto ${isReversed ? 'rotate-180' : ''}">
-                  ${card.svg}
-                </svg>
-                <div class="border-t border-[#D4AF37]/20 pt-1">
-                  <p class="font-serif ${isFive ? 'text-[8.5px]' : 'text-[10.5px]'} leading-tight text-[#F3EFEA] line-clamp-1">${card.name}</p>
+                <div class="card-3d-face luxury-card-front silk-sheen p-2 flex flex-col justify-between text-center ${card.isReversed ? 'rotate-180' : ''}">
+                  <div class="flex justify-between items-center text-[7.5px] font-serif text-[#F2DF9B]">
+                    <span>${card.numeral}</span>
+                    <span>${card.isReversed ? 'REV' : '✦'}</span>
+                  </div>
+                  ${getCardArtSVG(card.motif)}
+                  <div class="border-t border-[#D4AF37]/20 pt-1">
+                    <p class="font-serif text-[9.5px] leading-tight text-[#F3EFEA] line-clamp-2">${card.name}</p>
+                  </div>
                 </div>
               </div>
             </div>
-            <span class="ancient-inscription text-[8px] uppercase text-[#F2DF9B]/85 text-center max-w-[88px] truncate">${pos}</span>
+            <span class="text-[8.5px] uppercase tracking-[0.15em] text-[#F2DF9B] text-center max-w-[92px] leading-tight">
+              ${pos.title}
+            </span>
           </div>
         `;
       }).join('');
@@ -1910,763 +1719,324 @@
     function renderDeckRibbon() {
       const ribbon = document.getElementById('deck-ribbon');
       if (!ribbon) return;
-      const drawnIds = new Set(state.selected.map(s => s.card.id));
-      const total = state.deck.length;
 
-      ribbon.innerHTML = state.deck.map((card, i) => {
-        const isTaken = drawnIds.has(card.id);
-        const norm = (i / Math.max(total - 1, 1)) - 0.5;
-        const arcY = Math.round(Math.pow(norm * 2, 2) * 8);
-        const arcRot = (norm * 6).toFixed(2);
-        const dealDelay = Math.min(i * 0.006, 0.35).toFixed(3);
+      const selectedIds = new Set(state.selected.map(c => c.id));
+      ribbon.innerHTML = state.deck.map((card, index) => {
+        const isChosen = selectedIds.has(card.id);
+        const offsetFromCenter = (index - 39) / 39;
+        const arcY = Math.round(Math.pow(offsetFromCenter, 2) * 14);
+        const arcRot = (offsetFromCenter * 6).toFixed(1);
 
         return `
           <button type="button"
-            onclick="selectCardFromRibbon('${card.id}')"
-            ${isTaken ? 'disabled' : ''}
-            aria-label="Draw tarot card ${i + 1}"
-            style="--arc-y:${arcY}px; --arc-rot:${arcRot}deg; --deal-delay:${dealDelay}s; margin-left:${i === 0 ? '0px' : '-34px'};"
-            class="ribbon-card ribbon-deal shrink-0 w-[62px] h-[104px] rounded-[10px] luxury-card-back flex items-center justify-center focus:outline-none ${isTaken ? 'opacity-0 pointer-events-none' : ''}">
-            ${CARD_BACK_ENGRAVING}
+            onclick="handleRibbonCardPick('${card.id}')"
+            ${isChosen ? 'disabled' : ''}
+            aria-label="Draw tarot card ${index + 1}"
+            style="--arc-y:${arcY}px; --arc-rot:${arcRot}deg; transform: translateY(${arcY}px) rotate(${arcRot}deg);"
+            class="ribbon-card shrink-0 -ml-7 first:ml-0 w-[56px] h-[94px] rounded-[9px] luxury-card-back flex items-center justify-center ${isChosen ? 'opacity-15 pointer-events-none' : ''}">
+            <svg class="w-4 h-4 text-[#C6A87C]/55" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1">
+              <circle cx="12" cy="12" r="7" />
+              <polygon points="12,5 18,16 6,16" />
+            </svg>
           </button>
         `;
       }).join('');
+
+      requestAnimationFrame(() => {
+        ribbon.scrollLeft = (ribbon.scrollWidth - ribbon.clientWidth) / 2;
+      });
     }
 
-    function selectCardFromRibbon(cardId) {
-      if (state.isShuffling || state.isThinking) return;
-      if (state.selected.length >= state.spreadCount) return;
-      if (state.selected.some(s => s.card.id === cardId)) return;
-
+    function handleRibbonCardPick(cardId) {
+      if (state.isThinking || state.selected.length >= state.spreadCount) return;
       const card = state.deck.find(c => c.id === cardId);
-      if (!card) return;
+      if (!card || state.selected.some(c => c.id === cardId)) return;
 
-      const positions = getPositionsForSpread(state.spreadCount);
-      const slotIndex = state.selected.length;
-      const isReversed = Math.random() < 0.34;
-
-      state.selected.push({
-        card,
-        isReversed,
-        position: positions[slotIndex] || `Card ${slotIndex + 1}`
-      });
-
-      playWhisperChime(480 + slotIndex * 55);
+      playWhisperChime(528 + state.selected.length * 66);
+      state.selected.push(card);
+      updateWhisperPrompt();
       renderSpreadSlots();
       renderDeckRibbon();
-      updateWhisperPrompt();
 
-      const newlyDrawnEl = document.getElementById(`slot-card-${slotIndex}`);
-      if (newlyDrawnEl) {
-        newlyDrawnEl.classList.remove('is-flipped');
-        requestAnimationFrame(() => {
-          setTimeout(() => newlyDrawnEl.classList.add('is-flipped'), 50);
-        });
-      }
-
-      if (state.selected.length >= state.spreadCount) {
-        setTimeout(() => {
-          const deckDock = document.getElementById('deck-dock');
-          if (deckDock) deckDock.classList.add('hidden');
-          beginOracleThinkingSequence();
-        }, 950);
+      if (state.selected.length === state.spreadCount) {
+        beginOracleContemplation();
       }
     }
 
     // =========================================================================
-    // 6. AI TAROT INTERPRETATION & FALLBACK PERSONALIZATION ENGINE
+    // 8. GEMINI AI SYNTHESIS & RELATABLE INTERPRETATION ENGINE
     // =========================================================================
-    async function fetchWithExponentialBackoff(url, options, maxRetries = 3) {
-      let delay = 1000;
-      for (let attempt = 0; attempt <= maxRetries; attempt++) {
-        try {
-          const response = await fetch(url, options);
-          if (response.ok) {
-            return response;
-          }
-          if (response.status === 429 || response.status >= 500) {
-            if (attempt === maxRetries) return response;
-          } else {
-            return response;
-          }
-        } catch (err) {
-          if (attempt === maxRetries) throw err;
-        }
-        await new Promise(resolve => setTimeout(resolve, delay));
-        delay *= 2;
-      }
-      return null;
+    function composeFallbackCardAnalysis(card, posIndex, profile) {
+      const positions = SPREAD_POSITIONS[state.spreadCount] || SPREAD_POSITIONS[1];
+      const pos = positions[posIndex] || positions[0];
+      const orientation = card.isReversed ? 'Reversed' : 'Upright';
+      const coreMeaning = card.isReversed ? card.reversed : card.upright;
+      const cleanQuestion = state.question.replace(/[?."]+$/g, '');
+
+      const cardMeaning = `${card.name} (${orientation}) highlights ${coreMeaning}. In everyday terms, this card shows up when life is asking you to pay close attention to what is real versus what you are only hoping for.`;
+
+      const questionRelation = `You asked, “${cleanQuestion}?” Landing in ${pos.title} (${pos.subtitle.toLowerCase()}), ${card.name} points directly to ${coreMeaning} ${profile.verb}. Instead of guessing or carrying all the mental weight alone, this card is showing you the exact emotional pattern shaping your situation right now—so you can ${profile.guidanceVerb}.`;
+
+      const hiddenOmen = profile.omenTemplates[posIndex % profile.omenTemplates.length];
+
+      return {
+        cardMeaning,
+        questionRelation,
+        hiddenOmen
+      };
     }
 
     async function fetchAITarotInterpretation() {
+      const apiKey = typeof GEMINI_API_KEY === 'string' ? GEMINI_API_KEY.trim() : '';
+      const positions = SPREAD_POSITIONS[state.spreadCount] || SPREAD_POSITIONS[1];
       const profile = INTENT_PROFILES[state.intentKey] || INTENT_PROFILES.clarity;
-      const genreLabel = profile.label;
-      const userQuestion = state.userQuestion;
 
-      const cardsDescription = state.selected.map((item, idx) => {
-        const orientation = item.isReversed ? 'Reversed' : 'Upright';
-        const kws = (item.isReversed ? item.card.kwRev : item.card.kwUp).join(', ');
-        return `Card ${idx + 1} (${item.position}): ${item.card.name} (${orientation}) — Core themes: ${kws}. Traditional meaning: ${item.isReversed ? item.card.reversed : item.card.upright}`;
+      const cardsSummary = state.selected.map((c, idx) => {
+        const pos = positions[idx] || positions[0];
+        const orient = c.isReversed ? 'Reversed' : 'Upright';
+        const meaning = c.isReversed ? c.reversed : c.upright;
+        return `${idx + 1}. Position: "${pos.title}" (${pos.subtitle}) | Card: ${c.name} (${orient}) | Core themes: ${meaning}`;
       }).join('\n');
 
-      const systemPrompt = `You are ARCANA, a deeply perceptive, warm, down-to-earth tarot reader who speaks like a wise, brutally honest best friend—never like a cryptic fortune teller.
-Your #1 goal is to make every answer EASY TO UNDERSTAND, CLEAR, and DEEPLY RELATABLE to the user's real everyday life and exact typed question.
+      const prompt = `You are a warm, perceptive, down-to-earth tarot reader speaking to a close friend.
+User's Question: "${state.question}"
+Category: ${profile.label}
+Drawn Cards:
+${cardsSummary}
 
-Strict Style & Clarity Rules:
-1. Plain, Relatable Human Language: Write in clear, natural, conversational English at an easy-to-read level. Avoid archaic words, mystical jargon ("karmic threshold", "celestial alignment", "energetic frequency", "ether"), or vague poetic riddles. Explain what the card actually means in real-life situations (texts left on read, mixed signals, overthinking at 2 a.m., fearing rejection, stalling at work, etc.).
-2. Quote & Mirror Their Exact Words: Directly reference the exact situation, person, or dilemma in "${userQuestion}" so the user immediately feels, "This is talking directly about my exact life."
-3. For each drawn card:
-   - "cardStory": In 2–3 clear, everyday sentences, explain what this card means in simple human terms and what it means that it came out Upright or Reversed right now.
-   - "questionConnection": Write a super relatable, easy-to-follow 5–7 sentence explanation connecting this card directly to "${userQuestion}" (within the "${genreLabel}" category). Use short, clear sentences and real-life examples:
-     • Start by directly addressing what they asked ("When you ask '${userQuestion}', this card is showing...").
-     • Explain what is actually going on behind the scenes in plain language (e.g., how the other person is thinking/feeling, or why this situation feels stuck).
-     • Explain why this card landed in the "${state.selected.map(s => s.position).join(' / ')}" spot.
-     • Give clear red flags, green lights, and a realistic sense of timing/what happens next.
-   - "nextStep": Give 1 practical, everyday action they can actually do in the next 48–72 hours (in plain, concrete steps) + 1 honest, easy-to-understand reflection question to ask themselves.
-   - "talismanTip": Suggest 1 simple crystal, color, or small grounding habit that fits their mood and question, explained in plain, practical language (1–2 sentences—no heavy woo-woo jargon).
-   - "hiddenOmen": 1 short, punchy, relatable truth bomb in quotes that hits the nail on the head for their exact situation.
-4. For "takeaway": Give a clear, direct, compassionate bottom-line answer to "${userQuestion}" in 3–4 everyday sentences. Tell them the honest truth plainly without dancing around it.
-5. For "overallTalisman": Give a simple, relatable 2-sentence weekly grounding routine or crystal tip they can easily follow in daily life.`;
+Write an easy-to-understand, relatable, emotionally intelligent tarot reading in plain everyday English (avoid confusing mystical jargon or archaic fortune-teller clichés). Directly reference the user's exact words and dilemma.
 
-      const userQuery = `Selected Genre: ${genreLabel}
-Spread Size: ${state.spreadCount} Card(s)
-User's Exact Question: "${userQuestion}"
+Return ONLY valid JSON matching this exact structure:
+{
+  "cards": [
+    {
+      "cardMeaning": "2-3 clear sentences explaining what this card means in everyday life.",
+      "questionRelation": "4-5 warm, specific sentences directly answering the user's question through this card and its spread position.",
+      "hiddenOmen": "1-2 sentences revealing a sharp, practical behind-the-scenes insight or intuitive tip."
+    }
+  ],
+  "bottomLine": "3-4 clear, reassuring sentences summarizing the overall answer and the single best next step to take."
+}`;
 
-Cards Drawn:
-${cardsDescription}
+      const endpoint = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent?key=${encodeURIComponent(apiKey)}`;
 
-Generate the clear, relatable, easy-to-understand tarot reading in JSON format.`;
-
-      const apiKey = GEMINI_API_KEY || "";
-      const apiUrl = `https://generativelanguage.googleapis.com/v1beta/models/gemini-3-flash-preview:generateContent?key=${apiKey}`;
-
-      const payload = {
-        contents: [{ parts: [{ text: userQuery }] }],
-        systemInstruction: { parts: [{ text: systemPrompt }] },
-        generationConfig: {
-          temperature: 0.8,
-          responseMimeType: "application/json",
-          responseSchema: {
-            type: "OBJECT",
-            properties: {
-              cards: {
-                type: "ARRAY",
-                items: {
-                  type: "OBJECT",
-                  properties: {
-                    cardStory: { type: "STRING" },
-                    questionConnection: { type: "STRING" },
-                    nextStep: { type: "STRING" },
-                    talismanTip: { type: "STRING" },
-                    hiddenOmen: { type: "STRING" }
-                  },
-                  required: ["cardStory", "questionConnection", "nextStep", "talismanTip", "hiddenOmen"]
-                }
-              },
-              takeaway: { type: "STRING" },
-              overallTalisman: { type: "STRING" }
-            },
-            required: ["cards", "takeaway", "overallTalisman"]
-          }
-        }
-      };
-
-      const controller = new AbortController();
-      const timeoutId = setTimeout(() => controller.abort(), 16000);
       try {
-        const response = await fetchWithExponentialBackoff(apiUrl, {
+        const response = await fetch(endpoint, {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify(payload),
-          signal: controller.signal
+          body: JSON.stringify({
+            contents: [{ parts: [{ text: prompt }] }],
+            generationConfig: {
+              temperature: 0.75,
+              responseMimeType: 'application/json'
+            }
+          })
         });
-        clearTimeout(timeoutId);
-        if (!response || !response.ok) return null;
+
+        if (!response.ok) return null;
         const data = await response.json();
-        const rawJson = data?.candidates?.[0]?.content?.parts?.[0]?.text;
-        return rawJson ? JSON.parse(rawJson) : null;
-      } catch (err) {
-        clearTimeout(timeoutId);
+        const rawText = data?.candidates?.[0]?.content?.parts?.[0]?.text;
+        if (!rawText) return null;
+
+        const parsed = JSON.parse(rawText);
+        if (!parsed || !Array.isArray(parsed.cards) || parsed.cards.length !== state.selected.length) {
+          return null;
+        }
+        return { ...parsed, isLiveAI: true };
+      } catch (_) {
         return null;
       }
     }
 
-    function beginOracleThinkingSequence() {
-      clearThinkingSequence();
+    async function beginOracleContemplation() {
       state.isThinking = true;
+      document.getElementById('deck-dock').classList.add('hidden');
+      document.getElementById('reading-editorial').classList.add('hidden');
 
       const thinkingStage = document.getElementById('thinking-stage');
-      const statusEl = document.getElementById('thinking-status-text');
-      const readingPanel = document.getElementById('reading-editorial');
-      if (readingPanel) readingPanel.classList.add('hidden');
-      if (thinkingStage) thinkingStage.classList.remove('hidden');
+      const statusText = document.getElementById('thinking-status-text');
+      thinkingStage.classList.remove('hidden');
 
-      state.selected.forEach((_, idx) => {
-        const el = document.getElementById(`slot-card-${idx}`);
-        if (el) el.classList.add('is-flipped');
-      });
+      // Keep drawn cards locked face-up at the top while thinking
+      renderSpreadSlots();
 
-      const profile = INTENT_PROFILES[state.intentKey] || INTENT_PROFILES.clarity;
-      const firstCardName = state.selected[0]?.card?.name || 'the first card';
       const steps = [
-        `Looking closely at your ${profile.label.toLowerCase()} question…`,
-        `Weighing ${firstCardName} against the rest of your spread…`,
-        `Putting your answer into clear, plain language…`
+        'Reading the patterns around your question…',
+        'Connecting your cards to your exact dilemma…',
+        'Distilling clear guidance for your next step…'
       ];
+      let stepIdx = 0;
+      const stepTimer = setInterval(() => {
+        stepIdx = (stepIdx + 1) % steps.length;
+        if (statusText) statusText.textContent = steps[stepIdx];
+      }, 1100);
 
-      if (statusEl) statusEl.textContent = steps[0];
+      const minDelay = new Promise(resolve => setTimeout(resolve, 1400));
+      const [aiData] = await Promise.all([fetchAITarotInterpretation(), minDelay]);
 
-      const aiPromise = fetchAITarotInterpretation();
-      const minDelayPromise = new Promise(resolve => {
-        thinkingSequenceTimers.push(setTimeout(() => {
-          if (statusEl) statusEl.textContent = steps[1];
-        }, 1200));
-        thinkingSequenceTimers.push(setTimeout(() => {
-          if (statusEl) statusEl.textContent = steps[2];
-        }, 2500));
-        thinkingSequenceTimers.push(setTimeout(resolve, 3600));
-      });
+      clearInterval(stepTimer);
+      state.aiReading = aiData;
+      state.isThinking = false;
+      thinkingStage.classList.add('hidden');
 
-      Promise.all([aiPromise, minDelayPromise]).then(([aiData]) => {
-        if (!state.isThinking) return;
-        state.aiReading = aiData;
-        state.isThinking = false;
-        if (thinkingStage) thinkingStage.classList.add('hidden');
-        renderSpreadSlots();
-        state.selected.forEach((_, idx) => {
-          const el = document.getElementById(`slot-card-${idx}`);
-          if (el) el.classList.add('is-flipped');
-        });
-        playWhisperChime(660);
-        renderEditorialReading();
-      });
+      // Ensure drawn cards stay permanently visible and flipped at top of reading
+      renderSpreadSlots();
+      playWhisperChime(660);
+      renderEditorialReading();
     }
 
-    function analyzeUserQuestionGrammar(question) {
-      const clean = (question || '').trim().replace(/[?.!]+$/, '');
-      const lower = clean.toLowerCase();
-      let type = 'general';
-      if (/^will\b/.test(lower)) type = 'will';
-      else if (/^should\b/.test(lower)) type = 'should';
-      else if (/^why\b/.test(lower)) type = 'why';
-      else if (/^when\b/.test(lower)) type = 'when';
-      else if (/^how\b/.test(lower)) type = 'how';
-
-      const isReconciliation = /\b(come back|return|reach out|text me|miss me|ex|reconcil)\b/.test(lower);
-      const isTiming = /\b(when|how long|soon|timeline|month|week|year)\b/.test(lower);
-      const isFeelings = /\b(feel|feeling|love me|like me|thinking of me|care|miss)\b/.test(lower);
-      const subjectPronoun = /\bshe\b/.test(lower) ? 'she' : /\bhe\b/.test(lower) ? 'he' : 'they';
-      const subjectPossessive = /\bshe\b/.test(lower) ? 'her' : /\bhe\b/.test(lower) ? 'his' : 'their';
-      const secondPerson = clean
-        .replace(/\bmy\b/gi, 'your')
-        .replace(/\bme\b/gi, 'you')
-        .replace(/\bi\b/gi, 'you');
-
-      return { clean, lower, type, isReconciliation, isTiming, isFeelings, subjectPronoun, subjectPossessive, secondPerson };
-    }
-
-    function composeComplexCardAnalysis(card, isReversed, position) {
-      const profile = INTENT_PROFILES[state.intentKey] || INTENT_PROFILES.clarity;
-      const parsedQ = analyzeUserQuestionGrammar(state.userQuestion);
-      const orientationLabel = isReversed ? 'Reversed' : 'Upright';
-      const baseText = isReversed ? card.reversed : card.upright;
-      const keywords = isReversed ? card.kwRev : card.kwUp;
-
-      const cardStory = `${card.name} (${orientationLabel}) is ${card.suit === 'Major' ? 'a Major Arcana card—meaning this is a big, defining moment you can’t just brush past' : `part of the ${card.suit} suit, which focuses on your day-to-day choices and feelings`}. ${baseText}`;
-
-      const posIntro = profile.positionIntros[position] || 'In this part of your reading, ';
-      const suitLens = profile.suitLens[card.suit] || '';
-
-      let directBridge = '';
-      let deeperLayer = '';
-      let timingCue = '';
-      if (parsedQ.isReconciliation) {
-        directBridge = isReversed
-          ? `when you ask "${parsedQ.secondPerson}", ${card.name} in reverse shows that ${parsedQ.subjectPronoun} is still dealing with ${keywords[0].toLowerCase()} and ${keywords[1].toLowerCase()}. If you push, over-explain, or double-text right now, it will likely make ${parsedQ.subjectPronoun} pull back even more.`
-          : `when you ask "${parsedQ.secondPerson}", ${card.name} upright shows that the bond between you isn’t gone. ${parsedQ.subjectPronoun} is actively thinking about ${keywords[0].toLowerCase()}, which leaves a real door open for reaching out once things calm down.`;
-        deeperLayer = isReversed
-          ? `Because this card landed in ${position.toLowerCase()}, it’s showing what’s happening behind closed doors: until ${keywords[2].toLowerCase()} is sorted out, their silence is about protecting themselves—not necessarily a final goodbye.`
-          : `Landing in ${position}, this card is encouraging you to stay steady and let ${parsedQ.subjectPronoun} come to you with real clarity rather than just missing the past.`;
-        timingCue = isReversed
-          ? `Give this about 2 to 3 weeks for the pressure to cool off—trying to force a talk sooner will feel exhausting.`
-          : `Things are moving here; an unexpected text or chance to talk honestly is likely within the next 1 to 2 weeks if you stay grounded.`;
-      } else if (parsedQ.isFeelings) {
-        directBridge = isReversed
-          ? `when you ask "${parsedQ.secondPerson}", ${card.name} (Reversed) points to mixed feelings—they care, yet ${keywords[0].toLowerCase()} is holding ${parsedQ.subjectPronoun} back from showing up consistently.`
-          : `when you ask "${parsedQ.secondPerson}", ${card.name} (Upright) confirms genuine feelings around ${keywords[0].toLowerCase()} and ${keywords[1].toLowerCase()}—what you’re picking up on is real.`;
-        deeperLayer = `In the ${position} spot, this is your reminder to pay more attention to consistent actions than sweet words so you feel secure.`;
-        timingCue = `Watch how ${parsedQ.subjectPronoun} shows up over the next 7 days—their behavior will tell you everything.`;
-      } else if (parsedQ.type === 'should') {
-        directBridge = isReversed
-          ? `as you weigh "${parsedQ.secondPerson}", ${card.name} (Reversed) is a gentle warning not to rush into a decision while ${keywords[0].toLowerCase()} is clouding your head.`
-          : `as you weigh "${parsedQ.secondPerson}", ${card.name} (Upright) strongly backs the choice that supports ${keywords[0].toLowerCase()} and your own self-respect.`;
-        deeperLayer = `In ${position}, this is your green light to stop second-guessing what already feels right in your gut.`;
-        timingCue = `Take 48 quiet hours away from everyone else’s advice before making your final call.`;
-      } else if (parsedQ.isTiming || parsedQ.type === 'when') {
-        directBridge = isReversed
-          ? `around the timing of "${parsedQ.secondPerson}", ${card.name} (Reversed) points to a short pause while ${keywords[0].toLowerCase()} finishes sorting itself out behind the scenes.`
-          : `around the timing of "${parsedQ.secondPerson}", ${card.name} (Upright) shows things picking up speed once you lean into ${keywords[0].toLowerCase()}.`;
-        deeperLayer = `In ${position}, things start moving the moment you let go of one old assumption.`;
-        timingCue = isReversed
-          ? `Expect movement after a brief cooling-off period rather than overnight.`
-          : `You should start seeing clear signs of progress within the next 1 to 3 weeks.`;
-      } else {
-        directBridge = `looking directly at "${parsedQ.secondPerson}", ${card.name} (${orientationLabel}) puts ${keywords[0].toLowerCase()} and ${keywords[1].toLowerCase()} right at the center of what’s going on: ${baseText.charAt(0).toLowerCase() + baseText.slice(1)}`;
-        deeperLayer = `Because it showed up in ${position}, it’s pointing straight to the pattern shaping your next step so you can handle it with a clear head.`;
-        timingCue = `This situation is most active over the next 10 to 14 days—pay attention to small clues that confirm what you already suspect.`;
-      }
-
-      const questionConnection = `${posIntro}${directBridge} ${deeperLayer} ${timingCue} ${suitLens}`;
-      const nextStep = isReversed
-        ? `Over the next 2–3 days, take a step back before reacting and protect your peace. Ask yourself honestly: what part of "${parsedQ.secondPerson}" am I trying to force instead of letting play out?`
-        : `Over the next 2–3 days, take one simple, clear step forward. Ask yourself: if I trusted my gut completely, what would I do next?`;
-
-      const talismanTip = buildFallbackTalismanTip(card, state.intentKey);
-
-      return { cardStory, questionConnection, nextStep, talismanTip };
-    }
-
-    function buildFallbackTalismanTip(card, intentKey) {
-      const genre = intentKey || 'clarity';
-      if (genre === 'career') {
-        if (card.suit === 'Wands' || card.suit === 'Major') {
-          return 'Keep a small piece of yellow Citrine in your pocket or on your desk this week—it’s a simple reminder to back yourself, speak up confidently, and stop second-guessing your work.';
-        }
-        if (card.suit === 'Pentacles') {
-          return 'Keep Green Aventurine or Pyrite near your wallet or laptop as a daily cue to stay focused on practical goals and smart money choices.';
-        }
-        return 'Carry Clear Quartz or Lapis Lazuli before important conversations or interviews to help you stay calm, clear-headed, and direct.';
-      }
-      if (genre === 'love') {
-        if (card.suit === 'Cups' || card.suit === 'Major') {
-          return 'Keep Rose Quartz near your bedside or in your bag—it’s a gentle anchor to stay warm and open without chasing or overthinking mixed signals.';
-        }
-        return 'Carry Moonstone or Rhodonite over the next few days to stay emotionally grounded during honest conversations.';
-      }
-      if (genre === 'decision') {
-        return 'Keep Amethyst or Fluorite nearby when weighing your options—taking a deep breath with it helps quiet mental noise so your choice feels obvious.';
-      }
-      return 'Carry Smoky Quartz or Black Tourmaline when your mind feels crowded, paired with a small touch of gold or yellow to lift your mood and clear brain fog.';
-    }
-
-    function buildOverallTalismanGuidance(intentKey, selected) {
-      const genre = intentKey || 'clarity';
-      const firstCard = selected[0]?.card?.name || 'your spread';
-      if (genre === 'career') {
-        return `To carry the lesson of ${firstCard} into your week, keep yellow Citrine on your desk and write down your #1 priority each morning before checking messages.`;
-      }
-      if (genre === 'love') {
-        return `To stay grounded around ${firstCard}, keep Rose Quartz or Moonstone nearby this week and give yourself a screen-free hour each evening to unwind without overanalyzing.`;
-      }
-      if (genre === 'decision') {
-        return `To keep your head clear around ${firstCard}, carry Amethyst for the next 7 days and write down both choices on paper before bed so your gut can settle overnight.`;
-      }
-      return `To anchor the message of ${firstCard}, keep Smoky Quartz or Citrine nearby this week and take five quiet minutes each morning away from your phone to reset.`;
-    }
-
-    function buildWhisperedSecret(card, isReversed, parsedQ) {
-      const kws = isReversed ? card.kwRev : card.kwUp;
-      if (parsedQ.isReconciliation) {
-        return isReversed
-          ? `“Their silence isn’t a final no—it’s ${parsedQ.subjectPronoun} working through ${kws[0].toLowerCase()} before reaching back out.”`
-          : `“This connection isn’t finished—${card.name} shows that ${kws[0].toLowerCase()} is quietly bringing your paths back together.”`;
-      }
-      return `“At the heart of your question, ${card.name} points straight to ${kws[0].toLowerCase()} as the key that changes everything.”`;
-    }
-
-    function buildQuestionSynthesis(selected) {
-      const parsedQ = analyzeUserQuestionGrammar(state.userQuestion);
-      const first = selected[0];
-      const last = selected[selected.length - 1];
-      if (!first || !last) return 'Trust the clarity emerging before you.';
-
-      if (parsedQ.isReconciliation) {
-        return last.isReversed
-          ? `Putting it all together, ${first.card.name} into ${last.card.name} (Reversed) shows ${parsedQ.subjectPronoun} still needs a little space to sort out their own doubts before coming back properly—hold your standards and let them make the effort.`
-          : `Putting it all together, ${first.card.name} leading to ${last.card.name} points to a real window for reconnecting—stay calm, don’t chase, and let them meet you halfway.`;
-      }
-      return `Putting it all together, ${first.card.name} and ${last.card.name} show that you already know the truth deep down—take things one steady step at a time and judge by actions, not guesses.`;
-    }
-
-    function revealHiddenOmen(idx) {
-      const box = document.getElementById(`omen-box-${idx}`);
-      const seal = document.getElementById(`omen-seal-${idx}`);
-      const text = document.getElementById(`omen-text-${idx}`);
-      if (!box || !text) return;
-      if (seal) seal.classList.add('hidden');
-      text.classList.remove('hidden');
-      box.classList.remove('border-dashed');
-      box.classList.add('border-solid', 'border-[#D4AF37]/55', 'bg-[#160E1E]/85');
+    function unsealOmen(idx) {
+      state.unsealedOmens[idx] = true;
       playWhisperChime(740);
+      renderEditorialReading();
     }
 
     function renderEditorialReading() {
-      const panel = document.getElementById('reading-editorial');
-      if (!panel) return;
+      const container = document.getElementById('reading-editorial');
+      if (!container) return;
 
-      const parsedQ = analyzeUserQuestionGrammar(state.userQuestion);
-      const aiCards = state.aiReading && Array.isArray(state.aiReading.cards) ? state.aiReading.cards : null;
+      const positions = SPREAD_POSITIONS[state.spreadCount] || SPREAD_POSITIONS[1];
+      const profile = INTENT_PROFILES[state.intentKey] || INTENT_PROFILES.clarity;
+      const isLiveAI = Boolean(state.aiReading && state.aiReading.isLiveAI);
 
-      const cardsHtml = state.selected.map((item, idx) => {
-        const { card, isReversed, position } = item;
-        const aiCard = aiCards && aiCards[idx] ? aiCards[idx] : null;
-        const analysis = aiCard
-          ? {
-              cardStory: aiCard.cardStory,
-              questionConnection: aiCard.questionConnection,
-              nextStep: aiCard.nextStep,
-              talismanTip: aiCard.talismanTip || buildFallbackTalismanTip(card, state.intentKey)
-            }
-          : composeComplexCardAnalysis(card, isReversed, position);
-        const secretWhisper = aiCard && aiCard.hiddenOmen
-          ? aiCard.hiddenOmen
-          : buildWhisperedSecret(card, isReversed, parsedQ);
+      const cardsHTML = state.selected.map((card, idx) => {
+        const pos = positions[idx] || positions[0];
+        const fallback = composeFallbackCardAnalysis(card, idx, profile);
+        const aiCard = isLiveAI && state.aiReading.cards[idx] ? state.aiReading.cards[idx] : null;
 
-        const keywords = (isReversed ? card.kwRev : card.kwUp)
-          .map(k => `<span class="px-2 py-0.5 rounded-full bg-[#D4AF37]/10 border border-[#D4AF37]/25 text-[9.5px] uppercase tracking-[0.16em] text-[#F2DF9B]">${k}</span>`)
-          .join('');
+        const cardMeaning = aiCard?.cardMeaning || fallback.cardMeaning;
+        const questionRelation = aiCard?.questionRelation || fallback.questionRelation;
+        const hiddenOmen = aiCard?.hiddenOmen || fallback.hiddenOmen;
+        const isUnsealed = Boolean(state.unsealedOmens[idx]);
 
         return `
-          <article class="esoteric-dossier rounded-2xl p-4 sm:p-5 space-y-4 border-[#D4AF37]/30">
-            <div class="flex items-start justify-between gap-3 border-b border-[#D4AF37]/15 pb-3">
+          <article class="esoteric-dossier rounded-2xl p-5 space-y-4 border-[#D4AF37]/30">
+            <div class="flex items-start justify-between gap-2 border-b border-[#D4AF37]/15 pb-3">
               <div>
-                <p class="ancient-inscription text-[9.5px] uppercase text-[#D9A79C]">${position}</p>
-                <h3 class="ancient-title text-[22px] text-[#F3EFEA] mt-0.5">${card.name}</h3>
+                <p class="ancient-inscription text-[9.5px] uppercase text-[#D4AF37]">${pos.title}</p>
+                <h3 class="font-serif text-[21px] text-[#F3EFEA] mt-0.5">
+                  ${card.name}
+                  <span class="text-[12px] italic font-normal text-[#D9A79C] ml-1">(${card.isReversed ? 'Reversed' : 'Upright'})</span>
+                </h3>
               </div>
-              <span class="shrink-0 text-[9.5px] uppercase tracking-[0.2em] px-2.5 py-1 rounded-full border ${isReversed ? 'border-[#D9A79C]/45 text-[#D9A79C]' : 'border-[#D4AF37]/45 text-[#F2DF9B]'}">
-                ${isReversed ? 'Reversed' : 'Upright'}
+              <span class="text-[10px] uppercase tracking-[0.18em] px-2.5 py-1 rounded-full bg-[#160E1E] border border-[#D4AF37]/25 text-[#F2DF9B]">
+                ${pos.subtitle}
               </span>
             </div>
 
-            <div class="flex flex-wrap gap-1.5">${keywords}</div>
-
             <div class="space-y-1.5">
-              <p class="ancient-inscription text-[9.5px] uppercase text-[#D4AF37]">✦ What This Card Means</p>
-              <p class="ancient-dropcap font-sans text-[16.5px] leading-[1.72] text-[#F3EFEA]/90">
-                ${analysis.cardStory}
+              <p class="text-[10px] uppercase tracking-[0.2em] text-[#98948C]">What This Card Means</p>
+              <p class="font-sans text-[16.5px] text-[#F3EFEA]/85 leading-relaxed">
+                ${cardMeaning}
               </p>
             </div>
 
             <div class="space-y-1.5 pt-1">
-              <p class="ancient-inscription text-[9.5px] uppercase text-[#F2DF9B]">✦ How It Relates To Your Question</p>
-              <p class="font-sans text-[16.5px] leading-[1.72] text-[#F3EFEA]/95">
-                ${analysis.questionConnection}
+              <p class="text-[10px] uppercase tracking-[0.2em] text-[#F2DF9B]">How It Relates To Your Question</p>
+              <p class="ancient-dropcap font-sans text-[17px] text-[#F3EFEA]/95 leading-[1.72]">
+                ${questionRelation}
               </p>
             </div>
 
-            <div class="rounded-xl p-3.5 bg-[#0B0B0F]/80 border border-[#D4AF37]/15 space-y-1">
-              <p class="ancient-inscription text-[9.5px] uppercase text-[#D4AF37]">✦ Your Next Step &amp; Reflection</p>
-              <p class="font-sans text-[16px] leading-[1.7] text-[#F3EFEA]/88">
-                ${analysis.nextStep}
-              </p>
-            </div>
-
-            <div class="rounded-xl p-3.5 bg-gradient-to-r from-[#171322]/85 to-[#100E16]/85 border border-[#D4AF37]/25 space-y-1">
-              <p class="ancient-inscription text-[9.5px] uppercase text-[#F2DF9B]">◈ Crystal &amp; Grounding Tip</p>
-              <p class="font-sans text-[15.5px] leading-[1.68] text-[#F3EFEA]/90">
-                ${analysis.talismanTip}
-              </p>
-            </div>
-
-            <!-- Interactive Wax-Seal Hidden Omen -->
-            <button type="button" id="omen-box-${idx}" onclick="revealHiddenOmen(${idx})"
-              class="veiled-omen-box w-full text-left rounded-xl p-3.5 flex items-center gap-3">
-              <div id="omen-seal-${idx}" class="flex items-center gap-3 w-full">
-                <span class="wax-seal-emblem shrink-0 w-8 h-8 rounded-full bg-gradient-to-br from-[#D4AF37] to-[#8C6818] text-[#0A0A0C] flex items-center justify-center font-serif text-[13px] font-bold">
-                  ✦
-                </span>
-                <div>
-                  <p class="ancient-inscription text-[9.5px] uppercase text-[#F2DF9B]">Hidden Omen Sealed</p>
-                  <p class="font-sans italic text-[14.5px] text-[#98948C]">Tap to break the wax seal &amp; reveal a whispered truth</p>
+            <!-- Wax-Seal Hidden Omen -->
+            <div class="pt-1">
+              ${isUnsealed ? `
+                <div class="rounded-xl p-3.5 bg-[#160E1E]/85 border border-[#D4AF37]/40 space-y-1">
+                  <p class="ancient-inscription text-[9px] uppercase text-[#F2DF9B]">✦ Hidden Omen Unsealed</p>
+                  <p class="font-sans italic text-[16px] text-[#F3EFEA]/95 leading-relaxed">${hiddenOmen}</p>
                 </div>
-              </div>
-              <p id="omen-text-${idx}" class="hidden font-sans italic text-[16px] text-[#F2DF9B] leading-relaxed">
-                ${secretWhisper}
-              </p>
-            </button>
+              ` : `
+                <button type="button" onclick="unsealOmen(${idx})"
+                  class="veiled-omen-box w-full rounded-xl p-3.5 flex items-center justify-between gap-3 text-left">
+                  <div class="space-y-0.5 pointer-events-none">
+                    <p class="ancient-inscription text-[9.5px] uppercase text-[#F2DF9B]">Hidden Omen · Sealed</p>
+                    <p class="text-[13.5px] text-[#98948C]">Tap the wax seal to reveal an extra intuitive insight</p>
+                  </div>
+                  <span class="wax-seal-emblem w-9 h-9 rounded-full bg-gradient-to-br from-[#F2DF9B] to-[#D4AF37] text-[#0A0A0C] font-serif font-bold text-sm flex items-center justify-center shrink-0 pointer-events-none">
+                    ✦
+                  </span>
+                </button>
+              `}
+            </div>
           </article>
         `;
       }).join('');
 
-      const synthesisText = (state.aiReading && state.aiReading.takeaway)
-        ? state.aiReading.takeaway
-        : buildQuestionSynthesis(state.selected);
+      const leadCard = state.selected[0];
+      const finalCard = state.selected[state.selected.length - 1];
+      const defaultBottomLine = `Taken together, ${leadCard.name} and ${finalCard.name} show that the clearest answer to “${state.question}” comes when you ${profile.guidanceVerb}. Trust what you already sense beneath the noise, and take one calm, honest step forward today.`;
+      const bottomLineText = (isLiveAI && state.aiReading.bottomLine) ? state.aiReading.bottomLine : defaultBottomLine;
 
-      const overallTalismanText = (state.aiReading && state.aiReading.overallTalisman)
-        ? state.aiReading.overallTalisman
-        : buildOverallTalismanGuidance(state.intentKey, state.selected);
-
-      const synthesisHtml = state.spreadCount >= 3 ? `
-        <div class="stagger-4 esoteric-dossier rounded-2xl p-5 text-center space-y-3 border-[#D4AF37]/40">
-          <div class="flex items-center justify-center gap-2">
-            <span class="ancient-inscription text-[11px] uppercase text-[#D4AF37]">✦ The Bottom Line ✦</span>
-          </div>
-          <p class="font-sans text-[18.5px] leading-[1.74] text-[#F2DF9B]">
-            ${synthesisText}
+      const upsellBanner = state.spreadCount === 1 ? `
+        <div class="rounded-2xl p-4 bg-gradient-to-br from-[#231932] to-[#121118] border border-[#D4AF37]/50 space-y-2.5 text-center">
+          <p class="ancient-inscription text-[9.5px] uppercase text-[#F2DF9B]">Want the Full Picture?</p>
+          <p class="font-sans text-[15.5px] text-[#F3EFEA]/90 leading-snug">
+            Unlock the <strong>3-Card Crossroads Triad</strong> (<em>The Current · The Hidden · The Guidance</em>) for <strong>$0.99</strong> to see what is happening behind the scenes.
           </p>
-          <div class="pt-2.5 border-t border-[#D4AF37]/20 space-y-1">
-            <span class="ancient-inscription text-[9.5px] uppercase text-[#D9A79C]">◈ Simple 7-Day Grounding &amp; Crystal Tip</span>
-            <p class="font-sans text-[16px] leading-[1.68] text-[#F3EFEA]/90">
-              ${overallTalismanText}
-            </p>
-          </div>
-          ${aiCards ? `<p class="text-[9.5px] uppercase tracking-[0.2em] text-[#D4AF37]/60 pt-1">✦ Personalized by ARCANA AI</p>` : ''}
+          <button type="button" onclick="beginSessionWithTier('crossroads', 3)"
+            class="w-full py-2.5 rounded-full bg-gradient-to-r from-[#F2DF9B] to-[#D4AF37] text-[#0A0A0C] font-serif font-semibold text-[11px] uppercase tracking-[0.2em]">
+            Unlock 3-Card Deep Reading · $0.99 →
+          </button>
         </div>
-      ` : `
-        <div class="stagger-3 esoteric-dossier rounded-2xl p-4 text-center space-y-2.5 border-[#D4AF37]/30">
-          <span class="ancient-inscription text-[10.5px] uppercase text-[#D4AF37]">✦ The Bottom Line ✦</span>
-          <p class="font-sans text-[17.5px] leading-[1.7] text-[#F2DF9B]">
-            ${synthesisText}
+      ` : '';
+
+      container.innerHTML = `
+        <div class="space-y-4">
+          ${cardsHTML}
+        </div>
+
+        <!-- The Bottom Line & Crystal Alignment -->
+        <div class="esoteric-dossier rounded-2xl p-5 space-y-3.5 border-[#D4AF37]/45">
+          <div class="flex items-center justify-between">
+            <span class="ancient-inscription text-[10px] uppercase text-[#F2DF9B]">✦ The Bottom Line</span>
+            <span class="text-[10px] text-[#D4AF37]/85">${isLiveAI ? '✦ Personalized Live by Gemini AI' : '✦ ARCANA Oracle Synthesis'}</span>
+          </div>
+          <p class="font-sans text-[17px] text-[#F3EFEA] leading-[1.72]">
+            ${bottomLineText}
           </p>
-          <div class="pt-2 border-t border-[#D4AF37]/15 space-y-1">
-            <span class="ancient-inscription text-[9px] uppercase text-[#D9A79C]">◈ Simple Grounding &amp; Crystal Tip</span>
-            <p class="font-sans text-[15.5px] leading-[1.65] text-[#F3EFEA]/88">
-              ${overallTalismanText}
-            </p>
+          <div class="pt-2.5 border-t border-[#D4AF37]/15 flex items-center justify-between text-[13px]">
+            <span class="text-[#98948C]">Recommended Crystal:</span>
+            <span class="font-serif text-[#F2DF9B]">${profile.crystal}</span>
           </div>
-          ${aiCards ? `<p class="text-[9.5px] uppercase tracking-[0.2em] text-[#D4AF37]/60 pt-1">✦ Personalized by ARCANA AI</p>` : ''}
         </div>
-      `;
 
-      const safeDisplayQuestion = formatDisplayQuestion(state.userQuestion);
-      let upsellHtml = '';
-      if (state.spreadCount === 1) {
-        upsellHtml = `
-          <div class="rounded-2xl p-4 sm:p-5 bg-gradient-to-br from-[#1C1429] via-[#13111B] to-[#0D0D12] border border-[#D4AF37]/50 space-y-3.5 shadow-2xl">
-            <div class="space-y-1 text-center">
-              <span class="ancient-inscription text-[9.5px] uppercase text-[#D4AF37]">✦ Go Deeper On This Exact Question ✦</span>
-              <h4 class="font-serif text-[20px] text-[#F2DF9B]">Want the full picture behind “${safeDisplayQuestion}”</h4>
-              <p class="font-sans text-[15px] text-[#F3EFEA]/80 leading-relaxed">
-                A single card shows the surface pulse. Unlock a multi-card spread for this same question to uncover hidden motives, obstacles, and where this truly leads.
-              </p>
-            </div>
-            <div class="space-y-2.5">
-              <button type="button" onclick="upgradeSameQuestionSpread('crossroads', 3)"
-                class="w-full rounded-xl p-3.5 bg-gradient-to-r from-[#261B36] to-[#171322] border border-[#D4AF37]/65 flex items-center justify-between gap-3 text-left hover:border-[#F2DF9B] transition-all">
-                <div>
-                  <div class="flex items-center gap-2">
-                    <span class="font-serif text-[17px] text-[#F2DF9B]">3-Card Crossroads Triad</span>
-                    <span class="text-[8.5px] uppercase tracking-[0.16em] px-2 py-0.5 rounded-full bg-[#D4AF37] text-[#0A0A0C] font-semibold">Most Popular</span>
-                  </div>
-                  <p class="text-[13px] text-[#F3EFEA]/75 mt-0.5">The Current · The Hidden · The Guidance + 3 Hidden Omens</p>
-                </div>
-                <div class="text-right shrink-0">
-                  <span class="text-[11px] line-through text-[#98948C] block">$4.99</span>
-                  <span class="font-serif text-[20px] text-[#F2DF9B]">$0.99</span>
-                </div>
-              </button>
+        ${upsellBanner}
 
-              <button type="button" onclick="upgradeSameQuestionSpread('sovereign', 5)"
-                class="w-full rounded-xl p-3.5 bg-[#121118]/90 border border-[#D9A79C]/45 flex items-center justify-between gap-3 text-left hover:border-[#D9A79C] transition-all">
-                <div>
-                  <span class="font-serif text-[17px] text-[#F3EFEA]">5-Card Sovereign Crucible</span>
-                  <p class="text-[13px] text-[#98948C] mt-0.5">Heart, Obstacle, Subconscious, Trajectory &amp; Final Outcome</p>
-                </div>
-                <div class="text-right shrink-0">
-                  <span class="text-[11px] line-through text-[#98948C] block">$7.99</span>
-                  <span class="font-serif text-[20px] text-[#D9A79C]">$1.99</span>
-                </div>
-              </button>
-            </div>
-          </div>
-        `;
-      } else if (state.spreadCount === 3) {
-        upsellHtml = `
-          <div class="rounded-2xl p-4 sm:p-5 bg-gradient-to-br from-[#1C1429] via-[#13111B] to-[#0D0D12] border border-[#D9A79C]/45 space-y-3">
-            <div class="space-y-1 text-center">
-              <span class="ancient-inscription text-[9.5px] uppercase text-[#D9A79C]">✦ Complete 5-Card Blueprint ✦</span>
-              <h4 class="font-serif text-[19.5px] text-[#F3EFEA]">See the Subconscious &amp; Final Outcome</h4>
-              <p class="font-sans text-[15px] text-[#98948C] leading-relaxed">
-                Expand this same question into the 5-card Sovereign Crucible to map hidden subconscious blocks and the long-term trajectory.
-              </p>
-            </div>
-            <button type="button" onclick="upgradeSameQuestionSpread('sovereign', 5)"
-              class="w-full rounded-xl p-3.5 bg-gradient-to-r from-[#241933] to-[#15121E] border border-[#D9A79C]/60 flex items-center justify-between gap-3 text-left hover:border-[#F2DF9B] transition-all">
-              <div>
-                <span class="font-serif text-[17px] text-[#F2DF9B]">Unlock 5-Card Sovereign Crucible</span>
-                <p class="text-[13px] text-[#F3EFEA]/75 mt-0.5">All 5 positions + 5 Hidden Omens for your question</p>
-              </div>
-              <div class="text-right shrink-0">
-                <span class="text-[11px] line-through text-[#98948C] block">$7.99</span>
-                <span class="font-serif text-[20px] text-[#D9A79C]">$1.99</span>
-              </div>
-            </button>
-          </div>
-        `;
-      }
-
-      const actionsHtml = `
-        <div class="flex items-center justify-center gap-3 pt-2 pb-4">
+        <!-- Actions: Copy Reading or Ask Another Question -->
+        <div class="flex items-center justify-center gap-3 pt-1 pb-4">
           <button type="button" onclick="copyReadingToClipboard()"
-            class="rounded-full px-5 py-2.5 border border-[#D4AF37]/35 bg-[#121216] text-[10.5px] uppercase tracking-[0.2em] text-[#F2DF9B] hover:border-[#D4AF37] transition-colors">
+            class="rounded-full px-5 py-2.5 border border-[#D4AF37]/35 bg-[#14131B] text-[10.5px] uppercase tracking-[0.2em] text-[#F2DF9B] hover:border-[#D4AF37]/75 transition-colors">
             Copy Reading
           </button>
-          <button type="button" onclick="resetCurrentQuestionSpread(true)"
-            class="rounded-full px-5 py-2.5 border border-[#D4AF37]/20 text-[10.5px] uppercase tracking-[0.2em] text-[#98948C] hover:text-[#F3EFEA] transition-colors">
-            Draw Again
-          </button>
           <button type="button" onclick="returnToSanctuary()"
-            class="rounded-full px-5 py-2.5 border border-[#D4AF37]/20 text-[10.5px] uppercase tracking-[0.2em] text-[#98948C] hover:text-[#F3EFEA] transition-colors">
+            class="rounded-full px-5 py-2.5 border border-[#D4AF37]/25 bg-[#101015] text-[10.5px] uppercase tracking-[0.2em] text-[#98948C] hover:text-[#F3EFEA] transition-colors">
             New Question
           </button>
         </div>
       `;
 
-      panel.innerHTML = cardsHtml + synthesisHtml + upsellHtml + actionsHtml;
-      panel.classList.remove('hidden');
+      container.classList.remove('hidden');
     }
 
     function copyReadingToClipboard() {
-      const q = formatDisplayQuestion(state.userQuestion);
-      const lines = [`ARCANA READING`, `Question: "${q}"`, ``];
-      state.selected.forEach(item => {
-        lines.push(`${item.position}: ${item.card.name} (${item.isReversed ? 'Reversed' : 'Upright'})`);
-      });
-      const text = lines.join('\n');
-
-      const textarea = document.createElement('textarea');
-      textarea.value = text;
-      textarea.style.position = 'fixed';
-      textarea.style.opacity = '0';
-      document.body.appendChild(textarea);
-      textarea.select();
+      const positions = SPREAD_POSITIONS[state.spreadCount] || SPREAD_POSITIONS[1];
+      const lines = [
+        `ARCANA READING`,
+        `Question: "${state.question}"`,
+        ``,
+        ...state.selected.map((c, i) => `${positions[i]?.title || 'Card'}: ${c.name} (${c.isReversed ? 'Reversed' : 'Upright'})`),
+        ``,
+        `Read yours at ${SITE_BASE_URL}`
+      ];
+      const textArea = document.createElement('textarea');
+      textArea.value = lines.join('\n');
+      document.body.appendChild(textArea);
+      textArea.select();
       try {
         document.execCommand('copy');
-        showWhisperToast('Reading copied');
-      } catch (e) {
-        showWhisperToast('Unable to copy');
-      }
-      document.body.removeChild(textarea);
-    }
-
-    function showWhisperToast(msg) {
-      const toast = document.getElementById('whisper-toast');
-      if (!toast) return;
-      toast.textContent = msg;
-      toast.classList.remove('hidden', 'toast-whisper');
-      void toast.offsetWidth;
-      toast.classList.add('toast-whisper');
-      setTimeout(() => {
-        toast.classList.add('hidden');
-      }, 2200);
-    }
-
-    // =========================================================================
-    // 7. AMBIENT AUDIO CHIMES, CANDLELIGHT AURA & DUST PARTICLES
-    // =========================================================================
-    let audioCtx = null;
-
-    function toggleSound() {
-      state.soundEnabled = !state.soundEnabled;
-      const offIcon = document.getElementById('icon-sound-off');
-      const onIcon = document.getElementById('icon-sound-on');
-      if (offIcon && onIcon) {
-        offIcon.classList.toggle('hidden', state.soundEnabled);
-        onIcon.classList.toggle('hidden', !state.soundEnabled);
-      }
-      if (state.soundEnabled) {
-        playWhisperChime(528);
-        showWhisperToast('Ambient chimes on');
-      }
-    }
-
-    function playWhisperChime(freq = 528) {
-      if (!state.soundEnabled) return;
-      try {
-        if (!audioCtx) {
-          audioCtx = new (window.AudioContext || window.webkitAudioContext)();
-        }
-        if (audioCtx.state === 'suspended') {
-          audioCtx.resume();
-        }
-        const now = audioCtx.currentTime;
-        const osc = audioCtx.createOscillator();
-        const gain = audioCtx.createGain();
-        osc.type = 'sine';
-        osc.frequency.setValueAtTime(freq, now);
-        osc.frequency.exponentialRampToValueAtTime(freq * 1.015, now + 0.45);
-        gain.gain.setValueAtTime(0.0001, now);
-        gain.gain.exponentialRampToValueAtTime(0.045, now + 0.04);
-        gain.gain.exponentialRampToValueAtTime(0.0001, now + 0.65);
-        osc.connect(gain);
-        gain.connect(audioCtx.destination);
-        osc.start(now);
-        osc.stop(now + 0.7);
-      } catch (e) {
-        // Ignore audio context restrictions
-      }
-    }
-
-    function initAmbientEffects() {
-      const shell = document.getElementById('app-shell');
-      const aura = document.getElementById('candlelight-aura');
-      if (shell && aura) {
-        const updateAura = (clientX, clientY) => {
-          const rect = shell.getBoundingClientRect();
-          const x = ((clientX - rect.left) / rect.width) * 100;
-          const y = ((clientY - rect.top) / rect.height) * 100;
-          aura.style.setProperty('--mx', `${x.toFixed(1)}%`);
-          aura.style.setProperty('--my', `${y.toFixed(1)}%`);
-        };
-        shell.addEventListener('mousemove', e => updateAura(e.clientX, e.clientY), { passive: true });
-        shell.addEventListener('touchmove', e => {
-          if (e.touches && e.touches[0]) {
-            updateAura(e.touches[0].clientX, e.touches[0].clientY);
-          }
-        }, { passive: true });
-      }
-
-      const dustContainer = document.getElementById('dust-container');
-      if (dustContainer) {
-        for (let i = 0; i < 16; i++) {
-          const dot = document.createElement('span');
-          dot.className = 'dust-mote';
-          const size = (1.5 + Math.random() * 2.2).toFixed(1);
-          dot.style.width = `${size}px`;
-          dot.style.height = `${size}px`;
-          dot.style.left = `${(8 + Math.random() * 84).toFixed(1)}%`;
-          dot.style.top = `${(18 + Math.random() * 72).toFixed(1)}%`;
-          dot.style.setProperty('--dur', `${(9 + Math.random() * 8).toFixed(1)}s`);
-          dot.style.setProperty('--delay', `${(Math.random() * 6).toFixed(1)}s`);
-          dustContainer.appendChild(dot);
-        }
-      }
-    }
-
-    function handleStripeReturnUnlock() {
-      const params = new URLSearchParams(window.location.search);
-      const unlockedTier = params.get('unlocked');
-      if (unlockedTier === 'crossroads' || unlockedTier === 'sovereign') {
-        state.unlockedTiers[unlockedTier] = true;
-        if (unlockedTier === 'sovereign') {
-          state.unlockedTiers.crossroads = true;
-        }
-        const count = unlockedTier === 'sovereign' ? 5 : 3;
-
-        window.history.replaceState({}, document.title, window.location.pathname);
-
-        let saved = null;
-        try {
-          const raw = sessionStorage.getItem('arcana_saved_session');
-          if (raw) saved = JSON.parse(raw);
-          sessionStorage.removeItem('arcana_saved_session');
-        } catch (e) {}
-
-        if (saved && saved.userQuestion) {
-          state.userQuestion = saved.userQuestion;
-          state.intentKey = saved.intentKey || detectQuestionIntent(saved.userQuestion);
-          const profile = INTENT_PROFILES[state.intentKey] || INTENT_PROFILES.clarity;
-          const themeTag = document.getElementById('active-theme-tag');
-          const questionTextEl = document.getElementById('active-question-text');
-          if (themeTag) themeTag.textContent = profile.label;
-          if (questionTextEl) questionTextEl.textContent = `“${formatDisplayQuestion(saved.userQuestion)}”`;
-          switchScreen('altar');
-          applyUnlockedSameQuestionSpread(unlockedTier, count);
-        } else {
-          showWhisperToast(`Payment confirmed — ${count}-card spread unlocked!`);
-          proceedToSanctuaryWithTier(unlockedTier, count);
-        }
-      }
+        showToast('Reading copied');
+      } catch (_) {}
+      document.body.removeChild(textArea);
     }
 
     window.addEventListener('DOMContentLoaded', () => {
