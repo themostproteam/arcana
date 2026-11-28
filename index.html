@@ -6,7 +6,7 @@
   <title>ARCANA</title>
   <!-- Tailwind CSS -->
   <script src="https://cdn.tailwindcss.com"></script>
-  <!-- Vercel Web Analytics (HTML / Static Site Equivalent of @vercel/analytics) -->
+  <!-- Vercel Web Analytics -->
   <script>
     window.va = window.va || function () { (window.vaq = window.vaq || []).push(arguments); };
   </script>
@@ -1030,8 +1030,9 @@
     // 1. CONSULTATION TIERS, STRIPE PAYMENT LINKS & INTENT ENGINE
     // =========================================================================
     const SITE_BASE_URL = 'https://arcana-one-gules.vercel.app';
-    // Your live Google AI Studio Gemini API key:
-    const GEMINI_API_KEY = 'AQ.Ab8RN6LT0fPTYbr_KnORfa99On-geBB9eHxihk1_pKOEvU9SXw';
+    // Leave blank when storing GEMINI_API_KEY in Vercel Environment Variables (/api/reading),
+    // or paste a Google AI Studio key here for direct browser calls:
+    const GEMINI_API_KEY = '';
     const STRIPE_PAYMENT_LINKS = {
       crossroads: 'https://buy.stripe.com/cNiaEX98GdXN4B1f2BcV200', // $0.99 3-Card Crossroads Triad
       sovereign: 'https://buy.stripe.com/aFaeVd3Om4nd1oPaMlcV201'   // $1.99 5-Card Sovereign Crucible
@@ -1818,14 +1819,33 @@ Return ONLY valid JSON matching this exact structure:
   "bottomLine": "3-4 clear, reassuring sentences summarizing the overall answer and the single best next step to take."
 }`;
 
-      const endpoint = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent?key=${encodeURIComponent(apiKey)}`;
+      // 1. First try Vercel Serverless Endpoint (/api/reading) if configured with GEMINI_API_KEY in Vercel Settings
+      try {
+        const serverResp = await fetch('/api/reading', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ prompt })
+        });
+        if (serverResp.ok) {
+          const parsedServer = await serverResp.json();
+          if (parsedServer && Array.isArray(parsedServer.cards) && parsedServer.cards.length === state.selected.length) {
+            return { ...parsedServer, isLiveAI: true };
+          }
+        }
+      } catch (_) {}
+
+      // 2. Fallback to direct Gemini / Vertex AI Express API call (supports both AIza... and AQ.... keys)
+      const isVertexExpress = apiKey.startsWith('AQ.');
+      const endpoint = isVertexExpress
+        ? `https://aiplatform.googleapis.com/v1/publishers/google/models/gemini-2.5-flash:generateContent?key=${encodeURIComponent(apiKey)}`
+        : `https://generativelanguage.googleapis.com/v1beta/models/gemini-3-flash-preview:generateContent?key=${encodeURIComponent(apiKey)}`;
 
       try {
         const response = await fetch(endpoint, {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify({
-            contents: [{ parts: [{ text: prompt }] }],
+            contents: [{ role: 'user', parts: [{ text: prompt }] }],
             generationConfig: {
               temperature: 0.75,
               responseMimeType: 'application/json'
@@ -1857,7 +1877,6 @@ Return ONLY valid JSON matching this exact structure:
       const statusText = document.getElementById('thinking-status-text');
       thinkingStage.classList.remove('hidden');
 
-      // Keep drawn cards locked face-up at the top while thinking
       renderSpreadSlots();
 
       const steps = [
@@ -1879,7 +1898,6 @@ Return ONLY valid JSON matching this exact structure:
       state.isThinking = false;
       thinkingStage.classList.add('hidden');
 
-      // Ensure drawn cards stay permanently visible and flipped at top of reading
       renderSpreadSlots();
       playWhisperChime(660);
       renderEditorialReading();
