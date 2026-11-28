@@ -2016,28 +2016,33 @@
         return `Card ${idx + 1} (${item.position}): ${item.card.name} (${orientation}) — Core themes: ${kws}. Traditional meaning: ${item.isReversed ? item.card.reversed : item.card.upright}`;
       }).join('\n');
 
-      const systemPrompt = `You are ARCANA, an intuitive, empathetic, deeply perceptive human tarot reader.
-Your job is to interpret the drawn tarot cards so they DIRECTLY, SPECIFICALLY, and HONESTLY answer the user's exact typed question within their selected genre.
+      const systemPrompt = `You are ARCANA, a master intuitive tarot reader and psychological strategist known for uncanny, deeply personal accuracy.
+Your sole mission is to interpret the drawn tarot cards so they DIRECTLY, SPECIFICALLY, and UNFORGETTABLY answer the user's exact typed question within their selected genre.
 
-Rules:
-1. Speak directly to the user ("you", "your") in warm, grounded, natural, insightful human language—never generic horoscope fluff or robotic templates.
-2. Directly reference the exact people, situation, choices, or feelings mentioned in the user's question (for example, if they ask "will she come back to me", speak directly about her, the silence/distance between them, and whether she is likely to return based on the card).
-3. For each card:
-   - "cardStory": Briefly explain what this card itself means in plain, vivid terms (2–3 sentences) and what its upright/reversed orientation signals.
-   - "questionConnection": Write a rich, deeply perceptive, multi-layered narrative (5–7 sentences) connecting this card's exact symbolism and upright/reversed energy directly to the user's typed question and spread position. Quote or paraphrase their exact dilemma, unpack the unspoken dynamics or motivations at play, explain why this specific card appeared in this exact position (${state.selected.map(s => s.position).join(', ')}), and give an honest, grounded read on timing or momentum.
-   - "nextStep": Give 1 concrete, practical action for the next 72 hours plus 1 penetrating self-reflection question tailored to their exact dilemma.
-   - "talismanTip": Recommend 1 specific crystal, stone, color, or simple daily ritual/charm tailored to this card and their genre (e.g., wearing or keeping Citrine on your desk for career abundance and confidence, carrying Rose Quartz for emotional openness, wearing Black Obsidian for protection, or lighting a white/gold candle) and explain briefly why it helps their specific question (1–2 sentences).
-   - "hiddenOmen": A 1-sentence poetic, uncanny whispered truth specific to their question (wrapped in quotes).
-4. For "takeaway": Give a clear, direct, compassionate final verdict answering their exact question across the full spread (3–4 sentences).
-5. For "overallTalisman": Give a cohesive 2-sentence talismanic & elemental recommendation for the entire spread (naming the primary crystal/color to wear or carry over the next 7 days and a simple intention ritual tailored to their exact question).`;
+Core Narrative Standards:
+1. Voice & Intimacy: Speak directly to the user ("you", "your") in warm, candid, perceptive human language—like a private consultation with a seasoned reader who sees straight through the surface noise. Never use generic horoscope filler, vague clichés, or robotic transitions.
+2. Quote & Mirror Their Exact Situation: Directly weave the exact people, choices, fears, or dynamics from "${userQuestion}" into every section. If they ask about a specific person ("him", "her", "my ex", "my boss"), address that person's unspoken mindset and behavior directly.
+3. For each drawn card:
+   - "cardStory": Explain the living archetype of this card and what its Upright or Reversed orientation specifically signals right now (2–3 vivid, grounded sentences).
+   - "questionConnection": Write a deeply illuminating, 6–8 sentence analysis connecting this card's exact symbolism, element/suit (${state.selected.map(s => s.card.suit).join(', ')}), and orientation directly to "${userQuestion}" inside the "${genreLabel}" lens. Break down:
+     (a) What is happening beneath the surface right now regarding their exact words,
+     (b) The unspoken psychology, hidden motive, or emotional undercurrent at play,
+     (c) Why this card landed specifically in the "${state.selected.map(s => s.position).join(' / ')}" slot, and
+     (d) Clear red flags, green lights, and realistic timing/momentum cues.
+   - "nextStep": Give 1 concrete, high-leverage real-world action for the next 48–72 hours (including what to say, avoid, or observe) plus 1 penetrating self-reflection question tailored directly to their dilemma.
+   - "talismanTip": Recommend 1 specific crystal, stone, color, or simple daily ritual/charm tailored to this card and their genre, explaining briefly why it supports their exact situation (1–2 sentences).
+   - "hiddenOmen": A 1-sentence uncanny, poetic whispered truth specific to their exact question (wrapped in quotes).
+4. For "takeaway": Deliver a bold, compassionate, crystal-clear final verdict that directly answers "${userQuestion}" by weaving all drawn cards into one cohesive narrative arc (4–5 sentences—no hedging, give them real clarity).
+5. For "overallTalisman": Give a cohesive 2–3 sentence 7-day talismanic & crystal prescription tailored to their entire spread and question.`;
 
       const userQuery = `Selected Genre: ${genreLabel}
+Spread Size: ${state.spreadCount} Card(s)
 User's Exact Question: "${userQuestion}"
 
 Cards Drawn:
 ${cardsDescription}
 
-Provide the deeply personalized reading in JSON format.`;
+Generate the deeply personalized, psychologically perceptive tarot consultation in JSON format.`;
 
       const apiKey = GEMINI_API_KEY || "";
       const apiUrl = `https://generativelanguage.googleapis.com/v1beta/models/gemini-3-flash-preview:generateContent?key=${apiKey}`;
@@ -2046,6 +2051,7 @@ Provide the deeply personalized reading in JSON format.`;
         contents: [{ parts: [{ text: userQuery }] }],
         systemInstruction: { parts: [{ text: systemPrompt }] },
         generationConfig: {
+          temperature: 0.85,
           responseMimeType: "application/json",
           responseSchema: {
             type: "OBJECT",
@@ -2073,7 +2079,7 @@ Provide the deeply personalized reading in JSON format.`;
       };
 
       const controller = new AbortController();
-      const timeoutId = setTimeout(() => controller.abort(), 14000);
+      const timeoutId = setTimeout(() => controller.abort(), 16000);
       try {
         const response = await fetchWithExponentialBackoff(apiUrl, {
           method: 'POST',
@@ -2170,34 +2176,44 @@ Provide the deeply personalized reading in JSON format.`;
 
       let directBridge = '';
       let deeperLayer = '';
+      let timingCue = '';
       if (parsedQ.isReconciliation) {
         directBridge = isReversed
-          ? `regarding your question "${parsedQ.secondPerson}", ${card.name} in reverse reveals that ${parsedQ.subjectPronoun} is still caught in ${keywords[0].toLowerCase()} and ${keywords[1].toLowerCase()}—meaning any sudden push or double-texting right now would only reinforce ${parsedQ.subjectPossessive} defensive walls.`
+          ? `regarding your question "${parsedQ.secondPerson}", ${card.name} in reverse reveals that ${parsedQ.subjectPronoun} is still caught in ${keywords[0].toLowerCase()} and ${keywords[1].toLowerCase()}—meaning any sudden push, over-explaining, or double-texting right now would only reinforce ${parsedQ.subjectPossessive} defensive walls.`
           : `regarding your question "${parsedQ.secondPerson}", ${card.name} upright shows that the emotional thread between you has not faded; ${parsedQ.subjectPronoun} is actively processing ${keywords[0].toLowerCase()}, creating a real opening for renewed contact once the dust settles.`;
         deeperLayer = isReversed
-          ? `Notice how ${position.toLowerCase()} highlights what happens behind closed doors: until ${keywords[2].toLowerCase()} is resolved, silence is acting as a buffer rather than a final verdict.`
+          ? `Notice how ${position.toLowerCase()} highlights what happens behind closed doors: until ${keywords[2].toLowerCase()} is resolved, silence is acting as a protective buffer rather than a final verdict.`
           : `Because this card lands in ${position}, it asks you to hold your center and let ${parsedQ.subjectPronoun} step toward you with genuine clarity rather than nostalgia alone.`;
+        timingCue = isReversed
+          ? `Watch for subtle shifts over the next 2–3 weeks once emotional pressure eases—forcing a conversation earlier will feel uphill.`
+          : `Momentum is active; an unexpected check-in or window to speak openly is likely to surface within the next 1–2 weeks if you stay grounded.`;
       } else if (parsedQ.isFeelings) {
         directBridge = isReversed
           ? `when you ask "${parsedQ.secondPerson}", ${card.name} (Reversed) indicates mixed internal signals—there is underlying care, yet ${keywords[0].toLowerCase()} is preventing ${parsedQ.subjectPronoun} from showing up consistently.`
           : `when you ask "${parsedQ.secondPerson}", ${card.name} (Upright) affirms genuine presence around ${keywords[0].toLowerCase()} and ${keywords[1].toLowerCase()}—what you are sensing beneath the surface is real.`;
         deeperLayer = `Sitting in ${position}, this card reminds you to watch consistent follow-through over fleeting words so you feel emotionally secure.`;
+        timingCue = `Pay close attention to how ${parsedQ.subjectPronoun} behaves over the next 7 days—actions will confirm everything words leave unsaid.`;
       } else if (parsedQ.type === 'should') {
         directBridge = isReversed
           ? `as you weigh "${parsedQ.secondPerson}", ${card.name} (Reversed) cautions against making a reactive decision while ${keywords[0].toLowerCase()} is clouding the picture.`
           : `as you weigh "${parsedQ.secondPerson}", ${card.name} (Upright) strongly favors the path aligned with ${keywords[0].toLowerCase()} and long-term self-respect.`;
         deeperLayer = `In ${position}, this is your confirmation to stop second-guessing what already feels true in your gut—clarity compounds the moment you commit.`;
+        timingCue = `Give yourself 48 hours of quiet clarity away from outside opinions before locking in your move.`;
       } else if (parsedQ.isTiming || parsedQ.type === 'when') {
         directBridge = isReversed
           ? `around the timing of "${parsedQ.secondPerson}", ${card.name} (Reversed) points to a brief, necessary pause while ${keywords[0].toLowerCase()} finishes clearing behind the scenes.`
           : `around the timing of "${parsedQ.secondPerson}", ${card.name} (Upright) signals active movement once you lean into ${keywords[0].toLowerCase()}.`;
         deeperLayer = `In ${position}, momentum shifts as soon as one lingering assumption is released.`;
+        timingCue = isReversed
+          ? `Expect movement after a short cooling-off window rather than overnight.`
+          : `Signs of tangible progress begin appearing within the next 1 to 3 weeks.`;
       } else {
         directBridge = `looking directly at "${parsedQ.secondPerson}", ${card.name} (${orientationLabel}) brings the themes of ${keywords[0].toLowerCase()} and ${keywords[1].toLowerCase()} straight to the forefront: ${baseText.charAt(0).toLowerCase() + baseText.slice(1)}`;
         deeperLayer = `Appearing specifically in ${position}, it illuminates the hidden pattern shaping your next move so you can respond with intention rather than guesswork.`;
+        timingCue = `The energy around this card peaks over the next 10–14 days—stay observant of small synchronicities.`;
       }
 
-      const questionConnection = `${posIntro}${directBridge} ${deeperLayer} ${suitLens}`;
+      const questionConnection = `${posIntro}${directBridge} ${deeperLayer} ${timingCue} ${suitLens}`;
       const nextStep = isReversed
         ? `Over the next 72 hours, pause before reacting and protect your peace. Ask yourself honestly: what part of "${parsedQ.secondPerson}" am I trying to control instead of observing clearly?`
         : `Over the next 72 hours, take one calm, concrete step toward clarity. Ask yourself: if I trusted my own instincts completely, what would I do next?`;
