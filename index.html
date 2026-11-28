@@ -2023,8 +2023,8 @@ Rules:
 1. Speak directly to the user ("you", "your") in warm, grounded, natural, insightful human language—never generic horoscope fluff or robotic templates.
 2. Directly reference the exact people, situation, choices, or feelings mentioned in the user's question (for example, if they ask "will she come back to me", speak directly about her, the silence/distance between them, and whether she is likely to return based on the card).
 3. For each card:
-   - "cardStory": Briefly explain what this card itself means in plain, vivid terms (2 sentences) and what its upright/reversed orientation signals.
-   - "questionConnection": Connect this card's exact energy directly to the user's question and spread position (3–4 sentences). Be specific and honest.
+   - "cardStory": Briefly explain what this card itself means in plain, vivid terms (2–3 sentences) and what its upright/reversed orientation signals.
+   - "questionConnection": Write a rich, deeply perceptive, multi-layered narrative (5–7 sentences) connecting this card's exact symbolism and upright/reversed energy directly to the user's typed question and spread position. Quote or paraphrase their exact dilemma, unpack the unspoken dynamics or motivations at play, explain why this specific card appeared in this exact position (${state.selected.map(s => s.position).join(', ')}), and give an honest, grounded read on timing or momentum.
    - "nextStep": Give 1 concrete, practical action for the next 72 hours plus 1 penetrating self-reflection question tailored to their exact dilemma.
    - "talismanTip": Recommend 1 specific crystal, stone, color, or simple daily ritual/charm tailored to this card and their genre (e.g., wearing or keeping Citrine on your desk for career abundance and confidence, carrying Rose Quartz for emotional openness, wearing Black Obsidian for protection, or lighting a white/gold candle) and explain briefly why it helps their specific question (1–2 sentences).
    - "hiddenOmen": A 1-sentence poetic, uncanny whispered truth specific to their question (wrapped in quotes).
@@ -2144,13 +2144,16 @@ Provide the deeply personalized reading in JSON format.`;
       else if (/^how\b/.test(lower)) type = 'how';
 
       const isReconciliation = /\b(come back|return|reach out|text me|miss me|ex|reconcil)\b/.test(lower);
+      const isTiming = /\b(when|how long|soon|timeline|month|week|year)\b/.test(lower);
+      const isFeelings = /\b(feel|feeling|love me|like me|thinking of me|care|miss)\b/.test(lower);
       const subjectPronoun = /\bshe\b/.test(lower) ? 'she' : /\bhe\b/.test(lower) ? 'he' : 'they';
+      const subjectPossessive = /\bshe\b/.test(lower) ? 'her' : /\bhe\b/.test(lower) ? 'his' : 'their';
       const secondPerson = clean
         .replace(/\bmy\b/gi, 'your')
         .replace(/\bme\b/gi, 'you')
         .replace(/\bi\b/gi, 'you');
 
-      return { clean, lower, type, isReconciliation, subjectPronoun, secondPerson };
+      return { clean, lower, type, isReconciliation, isTiming, isFeelings, subjectPronoun, subjectPossessive, secondPerson };
     }
 
     function composeComplexCardAnalysis(card, isReversed, position) {
@@ -2158,26 +2161,43 @@ Provide the deeply personalized reading in JSON format.`;
       const parsedQ = analyzeUserQuestionGrammar(state.userQuestion);
       const orientationLabel = isReversed ? 'Reversed' : 'Upright';
       const baseText = isReversed ? card.reversed : card.upright;
+      const keywords = isReversed ? card.kwRev : card.kwUp;
 
-      const cardStory = `${card.name} (${orientationLabel}) belongs to the ${card.suit === 'Major' ? 'Major Arcana—signaling a pivotal life lesson' : `Suit of ${card.suit}`}. ${baseText}`;
+      const cardStory = `${card.name} (${orientationLabel}) belongs to the ${card.suit === 'Major' ? 'Major Arcana—signaling a pivotal life lesson that cannot be rushed' : `Suit of ${card.suit}`}. ${baseText}`;
 
       const posIntro = profile.positionIntros[position] || 'In this part of your spread, ';
       const suitLens = profile.suitLens[card.suit] || '';
 
       let directBridge = '';
+      let deeperLayer = '';
       if (parsedQ.isReconciliation) {
         directBridge = isReversed
-          ? `regarding whether ${parsedQ.subjectPronoun} will come back to you, this card shows lingering hesitation or unfinished emotional static—rushing or chasing right now would only reinforce the distance.`
-          : `regarding whether ${parsedQ.subjectPronoun} will come back to you, this card points to genuine reflection and an opening for renewed contact once the dust settles.`;
+          ? `regarding your question "${parsedQ.secondPerson}", ${card.name} in reverse reveals that ${parsedQ.subjectPronoun} is still caught in ${keywords[0].toLowerCase()} and ${keywords[1].toLowerCase()}—meaning any sudden push or double-texting right now would only reinforce ${parsedQ.subjectPossessive} defensive walls.`
+          : `regarding your question "${parsedQ.secondPerson}", ${card.name} upright shows that the emotional thread between you has not faded; ${parsedQ.subjectPronoun} is actively processing ${keywords[0].toLowerCase()}, creating a real opening for renewed contact once the dust settles.`;
+        deeperLayer = isReversed
+          ? `Notice how ${position.toLowerCase()} highlights what happens behind closed doors: until ${keywords[2].toLowerCase()} is resolved, silence is acting as a buffer rather than a final verdict.`
+          : `Because this card lands in ${position}, it asks you to hold your center and let ${parsedQ.subjectPronoun} step toward you with genuine clarity rather than nostalgia alone.`;
+      } else if (parsedQ.isFeelings) {
+        directBridge = isReversed
+          ? `when you ask "${parsedQ.secondPerson}", ${card.name} (Reversed) indicates mixed internal signals—there is underlying care, yet ${keywords[0].toLowerCase()} is preventing ${parsedQ.subjectPronoun} from showing up consistently.`
+          : `when you ask "${parsedQ.secondPerson}", ${card.name} (Upright) affirms genuine presence around ${keywords[0].toLowerCase()} and ${keywords[1].toLowerCase()}—what you are sensing beneath the surface is real.`;
+        deeperLayer = `Sitting in ${position}, this card reminds you to watch consistent follow-through over fleeting words so you feel emotionally secure.`;
       } else if (parsedQ.type === 'should') {
         directBridge = isReversed
-          ? `as you weigh "${parsedQ.secondPerson}", this card cautions against forcing a premature move before you feel grounded.`
-          : `as you weigh "${parsedQ.secondPerson}", this card favors moving toward the option that feels honest and self-respecting.`;
+          ? `as you weigh "${parsedQ.secondPerson}", ${card.name} (Reversed) cautions against making a reactive decision while ${keywords[0].toLowerCase()} is clouding the picture.`
+          : `as you weigh "${parsedQ.secondPerson}", ${card.name} (Upright) strongly favors the path aligned with ${keywords[0].toLowerCase()} and long-term self-respect.`;
+        deeperLayer = `In ${position}, this is your confirmation to stop second-guessing what already feels true in your gut—clarity compounds the moment you commit.`;
+      } else if (parsedQ.isTiming || parsedQ.type === 'when') {
+        directBridge = isReversed
+          ? `around the timing of "${parsedQ.secondPerson}", ${card.name} (Reversed) points to a brief, necessary pause while ${keywords[0].toLowerCase()} finishes clearing behind the scenes.`
+          : `around the timing of "${parsedQ.secondPerson}", ${card.name} (Upright) signals active movement once you lean into ${keywords[0].toLowerCase()}.`;
+        deeperLayer = `In ${position}, momentum shifts as soon as one lingering assumption is released.`;
       } else {
-        directBridge = `looking directly at "${parsedQ.secondPerson}", ${baseText.charAt(0).toLowerCase() + baseText.slice(1)}`;
+        directBridge = `looking directly at "${parsedQ.secondPerson}", ${card.name} (${orientationLabel}) brings the themes of ${keywords[0].toLowerCase()} and ${keywords[1].toLowerCase()} straight to the forefront: ${baseText.charAt(0).toLowerCase() + baseText.slice(1)}`;
+        deeperLayer = `Appearing specifically in ${position}, it illuminates the hidden pattern shaping your next move so you can respond with intention rather than guesswork.`;
       }
 
-      const questionConnection = `${posIntro}${directBridge} ${suitLens}`;
+      const questionConnection = `${posIntro}${directBridge} ${deeperLayer} ${suitLens}`;
       const nextStep = isReversed
         ? `Over the next 72 hours, pause before reacting and protect your peace. Ask yourself honestly: what part of "${parsedQ.secondPerson}" am I trying to control instead of observing clearly?`
         : `Over the next 72 hours, take one calm, concrete step toward clarity. Ask yourself: if I trusted my own instincts completely, what would I do next?`;
