@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
+  <meta charset="UTF-8" />x
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" />
   <title>ARCANA</title>
   <!-- Tailwind CSS -->
@@ -2016,24 +2016,24 @@
         return `Card ${idx + 1} (${item.position}): ${item.card.name} (${orientation}) — Core themes: ${kws}. Traditional meaning: ${item.isReversed ? item.card.reversed : item.card.upright}`;
       }).join('\n');
 
-      const systemPrompt = `You are ARCANA, a master intuitive tarot reader and psychological strategist known for uncanny, deeply personal accuracy.
-Your sole mission is to interpret the drawn tarot cards so they DIRECTLY, SPECIFICALLY, and UNFORGETTABLY answer the user's exact typed question within their selected genre.
+      const systemPrompt = `You are ARCANA, a deeply perceptive, warm, down-to-earth tarot reader who speaks like a wise, brutally honest best friend—never like a cryptic fortune teller.
+Your #1 goal is to make every answer EASY TO UNDERSTAND, CLEAR, and DEEPLY RELATABLE to the user's real everyday life and exact typed question.
 
-Core Narrative Standards:
-1. Voice & Intimacy: Speak directly to the user ("you", "your") in warm, candid, perceptive human language—like a private consultation with a seasoned reader who sees straight through the surface noise. Never use generic horoscope filler, vague clichés, or robotic transitions.
-2. Quote & Mirror Their Exact Situation: Directly weave the exact people, choices, fears, or dynamics from "${userQuestion}" into every section. If they ask about a specific person ("him", "her", "my ex", "my boss"), address that person's unspoken mindset and behavior directly.
+Strict Style & Clarity Rules:
+1. Plain, Relatable Human Language: Write in clear, natural, conversational English at an easy-to-read level. Avoid archaic words, mystical jargon ("karmic threshold", "celestial alignment", "energetic frequency", "ether"), or vague poetic riddles. Explain what the card actually means in real-life situations (texts left on read, mixed signals, overthinking at 2 a.m., fearing rejection, stalling at work, etc.).
+2. Quote & Mirror Their Exact Words: Directly reference the exact situation, person, or dilemma in "${userQuestion}" so the user immediately feels, "This is talking directly about my exact life."
 3. For each drawn card:
-   - "cardStory": Explain the living archetype of this card and what its Upright or Reversed orientation specifically signals right now (2–3 vivid, grounded sentences).
-   - "questionConnection": Write a deeply illuminating, 6–8 sentence analysis connecting this card's exact symbolism, element/suit (${state.selected.map(s => s.card.suit).join(', ')}), and orientation directly to "${userQuestion}" inside the "${genreLabel}" lens. Break down:
-     (a) What is happening beneath the surface right now regarding their exact words,
-     (b) The unspoken psychology, hidden motive, or emotional undercurrent at play,
-     (c) Why this card landed specifically in the "${state.selected.map(s => s.position).join(' / ')}" slot, and
-     (d) Clear red flags, green lights, and realistic timing/momentum cues.
-   - "nextStep": Give 1 concrete, high-leverage real-world action for the next 48–72 hours (including what to say, avoid, or observe) plus 1 penetrating self-reflection question tailored directly to their dilemma.
-   - "talismanTip": Recommend 1 specific crystal, stone, color, or simple daily ritual/charm tailored to this card and their genre, explaining briefly why it supports their exact situation (1–2 sentences).
-   - "hiddenOmen": A 1-sentence uncanny, poetic whispered truth specific to their exact question (wrapped in quotes).
-4. For "takeaway": Deliver a bold, compassionate, crystal-clear final verdict that directly answers "${userQuestion}" by weaving all drawn cards into one cohesive narrative arc (4–5 sentences—no hedging, give them real clarity).
-5. For "overallTalisman": Give a cohesive 2–3 sentence 7-day talismanic & crystal prescription tailored to their entire spread and question.`;
+   - "cardStory": In 2–3 clear, everyday sentences, explain what this card means in simple human terms and what it means that it came out Upright or Reversed right now.
+   - "questionConnection": Write a super relatable, easy-to-follow 5–7 sentence explanation connecting this card directly to "${userQuestion}" (within the "${genreLabel}" category). Use short, clear sentences and real-life examples:
+     • Start by directly addressing what they asked ("When you ask '${userQuestion}', this card is showing...").
+     • Explain what is actually going on behind the scenes in plain language (e.g., how the other person is thinking/feeling, or why this situation feels stuck).
+     • Explain why this card landed in the "${state.selected.map(s => s.position).join(' / ')}" spot.
+     • Give clear red flags, green lights, and a realistic sense of timing/what happens next.
+   - "nextStep": Give 1 practical, everyday action they can actually do in the next 48–72 hours (in plain, concrete steps) + 1 honest, easy-to-understand reflection question to ask themselves.
+   - "talismanTip": Suggest 1 simple crystal, color, or small grounding habit that fits their mood and question, explained in plain, practical language (1–2 sentences—no heavy woo-woo jargon).
+   - "hiddenOmen": 1 short, punchy, relatable truth bomb in quotes that hits the nail on the head for their exact situation.
+4. For "takeaway": Give a clear, direct, compassionate bottom-line answer to "${userQuestion}" in 3–4 everyday sentences. Tell them the honest truth plainly without dancing around it.
+5. For "overallTalisman": Give a simple, relatable 2-sentence weekly grounding routine or crystal tip they can easily follow in daily life.`;
 
       const userQuery = `Selected Genre: ${genreLabel}
 Spread Size: ${state.spreadCount} Card(s)
@@ -2042,7 +2042,7 @@ User's Exact Question: "${userQuestion}"
 Cards Drawn:
 ${cardsDescription}
 
-Generate the deeply personalized, psychologically perceptive tarot consultation in JSON format.`;
+Generate the clear, relatable, easy-to-understand tarot reading in JSON format.`;
 
       const apiKey = GEMINI_API_KEY || "";
       const apiUrl = `https://generativelanguage.googleapis.com/v1beta/models/gemini-3-flash-preview:generateContent?key=${apiKey}`;
@@ -2051,7 +2051,7 @@ Generate the deeply personalized, psychologically perceptive tarot consultation 
         contents: [{ parts: [{ text: userQuery }] }],
         systemInstruction: { parts: [{ text: systemPrompt }] },
         generationConfig: {
-          temperature: 0.85,
+          temperature: 0.8,
           responseMimeType: "application/json",
           responseSchema: {
             type: "OBJECT",
@@ -2395,29 +2395,33 @@ Generate the deeply personalized, psychologically perceptive tarot consultation 
 
       const synthesisHtml = state.spreadCount >= 3 ? `
         <div class="stagger-4 esoteric-dossier rounded-2xl p-5 text-center space-y-3 border-[#D4AF37]/40">
-          <span class="ancient-inscription text-[11px] uppercase text-[#D4AF37]">✦ The Takeaway ✦</span>
-          <p class="font-sans italic text-[19px] leading-[1.74] text-[#F2DF9B]">
+          <div class="flex items-center justify-center gap-2">
+            <span class="ancient-inscription text-[11px] uppercase text-[#D4AF37]">✦ The Bottom Line ✦</span>
+          </div>
+          <p class="font-sans text-[18.5px] leading-[1.74] text-[#F2DF9B]">
             ${synthesisText}
           </p>
           <div class="pt-2.5 border-t border-[#D4AF37]/20 space-y-1">
-            <span class="ancient-inscription text-[9.5px] uppercase text-[#D9A79C]">◈ 7-Day Talisman &amp; Crystal Prescription</span>
+            <span class="ancient-inscription text-[9.5px] uppercase text-[#D9A79C]">◈ Simple 7-Day Grounding &amp; Crystal Tip</span>
             <p class="font-sans text-[16px] leading-[1.68] text-[#F3EFEA]/90">
               ${overallTalismanText}
             </p>
           </div>
+          ${aiCards ? `<p class="text-[9.5px] uppercase tracking-[0.2em] text-[#D4AF37]/60 pt-1">✦ Personalized by ARCANA AI</p>` : ''}
         </div>
       ` : `
         <div class="stagger-3 esoteric-dossier rounded-2xl p-4 text-center space-y-2.5 border-[#D4AF37]/30">
-          <span class="ancient-inscription text-[10.5px] uppercase text-[#D4AF37]">✦ Oracle Verdict ✦</span>
-          <p class="font-sans italic text-[17.5px] leading-[1.7] text-[#F2DF9B]">
+          <span class="ancient-inscription text-[10.5px] uppercase text-[#D4AF37]">✦ The Bottom Line ✦</span>
+          <p class="font-sans text-[17.5px] leading-[1.7] text-[#F2DF9B]">
             ${synthesisText}
           </p>
           <div class="pt-2 border-t border-[#D4AF37]/15 space-y-1">
-            <span class="ancient-inscription text-[9px] uppercase text-[#D9A79C]">◈ Crystal &amp; Energy Prescription</span>
+            <span class="ancient-inscription text-[9px] uppercase text-[#D9A79C]">◈ Simple Grounding &amp; Crystal Tip</span>
             <p class="font-sans text-[15.5px] leading-[1.65] text-[#F3EFEA]/88">
               ${overallTalismanText}
             </p>
           </div>
+          ${aiCards ? `<p class="text-[9.5px] uppercase tracking-[0.2em] text-[#D4AF37]/60 pt-1">✦ Personalized by ARCANA AI</p>` : ''}
         </div>
       `;
 
